@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>學測英文寫作高分搭配</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap');
+
+  :root {
+    --ink: #1a1a2e;
+    --page: #f7f4ef;
+    --l3: #c0392b;
+    --l4: #1a6b8a;
+    --rule: #ddd4c0;
+    --tag3-bg: #fdebd0;
+    --tag4-bg: #d6eaf8;
+    --highlight: #fff9c4;
+    --green: #1e8449;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    background: var(--page);
+    color: var(--ink);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    padding-bottom: 60px;
+  }
+
+  /* ── STICKY HEADER ── */
+  .topbar {
+    position: sticky; top: 0; z-index: 200;
+    background: var(--ink);
+    padding: 14px 16px 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.35);
+  }
+  .topbar h1 { color: #faf7f2; font-size: 15px; font-weight: 700; }
+  .topbar p  { color: rgba(255,255,255,.55); font-size: 11px; margin-top: 2px; }
+
+  .search-wrap {
+    position: sticky; top: 58px; z-index: 190;
+    background: #ede9e1;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .search-wrap input {
+    width: 100%;
+    padding: 9px 14px;
+    border: 1.5px solid #ccc;
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 14px;
+    background: white;
+    outline: none;
+  }
+  .search-wrap input:focus { border-color: var(--ink); }
+
+  /* ── TABS ── */
+  .tabs {
+    position: sticky; top: 111px; z-index: 180;
+    display: flex;
+    background: #ede9e1;
+    border-bottom: 2px solid var(--rule);
+  }
+  .tab {
+    flex: 1;
+    text-align: center;
+    padding: 10px 4px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    user-select: none;
+    transition: all .15s;
+  }
+  .tab.a3 { border-color: var(--l3); color: var(--l3); }
+  .tab.a4 { border-color: var(--l4); color: var(--l4); }
+  .tab.aAll { border-color: #555; color: #333; }
+
+  /* ── CONTENT ── */
+  .section { display: none; }
+  .section.visible { display: block; }
+
+  .unit-block { margin: 16px 12px 8px; }
+  .unit-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: #999;
+    padding: 0 4px 6px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .unit-label .ub {
+    color: white;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 10px;
+  }
+  .ub.l3 { background: var(--l3); }
+  .ub.l4 { background: var(--l4); }
+
+  /* ── WORD CARD ── */
+  .card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e0d8cc;
+    margin-bottom: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,.06);
+  }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 14px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,.05);
+  }
+  .card-head:active { background: #f5f0e8; }
+
+  .ltag {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .ltag.l3 { background: var(--tag3-bg); color: #8b3a00; }
+  .ltag.l4 { background: var(--tag4-bg); color: #0f4c6e; }
+
+  .card-title {
+    font-size: 14px;
+    font-weight: 700;
+    flex: 1;
+  }
+
+  .meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+    flex-shrink: 0;
+  }
+  .pref {
+    font-size: 11px;
+    color: #aaa;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .cnt {
+    font-size: 10px;
+    background: #eee;
+    color: #777;
+    padding: 1px 6px;
+    border-radius: 8px;
+  }
+  .arrow {
+    font-size: 14px;
+    color: #bbb;
+    margin-left: 4px;
+    transition: transform .2s;
+    flex-shrink: 0;
+  }
+  .card-head.open .arrow { transform: rotate(90deg); }
+
+  /* ── COLLOCATION BODY ── */
+  .card-body {
+    display: none;
+    border-top: 1px solid #f0ebe2;
+    padding: 4px 0 10px;
+  }
+
+  .row {
+    padding: 9px 14px;
+    border-bottom: 1px dashed #f0ebe2;
+  }
+  .row:last-child { border-bottom: none; }
+
+  .en {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a3a5c;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .zh {
+    font-size: 13px;
+    color: #555;
+    display: block;
+  }
+
+  .tip-box {
+    margin: 8px 14px 2px;
+    background: #eafaf1;
+    border-left: 3px solid var(--green);
+    border-radius: 0 6px 6px 0;
+    padding: 8px 10px;
+  }
+  .tip-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--green);
+    margin-bottom: 3px;
+  }
+  .tip-box p { font-size: 12px; color: #2d6a3f; line-height: 1.6; }
+
+  .warn-box {
+    margin: 8px 14px 2px;
+    background: var(--highlight);
+    border-left: 3px solid #d4a017;
+    border-radius: 0 6px 6px 0;
+    padding: 8px 10px;
+    font-size: 12px;
+    color: #7a5c00;
+  }
+
+  .hidden { display: none !important; }
+
+  /* ── BOTTOM NAV (alternative for tabs on small screens) ── */
+  .no-result {
+    text-align: center;
+    padding: 40px 20px;
+    color: #aaa;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>📚 學測英文寫作高分搭配</h1>
+  <p>Level 3「面善心惡」＋ Level 4「精準打擊」</p>
+</div>
+
+<div class="search-wrap">
+  <input type="search" id="q" placeholder="🔍 搜尋單字或詞組…" autocomplete="off">
+</div>
+
+<div class="tabs">
+  <div class="tab a3" id="t3" onclick="go('L3')">Level 3</div>
+  <div class="tab" id="t4" onclick="go('L4')">Level 4</div>
+  <div class="tab" id="tA" onclick="go('all')">全部</div>
+</div>
+
+<!-- ======== LEVEL 3 ======== -->
+<div class="section visible" id="sL3">
+
+<div class="unit-block">
+  <div class="unit-label"><span class="ub l3">L3</span> Unit 1–2 (P.1–5)</div>
+
+  <div class="card" data-kw="remain silent unchanged remains">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l3">L3</span>
+      <span class="card-title">remain (v./n.)</span>
+      <div class="meta"><span class="pref">P.1</span><span class="cnt">6 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">remain silent</span><span class="zh">保持沉默</span></div>
+      <div class="row"><span class="en">remain unchanged</span><span class="zh">保持不變</span></div>
+      <div class="row"><span class="en">it remains to be seen</span><span class="zh">有待觀察（高頻）</span></div>
+      <div class="row"><span class="en">remain standing</span><span class="zh">繼續站立</span></div>
+      <div class="row"><span class="en">human remains</span><span class="zh">人類遺骸（名詞複數）</span></div>
+      <div class="row"><span class="en">the remains of an ancient city</span><span class="zh">古城遺跡</span></div>
+    </div>
+  </div>
+
+  <div class="card" data-kw="reduce tears ashes costs">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l3">L3</span>
+      <span class="card-title">reduce (v.)</span>
+      <div class="meta"><span class="pref">P.4</span><span class="cnt">4 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">reduce costs</span><span class="zh">降低成本</span></div>
+      <div class="row"><span class="en">be reduced to tears</span><span class="zh">被逼到哭出來</span></div>
+      <div class="row"><span class="en">be reduced to doing sth.</span><span class="zh">被迫無奈做某事</span></div>
+      <div class="row"><span class="en">reduce to ashes</span><span class="zh">化為灰燼</span></div>
+      <div class="tip-box"><div class="tip-label">✏ 寫作升級</div><p>「be reduced to tears / silence」比 became sad 更有感染力，適合敘述類情緒轉折</p></div>
+    </div>
+  </div>
+
+  <div class="card" data-kw="fade away beauty memories influence">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l3">L3</span>
+      <span class="card-title">fade (v.)</span>
+      <div class="meta"><span class="pref">P.4</span><span class="cnt">5 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">fade away</span><span class="zh">慢慢消逝</span></div>
+      <div class="row"><span class="en">beauty fades</span><span class="zh">美貌會消逝</span></div>
+      <div class="row"><span class="en">memories fade</span><span class="zh">記憶逐漸淡去</span></div>
+      <div class="row"><span class="en">fade in / fade out</span><span class="zh">淡入／淡出（影像、音樂）</span></div>
+      <div class="row"><span class="en">his influence faded after retirement</span><span class="zh">影響力在退休後衰退</span></div>
+    </div>
+  </div>
+
+  <div class="card" data-kw="response immediate emotional emergency">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l3">L3</span>
+      <span class="card-title">response (n.)</span>
+      <div class="meta"><span class="pref">P.5</span><span class="cnt">4 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">in response to</span><span class="zh">回應、因應（高頻銜接詞）</span></div>
+      <div class="row"><span class="en">an immediate response</span><span class="zh">立即回應</span></div>
+      <div class="row"><span class="en">emotional response</span><span class="zh">情緒反應</span></div>
+      <div class="row"><span class="en">emergency response</span><span class="zh">緊急應變</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-block">
+  <div class="unit-label"><span class="ub l3">L3</span> Unit 3–5 (P.7–14)</div>
+
+  <div class="card" data-kw="moral morale dilemma standards boost">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l3">L3</span>
+      <span class="card-title">moral / morale</span>
+      <div class="meta"><span class="pref">P.7</span><span class="cnt">5 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">moral standards</span><span class="zh">道德標準</span></div>
+      <div class="row"><span class="en">the moral of the story</span><span class="zh">故事的寓意</span></div>
+      <div class="row"><span class="en">a moral dilemma</span><span class="zh">道德困境（✏ 作文萬用詞）</span></div>
+      <div class="row"><span class="en">boost morale</span><span class="zh">提振士氣</span></div>
+      <div class="row"><span class="en">low morale</span><span class="zh">士氣低落</span></div>
+      <div class="warn-box">⚠ moral（道德）vs morale（士氣）—差一個 e，語意完全不同</div>
+    </div>
+  </div>
+
+  <div class="card" data-kw="solid ground support evidence days">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l3">L3</span>
+      <span class="card-title">solid (adj.)</span>
+      <div class="meta"><span class="pref">P.11</span><span class="cnt">4 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">solid ground</span><span class="zh">堅實的基礎</span></div>
+      <div class="row"><span class="en">solid support</span><span class="zh">堅定的支持</span></div>
+      <div class="row"><span class="en">solid evidence</span><span class="zh">有力的證據（✏ 議論文必備）</span></div>
+      <div class="row"><span class="en">three solid days</span><span class="zh">整整三天（強調連續）</span></div>
+    </div>
+  </div>
+
+  <div class="card" data-kw="engage in with community attention">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l3">L3</span>
+      <span class="card-title">engage (v.)</span>
+      <div class="meta"><span class="pref">P.13</span><span class="cnt">4 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">engage in sth</span><span class="zh">參與某事（取代 join in）</span></div>
+      <div class="row"><span class="en">engage with sb/sth</span><span class="zh">與…互動、打交道</span></div>
+      <div class="row"><span class="en">actively engage in community service</span><span class="zh">積極參與社區服務</span></div>
+      <div class="row"><span class="en">engage the audience's attention</span><span class="zh">吸引觀眾注意力</span></div>
+      <div class="tip-box"><div class="tip-label">✏ 寫作升級</div><p>「engage in meaningful activities」比 do activities 更有深度，適合議論文</p></div>
+    </div>
+  </div>
+
+  <div class="card" data-kw="appeal help broad adventure file">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l3">L3</span>
+      <span class="card-title">appeal (v./n.)</span>
+      <div class="meta"><span class="pref">P.13</span><span class="cnt">4 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">appeal for help</span><span class="zh">呼籲幫助</span></div>
+      <div class="row"><span class="en">have broad appeal</span><span class="zh">有廣泛吸引力</span></div>
+      <div class="row"><span class="en">appeal to sb's sense of adventure</span><span class="zh">訴諸冒險精神</span></div>
+      <div class="row"><span class="en">file an appeal</span><span class="zh">提出上訴</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-block">
+  <div class="unit-label"><span class="ub l3">L3</span> Unit 6–9 Idiom 強化包 (P.15–29)</div>
+
+  <div class="card" data-kw="benefit credit mend vision envision">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l3">L3</span>
+      <span class="card-title">benefit / credit / mend / vision</span>
+      <div class="meta"><span class="pref">P.15–17</span><span class="cnt">11 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">for the benefit of sb</span><span class="zh">為了某人的利益</span></div>
+      <div class="row"><span class="en">benefit from sth</span><span class="zh">受益於某事</span></div>
+      <div class="row"><span class="en">mutual benefit</span><span class="zh">互利（✏ 議論文標準詞）</span></div>
+      <div class="row"><span class="en">give credit where credit is due</span><span class="zh">該給的讚美要給</span></div>
+      <div class="row"><span class="en">credit sth to sb</span><span class="zh">把功勞歸於某人</span></div>
+      <div class="row"><span class="en">all the credit goes to…</span><span class="zh">一切功勞都歸於…</span></div>
+      <div class="row"><span class="en">mend fences with sb</span><span class="zh">重修舊好（比喻）</span></div>
+      <div class="row"><span class="en">be on the mend</span><span class="zh">正在康復中</span></div>
+      <div class="row"><span class="en">mend a broken heart</span><span class="zh">撫平傷心</span></div>
+      <div class="row"><span class="en">envision a better life</span><span class="zh">構想更好的生活（✏ 作文結語）</span></div>
+      <div class="row"><span class="en">a visionary leader</span><span class="zh">有遠見的領導者</span></div>
+    </div>
+  </div>
+
+  <div class="card" data-kw="shadow comfort scale fuel nest">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l3">L3</span>
+      <span class="card-title">shadow / comfort / scale / fuel / nest</span>
+      <div class="meta"><span class="pref">P.20–23</span><span class="cnt">13 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">cast a shadow over sth</span><span class="zh">使某事蒙上陰影（✏ 比喻必學）</span></div>
+      <div class="row"><span class="en">in the shadow of…</span><span class="zh">在…的陰影下</span></div>
+      <div class="row"><span class="en">a shadow of doubt</span><span class="zh">一絲懷疑</span></div>
+      <div class="row"><span class="en">find comfort in sth</span><span class="zh">在某事中找到安慰</span></div>
+      <div class="row"><span class="en">comfort food</span><span class="zh">療癒食物</span></div>
+      <div class="row"><span class="en">on a large/small scale</span><span class="zh">大規模／小規模</span></div>
+      <div class="row"><span class="en">economies of scale</span><span class="zh">規模經濟</span></div>
+      <div class="row"><span class="en">tip the scales in sb's favor</span><span class="zh">使某人佔上風</span></div>
+      <div class="row"><span class="en">fuel a conflict</span><span class="zh">激化衝突</span></div>
+      <div class="row"><span class="en">add fuel to the fire</span><span class="zh">火上加油</span></div>
+      <div class="row"><span class="en">fuel one's imagination</span><span class="zh">激發想像力（✏ 作文好詞）</span></div>
+      <div class="row"><span class="en">nest egg</span><span class="zh">儲蓄金</span></div>
+      <div class="row"><span class="en">empty nest</span><span class="zh">空巢（孩子離家）</span></div>
+    </div>
+  </div>
+
+  <div class="card" data-kw="risk dare odd against odds dawn bang plenty">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l3">L3</span>
+      <span class="card-title">risk / dare / odd / dawn / bang</span>
+      <div class="meta"><span class="pref">P.24–29</span><span class="cnt">12 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">take a risk</span><span class="zh">冒險</span></div>
+      <div class="row"><span class="en">at risk</span><span class="zh">處於危險中</span></div>
+      <div class="row"><span class="en">run the risk of sth</span><span class="zh">有…的風險</span></div>
+      <div class="row"><span class="en">at one's own risk</span><span class="zh">自行承擔風險</span></div>
+      <div class="row"><span class="en">dare to dream</span><span class="zh">敢於夢想（✏ 結尾金句）</span></div>
+      <div class="row"><span class="en">How dare you…</span><span class="zh">你怎麼敢…（強烈語氣）</span></div>
+      <div class="row"><span class="en">against all odds</span><span class="zh">克服萬難（✏ 高分慣用語）</span></div>
+      <div class="row"><span class="en">the odds are against sb</span><span class="zh">形勢對某人不利</span></div>
+      <div class="row"><span class="en">go out with a bang</span><span class="zh">精彩結束、熱鬧收場</span></div>
+      <div class="row"><span class="en">it dawns on sb (that…)</span><span class="zh">某人突然意識到…（✏ 轉折）</span></div>
+      <div class="row"><span class="en">the dawn of a new era</span><span class="zh">新時代的開始</span></div>
+      <div class="row"><span class="en">a land of plenty</span><span class="zh">豐饒之地</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-block">
+  <div class="unit-label"><span class="ub l3">L3</span> Unit 10–13 (P.30–50)</div>
+
+  <div class="card" data-kw="rank concert assume pronounce stir concerted">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l3">L3</span>
+      <span class="card-title">rank / concert / assume / stir</span>
+      <div class="meta"><span class="pref">P.30–33</span><span class="cnt">10 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">rank among the best</span><span class="zh">名列前茅（✏ 開門見山）</span></div>
+      <div class="row"><span class="en">rise through the ranks</span><span class="zh">一路升遷</span></div>
+      <div class="row"><span class="en">act in concert (with sb)</span><span class="zh">與某人一致行動</span></div>
+      <div class="row"><span class="en">a concerted effort</span><span class="zh">共同努力（✏ 高分形容詞）</span></div>
+      <div class="row"><span class="en">assume responsibility</span><span class="zh">承擔責任</span></div>
+      <div class="row"><span class="en">assume power/office</span><span class="zh">就任、掌權</span></div>
+      <div class="row"><span class="en">assume an attitude/air</span><span class="zh">擺出某種態度</span></div>
+      <div class="row"><span class="en">a pronounced difference</span><span class="zh">顯著差異（取代 obvious）</span></div>
+      <div class="row"><span class="en">cause a stir</span><span class="zh">引起轟動</span></div>
+      <div class="row"><span class="en">stir one's emotions</span><span class="zh">觸動情感</span></div>
+    </div>
+  </div>
+
+  <div class="card" data-kw="cast shadow doubt vote spell journey presence bitter">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l3">L3</span>
+      <span class="card-title">cast / journey / presence / bitter</span>
+      <div class="meta"><span class="pref">P.45–50</span><span class="cnt">14 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">cast a shadow over sth</span><span class="zh">帶來負面影響（✏ 比喻必學）</span></div>
+      <div class="row"><span class="en">cast doubt on sth</span><span class="zh">對…產生懷疑（✏ 高頻）</span></div>
+      <div class="row"><span class="en">cast a vote</span><span class="zh">投票</span></div>
+      <div class="row"><span class="en">cast a spell</span><span class="zh">施魔法（文學比喻）</span></div>
+      <div class="row"><span class="en">cast aside</span><span class="zh">拋棄</span></div>
+      <div class="row"><span class="en">a spiritual journey</span><span class="zh">心靈之旅（✏ 作文結語）</span></div>
+      <div class="row"><span class="en">the journey of life</span><span class="zh">人生旅程</span></div>
+      <div class="row"><span class="en">in the presence of sb</span><span class="zh">在某人面前</span></div>
+      <div class="row"><span class="en">make your presence felt</span><span class="zh">讓人感受到存在感</span></div>
+      <div class="row"><span class="en">a strong police presence</span><span class="zh">強大的警力存在</span></div>
+      <div class="row"><span class="en">a bitter conflict</span><span class="zh">激烈的衝突</span></div>
+      <div class="row"><span class="en">bitter cold</span><span class="zh">刺骨的寒冷</span></div>
+      <div class="row"><span class="en">fight to the bitter end</span><span class="zh">奮戰到底（✏ 高分慣用語）</span></div>
+      <div class="row"><span class="en">leave a bitter taste</span><span class="zh">留下不快的印象</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-block">
+  <div class="unit-label"><span class="ub l3">L3</span> Unit 14–24 (P.51–95)</div>
+
+  <div class="card" data-kw="leap bare grasp grab beyond within">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l3">L3</span>
+      <span class="card-title">leap / bare / grasp / grab</span>
+      <div class="meta"><span class="pref">P.51–41</span><span class="cnt">10 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">a leap in technology</span><span class="zh">技術上的飛躍（✏ 作文好詞）</span></div>
+      <div class="row"><span class="en">a giant leap for mankind</span><span class="zh">人類的一大飛躍</span></div>
+      <div class="row"><span class="en">heart leaps</span><span class="zh">心臟猛跳（驚喜或興奮）</span></div>
+      <div class="row"><span class="en">bare minimum</span><span class="zh">最低限度</span></div>
+      <div class="row"><span class="en">bare one's soul</span><span class="zh">敞開心扉（✏ 敘述文）</span></div>
+      <div class="row"><span class="en">grasp the meaning/idea</span><span class="zh">理解意義／概念</span></div>
+      <div class="row"><span class="en">within sb's grasp</span><span class="zh">在某人掌握之內</span></div>
+      <div class="row"><span class="en">beyond sb's grasp</span><span class="zh">超出某人掌握（比喻）</span></div>
+      <div class="row"><span class="en">grab sb's attention</span><span class="zh">吸引某人注意</span></div>
+      <div class="row"><span class="en">grab a bite</span><span class="zh">匆匆吃點東西</span></div>
+    </div>
+  </div>
+
+  <div class="card" data-kw="flood bind dawn buzz tap hunger pave snap flock cradle">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l3">L3</span>
+      <span class="card-title">flood / bind / buzz / tap / pave / snap / flock / cradle</span>
+      <div class="meta"><span class="pref">P.42–84</span><span class="cnt">16 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">a flood of tears</span><span class="zh">淚如雨下（✏ 敘述文）</span></div>
+      <div class="row"><span class="en">be flooded with sth</span><span class="zh">被…淹沒（訊息、工作）</span></div>
+      <div class="row"><span class="en">bind people together</span><span class="zh">團結人心（✏ 作文主題句）</span></div>
+      <div class="row"><span class="en">be bound by law/contract</span><span class="zh">受法律／契約約束</span></div>
+      <div class="row"><span class="en">bound to do sth</span><span class="zh">必定會做某事</span></div>
+      <div class="row"><span class="en">the dawn of civilization</span><span class="zh">文明的開端（✏ 比喻）</span></div>
+      <div class="row"><span class="en">buzz with activity</span><span class="zh">熱鬧非凡</span></div>
+      <div class="row"><span class="en">tap into resources</span><span class="zh">利用資源（✏ 政策類）</span></div>
+      <div class="row"><span class="en">hunger for knowledge</span><span class="zh">渴望知識（✏ 教育類）</span></div>
+      <div class="row"><span class="en">pave the way for sth</span><span class="zh">為某事鋪路（✏ 必學）</span></div>
+      <div class="row"><span class="en">snap under pressure</span><span class="zh">壓力下崩潰</span></div>
+      <div class="row"><span class="en">a snap decision</span><span class="zh">倉促的決定（✏ 高頻）</span></div>
+      <div class="row"><span class="en">flock to a place</span><span class="zh">蜂擁至某地（✏ 幾乎必考）</span></div>
+      <div class="row"><span class="en">the cradle of civilization</span><span class="zh">文明的搖籃（✏ 必背）</span></div>
+      <div class="row"><span class="en">keep sb/sth at bay</span><span class="zh">牽制住（✏ 高分）</span></div>
+      <div class="row"><span class="en">pay dearly for sth</span><span class="zh">為某事付出慘痛代價</span></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /sL3 -->
+
+
+<!-- ======== LEVEL 4 ======== -->
+<div class="section" id="sL4">
+
+<div class="unit-block">
+  <div class="unit-label"><span class="ub l4">L4</span> Unit 1–2 (P.1–13)</div>
+
+  <div class="card" data-kw="economy stimulate boost labor extend obtain mere evident">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l4">L4</span>
+      <span class="card-title">economy / evident / labor / extend / obtain / mere</span>
+      <div class="meta"><span class="pref">P.1–6</span><span class="cnt">17 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">boost / stimulate the economy</span><span class="zh">刺激經濟（✏ 政策類必備）</span></div>
+      <div class="row"><span class="en">be evident (to sb)</span><span class="zh">對某人來說是明顯的</span></div>
+      <div class="row"><span class="en">evident tension / improvement</span><span class="zh">明顯的緊張感／改善</span></div>
+      <div class="row"><span class="en">manual labor</span><span class="zh">體力工作</span></div>
+      <div class="row"><span class="en">labor under a burden</span><span class="zh">背負重擔（比喻）</span></div>
+      <div class="row"><span class="en">extend a deadline</span><span class="zh">延長截止日期</span></div>
+      <div class="row"><span class="en">extend an invitation</span><span class="zh">發出邀請（✏ 正式語氣）</span></div>
+      <div class="row"><span class="en">extend sympathy / thanks / welcome</span><span class="zh">表達慰問／感謝／歡迎</span></div>
+      <div class="row"><span class="en">obtain permission / approval</span><span class="zh">獲得許可（✏ 正式文章）</span></div>
+      <div class="row"><span class="en">obtain results / evidence</span><span class="zh">得到結果／證據</span></div>
+      <div class="row"><span class="en">the mere thought of it</span><span class="zh">光是想到這件事（✏ 情緒引入）</span></div>
+      <div class="row"><span class="en">a mere second / formality</span><span class="zh">只差一秒／不過是形式</span></div>
+      <div class="row"><span class="en">a mere illusion / shadow</span><span class="zh">不過是幻影（貶抑語氣）</span></div>
+      <div class="tip-box"><div class="tip-label">✏ 寫作升級</div><p>obtain 取代 get；extend sympathy 比 show 更正式；mere 是情緒放大鏡，可用於轉折句</p></div>
+    </div>
+  </div>
+
+  <div class="card" data-kw="observe publicity consistent otherwise capacity measures">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l4">L4</span>
+      <span class="card-title">observe / consistent / capacity / measures</span>
+      <div class="meta"><span class="pref">P.7–13</span><span class="cnt">16 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">observe a rule / tradition</span><span class="zh">遵守規則／傳統（✏ 最易忽略的義）</span></div>
+      <div class="row"><span class="en">observe that…</span><span class="zh">指出…（✏ 學術正式用法）</span></div>
+      <div class="row"><span class="en">generate / attract publicity</span><span class="zh">獲得關注</span></div>
+      <div class="row"><span class="en">unwanted / negative publicity</span><span class="zh">負面曝光</span></div>
+      <div class="row"><span class="en">consistent with (sth)</span><span class="zh">與…一致（✏ 論述必備）</span></div>
+      <div class="row"><span class="en">consistent results / logic</span><span class="zh">一致的結果／邏輯</span></div>
+      <div class="row"><span class="en">unless otherwise stated</span><span class="zh">除非另有說明</span></div>
+      <div class="row"><span class="en">have the capacity to (do sth)</span><span class="zh">有能力做某事</span></div>
+      <div class="row"><span class="en">in one's capacity as (職位)</span><span class="zh">以某身份行事（✏ 正式文體）</span></div>
+      <div class="row"><span class="en">intellectual / emotional capacity</span><span class="zh">智力／情感容量</span></div>
+      <div class="row"><span class="en">take / implement measures</span><span class="zh">採取／執行措施（✏ 政策類必備）</span></div>
+      <div class="row"><span class="en">safety / emergency measures</span><span class="zh">安全／緊急措施</span></div>
+      <div class="row"><span class="en">a measure of success</span><span class="zh">一種成功的判準（✏ 議論文妙用）</span></div>
+      <div class="row"><span class="en">measure up to (expectations)</span><span class="zh">符合期待</span></div>
+      <div class="tip-box"><div class="tip-label">✏ 寫作升級</div><p>「This is consistent with the data.」比 same 有層次；「take measures to combat」是論述文標配句型</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-block">
+  <div class="unit-label"><span class="ub l4">L4</span> Unit 3–5 (P.14–21)</div>
+
+  <div class="card" data-kw="gear remark frame essentially accompany urge vast demonstrate">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l4">L4</span>
+      <span class="card-title">gear / remark / frame / accompany / urge / vast / demonstrate</span>
+      <div class="meta"><span class="pref">P.14–21</span><span class="cnt">21 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">be geared towards (N/Ving)</span><span class="zh">針對…設計（✏ 正式表達）</span></div>
+      <div class="row"><span class="en">gear up for sth</span><span class="zh">為…做準備</span></div>
+      <div class="row"><span class="en">opening / closing remarks</span><span class="zh">開場／結語（✏ 演說型作文）</span></div>
+      <div class="row"><span class="en">remark on / that…</span><span class="zh">針對⋯發言（比 say 更有觀察感）</span></div>
+      <div class="row"><span class="en">frame the issue / debate</span><span class="zh">詮釋議題（✏ 學術必備）</span></div>
+      <div class="row"><span class="en">frame sth as sth</span><span class="zh">將…視為…（操控詮釋角度）</span></div>
+      <div class="row"><span class="en">reframe the narrative</span><span class="zh">重新定義敘事（✏ 批判思考）</span></div>
+      <div class="row"><span class="en">essentially flawed</span><span class="zh">本質上有瑕疵（✏ 批判語氣）</span></div>
+      <div class="row"><span class="en">essentially a matter of…</span><span class="zh">歸根究柢是…問題</span></div>
+      <div class="row"><span class="en">be accompanied by</span><span class="zh">由…伴隨（✏ 學術邏輯連詞）</span></div>
+      <div class="row"><span class="en">high unemployment accompanied by social unrest</span><span class="zh">高失業率伴隨社會動盪</span></div>
+      <div class="row"><span class="en">urge (sb) to (do sth)</span><span class="zh">力勸某人做…（比 suggest 更強）</span></div>
+      <div class="row"><span class="en">feel an urge to</span><span class="zh">有做某事的衝動</span></div>
+      <div class="row"><span class="en">urge action / caution</span><span class="zh">呼籲採取行動／保持謹慎</span></div>
+      <div class="row"><span class="en">a vast amount of data</span><span class="zh">大量數據（比 huge 更正式）</span></div>
+      <div class="row"><span class="en">vast majority</span><span class="zh">壓倒性多數（✏ 議論文）</span></div>
+      <div class="row"><span class="en">demonstrate understanding / patience</span><span class="zh">展現理解／耐心（取代 show）</span></div>
+      <div class="row"><span class="en">demonstrate against / in favor of</span><span class="zh">示威抗議／支持某事</span></div>
+      <div class="row"><span class="en">clearly / convincingly demonstrate</span><span class="zh">清楚／有說服力地展現</span></div>
+      <div class="tip-box"><div class="tip-label">✏ 寫作升級</div><p>accompany 取代 "come with"；demonstrate 取代 show；vast majority 取代 most people</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-block">
+  <div class="unit-label"><span class="ub l4">L4</span> Unit 5–7 (P.22–34)</div>
+
+  <div class="card" data-kw="bond reservation secure gulf commit shift resolve distribute">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l4">L4</span>
+      <span class="card-title">bond / reservation / secure / gulf / commit / shift / resolve</span>
+      <div class="meta"><span class="pref">P.22–29</span><span class="cnt">21 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">form / strengthen / break a bond</span><span class="zh">建立／強化／斷裂關係</span></div>
+      <div class="row"><span class="en">bond over (sth)</span><span class="zh">因某事而連結（✏ 情感主題）</span></div>
+      <div class="row"><span class="en">have reservations about</span><span class="zh">對…有顧慮（✏ 高級轉折語）</span></div>
+      <div class="row"><span class="en">without reservation</span><span class="zh">毫無保留地</span></div>
+      <div class="row"><span class="en">serious reservations</span><span class="zh">強烈顧慮</span></div>
+      <div class="row"><span class="en">secure a job / deal / funding</span><span class="zh">成功取得（✏ 正式語氣）</span></div>
+      <div class="row"><span class="en">secure long-term advantage</span><span class="zh">確保長期優勢</span></div>
+      <div class="row"><span class="en">a wide gulf between</span><span class="zh">之間有巨大鴻溝（比 gap 更強）</span></div>
+      <div class="row"><span class="en">bridge the gulf</span><span class="zh">彌補差距（✏ 議題作文）</span></div>
+      <div class="row"><span class="en">a cultural / economic gulf</span><span class="zh">文化／經濟隔閡</span></div>
+      <div class="row"><span class="en">commit to change / helping others</span><span class="zh">投入改革／助人（✏ 立場表態）</span></div>
+      <div class="row"><span class="en">be committed to</span><span class="zh">全心投入（✏ 常考句型）</span></div>
+      <div class="row"><span class="en">a shift in attitude / policy</span><span class="zh">態度／政策轉變（✏ 議題分析）</span></div>
+      <div class="row"><span class="en">shift focus / responsibility to</span><span class="zh">轉移焦點／責任</span></div>
+      <div class="row"><span class="en">a gradual / significant shift</span><span class="zh">漸進／重大轉變</span></div>
+      <div class="row"><span class="en">resolve a dispute / conflict</span><span class="zh">解決爭端（✏ 政策類）</span></div>
+      <div class="row"><span class="en">resolve to act</span><span class="zh">決心採取行動</span></div>
+      <div class="row"><span class="en">show / maintain resolve</span><span class="zh">展現／維持決心</span></div>
+      <div class="tip-box"><div class="tip-label">✏ 寫作升級</div><p>have reservations about 比 but 更禮貌理性；shift 比 change 更有方向流動感</p></div>
+    </div>
+  </div>
+
+  <div class="card" data-kw="content shelter encounter lean shade spark">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l4">L4</span>
+      <span class="card-title">content / shelter / encounter / lean / shade / spark</span>
+      <div class="meta"><span class="pref">P.30–39</span><span class="cnt">14 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">be content with life / simplicity</span><span class="zh">對生活感到滿足</span></div>
+      <div class="row"><span class="en">seek / take shelter from</span><span class="zh">尋求庇護（✏ 可抽象用）</span></div>
+      <div class="row"><span class="en">emotional / legal shelter for victims</span><span class="zh">情緒／法律上的支撐</span></div>
+      <div class="row"><span class="en">encounter difficulties / challenges</span><span class="zh">遭遇困難（取代 face）</span></div>
+      <div class="row"><span class="en">lean on sb for support</span><span class="zh">仰賴某人（✏ 情感主題）</span></div>
+      <div class="row"><span class="en">lean toward an idea</span><span class="zh">傾向某個想法（立場表達）</span></div>
+      <div class="row"><span class="en">a lean budget / team</span><span class="zh">精簡的預算／團隊</span></div>
+      <div class="row"><span class="en">a shade of irony / doubt</span><span class="zh">一絲諷刺／懷疑（✏ 細膩情感）</span></div>
+      <div class="row"><span class="en">a spark of hope / genius</span><span class="zh">一絲希望／天才火花</span></div>
+      <div class="row"><span class="en">spark a debate / protest</span><span class="zh">引爆辯論／抗議（✏ 社會議題）</span></div>
+      <div class="row"><span class="en">lose one's spark</span><span class="zh">失去活力</span></div>
+      <div class="row"><span class="en">spark sb's imagination</span><span class="zh">激發想像力</span></div>
+      <div class="tip-box"><div class="tip-label">✏ 寫作升級</div><p>encounter 取代 face；a shade of irony 是文學描寫利器；spark a debate 優於 cause a debate</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-block">
+  <div class="unit-label"><span class="ub l4">L4</span> Unit 8–11 (P.37–64)</div>
+
+  <div class="card" data-kw="absorb consumed crack crack down dignify conscience enforce issue">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l4">L4</span>
+      <span class="card-title">absorb / consume / crack / dignify / conscience / enforce / issue</span>
+      <div class="meta"><span class="pref">P.37–50</span><span class="cnt">20 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">be absorbed in reading / work</span><span class="zh">沉浸於閱讀／工作（✏ 敘述文）</span></div>
+      <div class="row"><span class="en">absorb knowledge / pressure</span><span class="zh">吸收知識／承受壓力</span></div>
+      <div class="row"><span class="en">be consumed with guilt / anxiety</span><span class="zh">被愧疚／焦慮吞噬（✏ 心理描寫）</span></div>
+      <div class="row"><span class="en">crack the case / code</span><span class="zh">破案／破解（✏ 比喻）</span></div>
+      <div class="row"><span class="en">crack under pressure</span><span class="zh">壓力下崩潰（✏ 心理描寫）</span></div>
+      <div class="row"><span class="en">crack down on crime</span><span class="zh">打擊犯罪（✏ 政策類）</span></div>
+      <div class="row"><span class="en">dignify sth with a response</span><span class="zh">認真回應（帶冷嘲語氣）</span></div>
+      <div class="row"><span class="en">refuse to dignify the rumor</span><span class="zh">不屑回應謠言</span></div>
+      <div class="row"><span class="en">a clear / guilty conscience</span><span class="zh">問心無愧／滿懷愧疚</span></div>
+      <div class="row"><span class="en">on one's conscience</span><span class="zh">成為心頭的負擔（✏ 道德主題）</span></div>
+      <div class="row"><span class="en">enforce a law / regulation</span><span class="zh">強制執行法規（✏ 政策）</span></div>
+      <div class="row"><span class="en">enforce compliance</span><span class="zh">強制遵守</span></div>
+      <div class="row"><span class="en">address / tackle an issue</span><span class="zh">處理問題（✏ 論述文必備）</span></div>
+      <div class="row"><span class="en">a sensitive / controversial issue</span><span class="zh">敏感／具爭議的議題</span></div>
+      <div class="row"><span class="en">commit to change</span><span class="zh">投入改革</span></div>
+      <div class="row"><span class="en">a plot twist</span><span class="zh">劇情轉折（✏ 敘述文）</span></div>
+      <div class="row"><span class="en">stem from sth</span><span class="zh">起因於…（✏ 學術因果連詞）</span></div>
+      <div class="row"><span class="en">stem the tide of</span><span class="zh">阻止趨勢惡化（比喻）</span></div>
+      <div class="tip-box"><div class="tip-label">✏ 寫作升級</div><p>be consumed with 比 be filled with 更強烈；crack under pressure 是心理壓力描寫神句；crack down on 是政策類標配</p></div>
+    </div>
+  </div>
+
+  <div class="card" data-kw="discipline dismiss resemble drift modest withdraw">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l4">L4</span>
+      <span class="card-title">discipline / dismiss / resemble / drift / modest / withdraw</span>
+      <div class="meta"><span class="pref">P.51–58</span><span class="cnt">14 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">self-discipline</span><span class="zh">自律（✏ 成功學類作文必備）</span></div>
+      <div class="row"><span class="en">within the discipline of + 學科</span><span class="zh">在…學術領域中</span></div>
+      <div class="row"><span class="en">be dismissed as + 負面形容詞</span><span class="zh">被輕易否定為…（✏ 高頻用法）</span></div>
+      <div class="row"><span class="en">dismiss an idea as unrealistic</span><span class="zh">視某想法為不切實際</span></div>
+      <div class="row"><span class="en">closely / vaguely resemble</span><span class="zh">非常／略微相似</span></div>
+      <div class="row"><span class="en">bear a resemblance to</span><span class="zh">與…相似（比 look like 更正式）</span></div>
+      <div class="row"><span class="en">drift away / apart</span><span class="zh">逐漸疏遠（✏ 關係主題）</span></div>
+      <div class="row"><span class="en">drift into (N/Ving)</span><span class="zh">不知不覺進入某情境</span></div>
+      <div class="row"><span class="en">remain modest</span><span class="zh">保持謙遜</span></div>
+      <div class="row"><span class="en">a modest income / lifestyle</span><span class="zh">適中的收入／生活</span></div>
+      <div class="row"><span class="en">withdraw an offer / application</span><span class="zh">撤回提議／申請</span></div>
+      <div class="row"><span class="en">withdraw into oneself</span><span class="zh">封閉自我（✏ 心理描寫）</span></div>
+      <div class="row"><span class="en">withdraw from others</span><span class="zh">與人疏遠</span></div>
+      <div class="tip-box"><div class="tip-label">✏ 寫作升級</div><p>be dismissed as 是批判議題的強力句型；withdraw into oneself 是創傷/內向主題的精準描寫</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-block">
+  <div class="unit-label"><span class="ub l4">L4</span> Unit 13–16 (P.68–93)</div>
+
+  <div class="card" data-kw="landscape pioneer access exhaust stem sketch">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l4">L4</span>
+      <span class="card-title">sketch / landscape / pioneer / access / exhaust / stem</span>
+      <div class="meta"><span class="pref">P.68–74</span><span class="cnt">15 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">sketch out a plan</span><span class="zh">草擬計畫（✏ 提案語境）</span></div>
+      <div class="row"><span class="en">sketch the background of the issue</span><span class="zh">勾勒議題背景（引言技巧）</span></div>
+      <div class="row"><span class="en">the political / digital landscape</span><span class="zh">政治／數位局勢（✏ 議題分析）</span></div>
+      <div class="row"><span class="en">reshape the landscape</span><span class="zh">重塑局勢</span></div>
+      <div class="row"><span class="en">a pioneer in / of N</span><span class="zh">…領域的開拓者（✏ 人物描寫）</span></div>
+      <div class="row"><span class="en">pioneer new methods / fields</span><span class="zh">開創新方法／領域</span></div>
+      <div class="row"><span class="en">pioneer spirit</span><span class="zh">拓荒精神（✏ 鼓勵類作文）</span></div>
+      <div class="row"><span class="en">have / gain access to</span><span class="zh">有／獲得使用權（✏ 教育/科技）</span></div>
+      <div class="row"><span class="en">access to healthcare / education</span><span class="zh">醫療／教育資源的取得權</span></div>
+      <div class="row"><span class="en">exhaust all options</span><span class="zh">用盡所有選擇（✏ 轉折前句）</span></div>
+      <div class="row"><span class="en">exhausting natural resources</span><span class="zh">耗盡自然資源（環境議題）</span></div>
+      <div class="row"><span class="en">stem from sth</span><span class="zh">起因於…（✏ 學術因果連詞）</span></div>
+      <div class="row"><span class="en">stem the tide of</span><span class="zh">阻止趨勢惡化（比喻）</span></div>
+      <div class="tip-box"><div class="tip-label">✏ 寫作升級</div><p>stem from 取代 come from；landscape 作抽象名詞時是政策分析好詞</p></div>
+    </div>
+  </div>
+
+  <div class="card" data-kw="stroke mercy barrier apparent restless wit carve contest">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l4">L4</span>
+      <span class="card-title">stroke / mercy / barrier / apparent / wit / carve / contest</span>
+      <div class="meta"><span class="pref">P.75–88</span><span class="cnt">20 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">a stroke of genius / luck</span><span class="zh">天才之舉／好運（✏ 文學感）</span></div>
+      <div class="row"><span class="en">at the mercy of</span><span class="zh">任憑…擺佈（✏ C1 必學語塊）</span></div>
+      <div class="row"><span class="en">show no mercy</span><span class="zh">毫不留情</span></div>
+      <div class="row"><span class="en">overcome / break down barriers</span><span class="zh">克服／打破障礙（✏ 議題必備）</span></div>
+      <div class="row"><span class="en">language / cultural / psychological barrier</span><span class="zh">語言／文化／心理障礙</span></div>
+      <div class="row"><span class="en">tear down barriers</span><span class="zh">拆除隔閡（比 remove 更有力）</span></div>
+      <div class="row"><span class="en">barriers to entry / progress</span><span class="zh">進入門檻／進展障礙</span></div>
+      <div class="row"><span class="en">for no apparent reason</span><span class="zh">沒有明顯原因（✏ 常考）</span></div>
+      <div class="row"><span class="en">a battle of wits</span><span class="zh">鬥智（✏ 高分慣用語）</span></div>
+      <div class="row"><span class="en">be at one's wits' end</span><span class="zh">束手無策（✏ 壓力主題）</span></div>
+      <div class="row"><span class="en">carve out a career / niche</span><span class="zh">開創事業／定位（✏ 成功學）</span></div>
+      <div class="row"><span class="en">carve a path</span><span class="zh">開闢道路（比喻）</span></div>
+      <div class="row"><span class="en">carved in stone</span><span class="zh">不可更改（慣用語）</span></div>
+      <div class="row"><span class="en">hotly / fiercely contested</span><span class="zh">激烈爭奪（✏ 政治/學術）</span></div>
+      <div class="row"><span class="en">contest a decision / claim</span><span class="zh">對決定／主張提出質疑</span></div>
+      <div class="tip-box"><div class="tip-label">✏ 寫作升級</div><p>at the mercy of 是 C1 必學語塊；tear down barriers 比 remove 更震撼；carve out a career 是人物主題精準詞</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-block">
+  <div class="unit-label"><span class="ub l4">L4</span> Unit 16–21 (P.93–124)</div>
+
+  <div class="card" data-kw="peer boast halt frown margin portray rage endure neglect">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l4">L4</span>
+      <span class="card-title">peer / boast / halt / frown / margin / portray / rage / endure / neglect</span>
+      <div class="meta"><span class="pref">P.92–99</span><span class="cnt">19 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">peer pressure</span><span class="zh">同儕壓力（✏ 青少年主題）</span></div>
+      <div class="row"><span class="en">peer review</span><span class="zh">同儕審查（學術）</span></div>
+      <div class="row"><span class="en">boast impressive results</span><span class="zh">擁有令人印象深刻的成績</span></div>
+      <div class="row"><span class="en">come / bring to a halt</span><span class="zh">逐漸停止／使停擺（✏ 危機描寫）</span></div>
+      <div class="row"><span class="en">call a halt to sth</span><span class="zh">下令終止某事（✏ 政策類）</span></div>
+      <div class="row"><span class="en">frown in disapproval</span><span class="zh">因不贊成而皺眉</span></div>
+      <div class="row"><span class="en">society frowns on sth</span><span class="zh">社會不贊成…（✏ 抽象用法）</span></div>
+      <div class="row"><span class="en">by a narrow margin</span><span class="zh">以些微差距</span></div>
+      <div class="row"><span class="en">live on the margins</span><span class="zh">生活在社會邊緣（✏ 社會議題）</span></div>
+      <div class="row"><span class="en">portray sb as…</span><span class="zh">將某人描寫為…（✏ 媒體/批判）</span></div>
+      <div class="row"><span class="en">accurately / vividly portray</span><span class="zh">準確／生動地描繪</span></div>
+      <div class="row"><span class="en">fly into a rage</span><span class="zh">勃然大怒</span></div>
+      <div class="row"><span class="en">rage against sth</span><span class="zh">對…極度憤怒（✏ 議題/社運）</span></div>
+      <div class="row"><span class="en">endure hardship / silently</span><span class="zh">忍受困難／默默承受</span></div>
+      <div class="row"><span class="en">endure with dignity</span><span class="zh">有尊嚴地承受（✏ 高分表達）</span></div>
+      <div class="row"><span class="en">a friendship that endures</span><span class="zh">持久的友情（✏ 正面結尾）</span></div>
+      <div class="row"><span class="en">neglect one's responsibility</span><span class="zh">怠忽職責（批評語氣）</span></div>
+      <div class="row"><span class="en">gross / serious neglect</span><span class="zh">重大疏忽</span></div>
+      <div class="tip-box"><div class="tip-label">✏ 寫作升級</div><p>portray sb as 是媒體批判句型；endure with dignity 比 suffer 更有深度；society frowns on 是抽象批判必學語塊</p></div>
+    </div>
+  </div>
+
+  <div class="card" data-kw="tolerate disguise herd preferable keen seize exhibit">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l4">L4</span>
+      <span class="card-title">tolerate / disguise / herd / preferable / keen / seize / exhibit</span>
+      <div class="meta"><span class="pref">P.101–121</span><span class="cnt">18 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">tolerate differences / diversity</span><span class="zh">包容差異／多樣性（✏ 多元社會）</span></div>
+      <div class="row"><span class="en">barely / refuse to tolerate</span><span class="zh">幾乎無法／拒絕容忍</span></div>
+      <div class="row"><span class="en">disguise sth as sth</span><span class="zh">把A偽裝成B（✏ 批判語境）</span></div>
+      <div class="row"><span class="en">in disguise</span><span class="zh">偽裝中（a blessing in disguise）</span></div>
+      <div class="row"><span class="en">herd mentality</span><span class="zh">從眾心理（✏ 社會批判）</span></div>
+      <div class="row"><span class="en">A is preferable to B</span><span class="zh">A 比 B 更可取（✏ 對比論述固定句型）</span></div>
+      <div class="row"><span class="en">preferable in terms of efficiency</span><span class="zh">在效率方面更理想</span></div>
+      <div class="row"><span class="en">be keen to V / on Ving</span><span class="zh">渴望做…（取代 eager）</span></div>
+      <div class="row"><span class="en">keen competition</span><span class="zh">激烈競爭（書面語）</span></div>
+      <div class="row"><span class="en">keen sense of observation</span><span class="zh">敏銳的觀察力（✏ 人物描寫）</span></div>
+      <div class="row"><span class="en">seize an opportunity / moment</span><span class="zh">把握機會／時機（✏ 勵志作文）</span></div>
+      <div class="row"><span class="en">seize control / power</span><span class="zh">奪取控制／掌權</span></div>
+      <div class="row"><span class="en">be seized by panic / fear</span><span class="zh">被恐慌攫住（✏ 心理描寫）</span></div>
+      <div class="row"><span class="en">exhibit resilience / discipline</span><span class="zh">展現韌性／紀律（✏ 取代 show）</span></div>
+      <div class="row"><span class="en">exhibit signs of stress</span><span class="zh">表現出壓力的跡象</span></div>
+      <div class="warn-box">⚠ 不可說 "more preferable"——preferable 已含比較意</div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-block">
+  <div class="unit-label"><span class="ub l4">L4</span> Unit 20–24 (P.106–152)</div>
+
+  <div class="card" data-kw="durable remedy breed resign grace dispute ceaselessly">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l4">L4</span>
+      <span class="card-title">durable / remedy / grace / dispute / ceaselessly / resign</span>
+      <div class="meta"><span class="pref">P.107–121</span><span class="cnt">16 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">durable peace / solution</span><span class="zh">持久的和平／解決方案（✏ 政策類）</span></div>
+      <div class="row"><span class="en">True innovation creates durable impact.</span><span class="zh">真正的創新帶來持久影響（示範句）</span></div>
+      <div class="row"><span class="en">seek / apply a remedy</span><span class="zh">尋求／採取補救方法</span></div>
+      <div class="row"><span class="en">a legal remedy</span><span class="zh">法律救濟（✏ 法律/政策）</span></div>
+      <div class="row"><span class="en">accept with grace</span><span class="zh">優雅地接受（✏ 高分表達）</span></div>
+      <div class="row"><span class="en">fall from grace</span><span class="zh">失寵（慣用語）</span></div>
+      <div class="row"><span class="en">grace period</span><span class="zh">寬限期</span></div>
+      <div class="row"><span class="en">settle / resolve a dispute</span><span class="zh">解決爭端</span></div>
+      <div class="row"><span class="en">hotly / bitterly dispute</span><span class="zh">激烈爭辯</span></div>
+      <div class="row"><span class="en">work / struggle ceaselessly</span><span class="zh">持續奮鬥（✏ 毅力主題）</span></div>
+      <div class="row"><span class="en">ceaseless pursuit of perfection</span><span class="zh">對完美的無盡追求（✏ 結尾金句）</span></div>
+      <div class="row"><span class="en">be resigned to sth</span><span class="zh">無奈地接受（✏ 心理轉化）</span></div>
+      <div class="row"><span class="en">resign oneself to the fact that</span><span class="zh">認命地接受…的事實</span></div>
+      <div class="row"><span class="en">breed resentment / hatred</span><span class="zh">滋生怨恨／仇恨（✏ 社會議題）</span></div>
+      <div class="tip-box"><div class="tip-label">✏ 寫作升級</div><p>durable impact 比 long-lasting 更正式；ceaselessly 比 constantly 更書面；be resigned to 是心理轉化的精準詞</p></div>
+    </div>
+  </div>
+
+  <div class="card" data-kw="dread gaze vain signature converse tumble">
+    <div class="card-head" onclick="tog(this)">
+      <span class="ltag l4">L4</span>
+      <span class="card-title">dread / gaze / vain / signature / converse / tumble</span>
+      <div class="meta"><span class="pref">P.91–151</span><span class="cnt">17 搭配</span></div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="en">live in dread of</span><span class="zh">長期懼怕…（✏ 壓抑恐懼）</span></div>
+      <div class="row"><span class="en">fill sb with dread</span><span class="zh">讓某人充滿恐懼</span></div>
+      <div class="row"><span class="en">face one's dread</span><span class="zh">直面恐懼（✏ 成長主題）</span></div>
+      <div class="row"><span class="en">gaze into the distance</span><span class="zh">凝望遠方（✏ 詩意描寫）</span></div>
+      <div class="row"><span class="en">hold / avert one's gaze</span><span class="zh">對視／移開視線</span></div>
+      <div class="row"><span class="en">a blank / dreamy gaze</span><span class="zh">空洞／出神的目光（✏ 氛圍描寫）</span></div>
+      <div class="row"><span class="en">in vain</span><span class="zh">徒勞無功（✏ 高頻慣用語）</span></div>
+      <div class="row"><span class="en">a vain attempt / hope</span><span class="zh">徒然的嘗試／希望</span></div>
+      <div class="row"><span class="en">a signature dish / look</span><span class="zh">招牌菜／標誌性造型</span></div>
+      <div class="row"><span class="en">a signature style / sound</span><span class="zh">標誌性風格／聲音</span></div>
+      <div class="row"><span class="en">the converse is also true</span><span class="zh">反之亦然（✏ 議論文轉折）</span></div>
+      <div class="row"><span class="en">prices / confidence tumble</span><span class="zh">價格／信心暴跌（比 fall 更生動）</span></div>
+      <div class="row"><span class="en">tumble into chaos</span><span class="zh">陷入混亂</span></div>
+      <div class="tip-box"><div class="tip-label">✏ 寫作升級</div><p>tumble 取代 fall（更動態）；the converse is also true 是論述文轉折神句</p></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /sL4 -->
+
+<div id="noResult" class="no-result hidden">沒有找到符合的詞組，試試其他關鍵字</div>
+
+<script>
+// Toggle card
+function tog(head) {
+  const body = head.nextElementSibling;
+  const isOpen = body.style.display === 'block';
+  body.style.display = isOpen ? 'none' : 'block';
+  head.classList.toggle('open', !isOpen);
+}
+
+// Tab switch
+function go(lv) {
+  const t3 = document.getElementById('t3');
+  const t4 = document.getElementById('t4');
+  const tA = document.getElementById('tA');
+  const s3 = document.getElementById('sL3');
+  const s4 = document.getElementById('sL4');
+  [t3,t4,tA].forEach(t => t.className = 'tab');
+  [s3,s4].forEach(s => s.classList.remove('visible'));
+  document.getElementById('noResult').classList.add('hidden');
+  if (lv==='L3') { t3.className='tab a3'; s3.classList.add('visible'); }
+  else if (lv==='L4') { t4.className='tab a4'; s4.classList.add('visible'); }
+  else { tA.className='tab aAll'; s3.classList.add('visible'); s4.classList.add('visible'); }
+}
+
+// Search
+document.getElementById('q').addEventListener('input', function(){
+  const q = this.value.trim().toLowerCase();
+  const noResult = document.getElementById('noResult');
+  if (!q) {
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('hidden'));
+    noResult.classList.add('hidden');
+    return;
+  }
+  document.getElementById('sL3').classList.add('visible');
+  document.getElementById('sL4').classList.add('visible');
+  let found = 0;
+  document.querySelectorAll('.card').forEach(c => {
+    const txt = (c.dataset.kw || '') + ' ' + c.innerText.toLowerCase();
+    const match = txt.includes(q);
+    c.classList.toggle('hidden', !match);
+    if (match) {
+      found++;
+      const body = c.querySelector('.card-body');
+      if (body) body.style.display = 'block';
+      const head = c.querySelector('.card-head');
+      if (head) head.classList.add('open');
+    }
+  });
+  noResult.classList.toggle('hidden', found > 0);
+});
+</script>
+</body>
+</html>
