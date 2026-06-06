@@ -41,12 +41,18 @@ header{
 }
 .header-line1{
   font-family:'Cinzel',Georgia,serif;
-  font-size:16px;
+  font-size:15px;
   font-weight:700;
-  letter-spacing:.06em;
+  letter-spacing:.04em;
   color:#D1B06B;
   line-height:1.25;
   white-space:nowrap;
+}
+@media(max-width:480px){
+  .header-line1{font-size:12px;letter-spacing:.02em;}
+  .header-line2{font-size:11px;}
+  .header-line3{font-size:10px;}
+  .header-logo{height:48px;}
 }
 .header-line2{
   font-size:12px;
@@ -179,27 +185,25 @@ header{
 // ─── DATA ────────────────────────────────────────────────────────────────────
 const UNITS = [
 // ════════════ LEVEL 3 ════════════
-{lv:'L3',id:'L3U1',label:'L3 Unit 1–2 (P.1–5)',badge:'lv3',words:[
+{lv:'L3',id:'L3U1a',label:'L3 Unit 1–2 (1)',badge:'lv3',words:[
   {w:'remain',pos:'v./n.',zh:'保持；遺骸',colls:[
     {e:'remain silent',z:'保持沉默'},{e:'remain unchanged',z:'保持不變'},
-    {e:'it remains to be seen',z:'有待觀察（高頻）'},{e:'remain standing',z:'繼續站立'},
-    {e:'human remains',z:'人類遺骸（名詞複數）'},{e:'the remains of an ancient city',z:'古城遺跡'}
+    {e:'it remains to be seen',z:'有待觀察（高頻）'},{e:'the remains of an ancient city',z:'古城遺跡'}
   ]},
-  {w:'reduce',pos:'v.',zh:'減少；降低',tip:'「be reduced to tears / silence」比 became sad 更有感染力，適合敘述類情緒轉折',colls:[
+  {w:'reduce',pos:'v.',zh:'減少；降低',tip:'「be reduced to tears」比 became sad 更有感染力，適合情緒轉折',colls:[
     {e:'reduce costs',z:'降低成本'},{e:'be reduced to tears',z:'被逼到哭出來'},
     {e:'be reduced to doing sth.',z:'被迫無奈做某事'},{e:'reduce to ashes',z:'化為灰燼'}
   ]},
   {w:'fade',pos:'v.',zh:'消逝；淡去',colls:[
     {e:'fade away',z:'慢慢消逝'},{e:'beauty fades',z:'美貌會消逝'},
-    {e:'memories fade',z:'記憶逐漸淡去'},{e:'fade in / fade out',z:'淡入／淡出（影像、音樂）'},
-    {e:'his influence faded after retirement',z:'影響力在退休後衰退'}
-  ]},
+    {e:'memories fade',z:'記憶逐漸淡去'},{e:'fade in / fade out',z:'淡入／淡出'}
+  ]}
+]},
+{lv:'L3',id:'L3U1b',label:'L3 Unit 1–2 (2)',badge:'lv3',words:[
   {w:'response',pos:'n.',zh:'回應；反應',colls:[
     {e:'in response to',z:'回應、因應（高頻銜接詞）'},{e:'an immediate response',z:'立即回應'},
     {e:'emotional response',z:'情緒反應'},{e:'emergency response',z:'緊急應變'}
-  ]}
-]},
-{lv:'L3',id:'L3U2',label:'L3 Unit 3–5 (P.7–14)',badge:'lv3',words:[
+  ]},
   {w:'moral / morale',pos:'adj./n.',zh:'道德；士氣',warn:'moral（道德）vs morale（士氣）—差一個 e，語意完全不同',colls:[
     {e:'moral standards',z:'道德標準'},{e:'the moral of the story',z:'故事的寓意'},
     {e:'a moral dilemma',z:'道德困境（✏ 作文萬用詞）'},{e:'boost morale',z:'提振士氣'},
@@ -207,9 +211,11 @@ const UNITS = [
   ]},
   {w:'solid',pos:'adj.',zh:'堅實的；有力的',colls:[
     {e:'solid ground',z:'堅實的基礎'},{e:'solid support',z:'堅定的支持'},
-    {e:'solid evidence',z:'有力的證據（✏ 議論文必備）'},{e:'three solid days',z:'整整三天（強調連續）'}
-  ]},
-  {w:'engage',pos:'v.',zh:'參與；互動',tip:'「engage in meaningful activities」比 do activities 更有深度，適合議論文',colls:[
+    {e:'solid evidence',z:'有力的證據（✏ 議論文必備）'},{e:'three solid days',z:'整整三天'}
+  ]}
+]},
+{lv:'L3',id:'L3U2a',label:'L3 Unit 3–5 (1)',badge:'lv3',words:[
+  {w:'engage',pos:'v.',zh:'參與；互動',tip:'「engage in meaningful activities」比 do activities 更有深度',colls:[
     {e:'engage in sth',z:'參與某事（取代 join in）'},{e:'engage with sb/sth',z:'與…互動、打交道'},
     {e:'actively engage in community service',z:'積極參與社區服務'},
     {e:'engage the audience\'s attention',z:'吸引觀眾注意力'}
@@ -217,229 +223,420 @@ const UNITS = [
   {w:'appeal',pos:'v./n.',zh:'呼籲；吸引力；上訴',colls:[
     {e:'appeal for help',z:'呼籲幫助'},{e:'have broad appeal',z:'有廣泛吸引力'},
     {e:'appeal to sb\'s sense of adventure',z:'訴諸冒險精神'},{e:'file an appeal',z:'提出上訴'}
-  ]}
-]},
-{lv:'L3',id:'L3U3',label:'L3 Unit 6–9 Idiom 強化包 (P.15–29)',badge:'lv3',words:[
-  {w:'benefit / credit / mend / vision',pos:'n./v.',zh:'利益；信用；修復；願景',colls:[
+  ]},
+  {w:'benefit',pos:'n./v.',zh:'利益；受益',tip:'mutual benefit 比 both sides gain 更正式',colls:[
     {e:'for the benefit of sb',z:'為了某人的利益'},{e:'benefit from sth',z:'受益於某事'},
-    {e:'mutual benefit',z:'互利（✏ 議論文標準詞）'},{e:'give credit where credit is due',z:'該給的讚美要給'},
-    {e:'credit sth to sb',z:'把功勞歸於某人'},{e:'all the credit goes to…',z:'一切功勞都歸於…'},
+    {e:'mutual benefit',z:'互利（✏ 議論文標準詞）'},{e:'benefit of the doubt',z:'暫且相信'}
+  ]}
+]},
+{lv:'L3',id:'L3U2b',label:'L3 Unit 3–5 (2)',badge:'lv3',words:[
+  {w:'credit',pos:'n./v.',zh:'信用；功勞；歸功於',colls:[
+    {e:'give credit where credit is due',z:'該給的讚美要給'},{e:'credit sth to sb',z:'把功勞歸於某人'},
+    {e:'all the credit goes to…',z:'一切功勞都歸於…'},{e:'take credit for',z:'居功'}
+  ]},
+  {w:'mend',pos:'v.',zh:'修復；改善',colls:[
     {e:'mend fences with sb',z:'重修舊好（比喻）'},{e:'be on the mend',z:'正在康復中'},
-    {e:'mend a broken heart',z:'撫平傷心'},{e:'envision a better life',z:'構想更好的生活（✏ 作文結語）'},
-    {e:'a visionary leader',z:'有遠見的領導者'}
+    {e:'mend a broken heart',z:'撫平傷心'},{e:'mend one\'s ways',z:'改過自新'}
   ]},
-  {w:'shadow / comfort / scale / fuel / nest',pos:'n./v.',zh:'陰影；安慰；規模；燃料；巢',colls:[
+  {w:'vision',pos:'n.',zh:'願景；遠見',colls:[
+    {e:'envision a better life',z:'構想更好的生活（✏ 作文結語）'},{e:'a visionary leader',z:'有遠見的領導者'},
+    {e:'have a vision for',z:'對…有願景'},{e:'broaden one\'s vision',z:'拓展視野'}
+  ]}
+]},
+{lv:'L3',id:'L3U3a',label:'L3 Unit 6–9 (1)',badge:'lv3',words:[
+  {w:'shadow',pos:'n./v.',zh:'陰影；遮蔽',colls:[
     {e:'cast a shadow over sth',z:'使某事蒙上陰影（✏ 比喻必學）'},{e:'in the shadow of…',z:'在…的陰影下'},
-    {e:'a shadow of doubt',z:'一絲懷疑'},{e:'find comfort in sth',z:'在某事中找到安慰'},
-    {e:'comfort food',z:'療癒食物'},{e:'on a large/small scale',z:'大規模／小規模'},
-    {e:'economies of scale',z:'規模經濟'},{e:'tip the scales in sb\'s favor',z:'使某人佔上風'},
+    {e:'a shadow of doubt',z:'一絲懷疑'},{e:'overshadow',z:'使黯然失色'}
+  ]},
+  {w:'comfort',pos:'n./v.',zh:'安慰；舒適',colls:[
+    {e:'find comfort in sth',z:'在某事中找到安慰'},{e:'comfort food',z:'療癒食物'},
+    {e:'take comfort in',z:'從…中得到寬慰'},{e:'a comfort zone',z:'舒適圈'}
+  ]},
+  {w:'scale',pos:'n./v.',zh:'規模；比例；攀爬',colls:[
+    {e:'on a large/small scale',z:'大規模／小規模'},{e:'economies of scale',z:'規模經濟'},
+    {e:'tip the scales in sb\'s favor',z:'使某人佔上風'},{e:'scale up / down',z:'擴大／縮小規模'}
+  ]}
+]},
+{lv:'L3',id:'L3U3b',label:'L3 Unit 6–9 (2)',badge:'lv3',words:[
+  {w:'fuel',pos:'n./v.',zh:'燃料；激化',colls:[
     {e:'fuel a conflict',z:'激化衝突'},{e:'add fuel to the fire',z:'火上加油'},
-    {e:'fuel one\'s imagination',z:'激發想像力（✏ 作文好詞）'},{e:'nest egg',z:'儲蓄金'},
-    {e:'empty nest',z:'空巢（孩子離家）'}
+    {e:'fuel one\'s imagination',z:'激發想像力（✏ 作文好詞）'},{e:'fuel growth',z:'推動成長'}
   ]},
-  {w:'risk / dare / odd / dawn / bang',pos:'n./v.',zh:'風險；敢；奇數；黎明；砰',colls:[
+  {w:'risk',pos:'n./v.',zh:'風險；冒險',colls:[
     {e:'take a risk',z:'冒險'},{e:'at risk',z:'處於危險中'},
-    {e:'run the risk of sth',z:'有…的風險'},{e:'at one\'s own risk',z:'自行承擔風險'},
+    {e:'run the risk of sth',z:'有…的風險'},{e:'at one\'s own risk',z:'自行承擔風險'}
+  ]},
+  {w:'dare',pos:'v./n.',zh:'敢；挑戰',colls:[
     {e:'dare to dream',z:'敢於夢想（✏ 結尾金句）'},{e:'How dare you…',z:'你怎麼敢…（強烈語氣）'},
+    {e:'dare sb to do sth',z:'激將某人做某事'},{e:'I dare say',z:'我敢說…'}
+  ]}
+]},
+{lv:'L3',id:'L3U3c',label:'L3 Unit 6–9 (3)',badge:'lv3',words:[
+  {w:'odd',pos:'adj./n.',zh:'奇怪的；奇數；勝算',colls:[
     {e:'against all odds',z:'克服萬難（✏ 高分慣用語）'},{e:'the odds are against sb',z:'形勢對某人不利'},
-    {e:'go out with a bang',z:'精彩結束、熱鬧收場'},{e:'it dawns on sb (that…)',z:'某人突然意識到…（✏ 轉折）'},
-    {e:'the dawn of a new era',z:'新時代的開始'},{e:'a land of plenty',z:'豐饒之地'}
+    {e:'odd one out',z:'格格不入的人'},{e:'at odd moments',z:'偶爾'}
+  ]},
+  {w:'dawn',pos:'n./v.',zh:'黎明；開端；意識到',colls:[
+    {e:'it dawns on sb (that…)',z:'某人突然意識到…（✏ 轉折）'},{e:'the dawn of a new era',z:'新時代的開始'},
+    {e:'from dawn to dusk',z:'從早到晚'},{e:'at the crack of dawn',z:'破曉時分'}
+  ]},
+  {w:'bang',pos:'n./v.',zh:'爆響；猛撞',colls:[
+    {e:'go out with a bang',z:'精彩結束、熱鬧收場'},{e:'bang for one\'s buck',z:'物超所值'},
+    {e:'with a bang',z:'轟轟烈烈地'},{e:'bang on',z:'完全正確（英式）'}
   ]}
 ]},
-{lv:'L3',id:'L3U4',label:'L3 Unit 10–13 (P.30–50)',badge:'lv3',words:[
-  {w:'rank / concert / assume / stir',pos:'v./n.',zh:'排名；音樂會；假設；激起',colls:[
+{lv:'L3',id:'L3U4a',label:'L3 Unit 10–13 (1)',badge:'lv3',words:[
+  {w:'rank',pos:'v./n.',zh:'排名；地位',colls:[
     {e:'rank among the best',z:'名列前茅（✏ 開門見山）'},{e:'rise through the ranks',z:'一路升遷'},
-    {e:'act in concert (with sb)',z:'與某人一致行動'},{e:'a concerted effort',z:'共同努力（✏ 高分形容詞）'},
-    {e:'assume responsibility',z:'承擔責任'},{e:'assume power/office',z:'就任、掌權'},
-    {e:'assume an attitude/air',z:'擺出某種態度'},{e:'a pronounced difference',z:'顯著差異（取代 obvious）'},
-    {e:'cause a stir',z:'引起轟動'},{e:'stir one\'s emotions',z:'觸動情感'}
+    {e:'top-ranked',z:'名列前茅的'},{e:'rank high / low',z:'排名高／低'}
   ]},
-  {w:'cast / journey / presence / bitter',pos:'v./n./adj.',zh:'投射；旅程；存在；苦澀',colls:[
-    {e:'cast a shadow over sth',z:'帶來負面影響（✏ 比喻必學）'},{e:'cast doubt on sth',z:'對…產生懷疑（✏ 高頻）'},
-    {e:'cast a vote',z:'投票'},{e:'cast a spell',z:'施魔法（文學比喻）'},{e:'cast aside',z:'拋棄'},
-    {e:'a spiritual journey',z:'心靈之旅（✏ 作文結語）'},{e:'the journey of life',z:'人生旅程'},
-    {e:'in the presence of sb',z:'在某人面前'},{e:'make your presence felt',z:'讓人感受到存在感'},
-    {e:'a strong police presence',z:'強大的警力存在'},{e:'a bitter conflict',z:'激烈的衝突'},
-    {e:'bitter cold',z:'刺骨的寒冷'},{e:'fight to the bitter end',z:'奮戰到底（✏ 高分慣用語）'},
-    {e:'leave a bitter taste',z:'留下不快的印象'}
+  {w:'assume',pos:'v.',zh:'假設；承擔；就任',colls:[
+    {e:'assume responsibility',z:'承擔責任'},{e:'assume power/office',z:'就任、掌權'},
+    {e:'assume an attitude/air',z:'擺出某種態度'},{e:'it is safe to assume',z:'可以合理假設'}
+  ]},
+  {w:'stir',pos:'v./n.',zh:'激起；騷動',colls:[
+    {e:'cause a stir',z:'引起轟動'},{e:'stir one\'s emotions',z:'觸動情感'},
+    {e:'stir up controversy',z:'掀起爭議'},{e:'stir sb into action',z:'激勵某人採取行動'}
   ]}
 ]},
-{lv:'L3',id:'L3U5',label:'L3 Unit 14–24 (P.51–95)',badge:'lv3',words:[
-  {w:'leap / bare / grasp / grab',pos:'v./n.',zh:'跳躍；裸露；理解；抓',colls:[
-    {e:'a leap in technology',z:'技術上的飛躍（✏ 作文好詞）'},{e:'a giant leap for mankind',z:'人類的一大飛躍'},
-    {e:'heart leaps',z:'心臟猛跳（驚喜或興奮）'},{e:'bare minimum',z:'最低限度'},
-    {e:'bare one\'s soul',z:'敞開心扉（✏ 敘述文）'},{e:'grasp the meaning/idea',z:'理解意義／概念'},
-    {e:'within sb\'s grasp',z:'在某人掌握之內'},{e:'beyond sb\'s grasp',z:'超出某人掌握（比喻）'},
-    {e:'grab sb\'s attention',z:'吸引某人注意'},{e:'grab a bite',z:'匆匆吃點東西'}
+{lv:'L3',id:'L3U4b',label:'L3 Unit 10–13 (2)',badge:'lv3',words:[
+  {w:'cast',pos:'v.',zh:'投射；投票；選角',colls:[
+    {e:'cast a shadow over sth',z:'帶來負面影響（✏ 比喻必學）'},{e:'cast doubt on sth',z:'對…產生懷疑（✏ 高頻）'},
+    {e:'cast a vote',z:'投票'},{e:'cast aside',z:'拋棄'}
   ]},
-  {w:'flood / bind / buzz / tap / pave / snap / flock / cradle',pos:'v./n.',zh:'洪水；綁；嗡嗡；輕拍；鋪路；折斷；聚集；搖籃',colls:[
+  {w:'presence',pos:'n.',zh:'存在；出席；氣場',colls:[
+    {e:'in the presence of sb',z:'在某人面前'},{e:'make your presence felt',z:'讓人感受到存在感'},
+    {e:'a strong police presence',z:'強大的警力存在'},{e:'stage presence',z:'舞台魅力'}
+  ]},
+  {w:'bitter',pos:'adj.',zh:'苦澀的；激烈的',colls:[
+    {e:'a bitter conflict',z:'激烈的衝突'},{e:'bitter cold',z:'刺骨的寒冷'},
+    {e:'fight to the bitter end',z:'奮戰到底（✏ 高分慣用語）'},{e:'leave a bitter taste',z:'留下不快的印象'}
+  ]}
+]},
+{lv:'L3',id:'L3U5a',label:'L3 Unit 14–24 (1)',badge:'lv3',words:[
+  {w:'leap',pos:'v./n.',zh:'跳躍；飛躍',colls:[
+    {e:'a leap in technology',z:'技術上的飛躍（✏ 作文好詞）'},{e:'a giant leap for mankind',z:'人類的一大飛躍'},
+    {e:'heart leaps',z:'心臟猛跳（驚喜或興奮）'},{e:'a leap of faith',z:'信念上的躍進'}
+  ]},
+  {w:'grasp',pos:'v./n.',zh:'理解；緊握；掌握',colls:[
+    {e:'grasp the meaning/idea',z:'理解意義／概念'},{e:'within sb\'s grasp',z:'在某人掌握之內'},
+    {e:'beyond sb\'s grasp',z:'超出某人掌握（比喻）'},{e:'grasp an opportunity',z:'把握機會'}
+  ]},
+  {w:'flood',pos:'v./n.',zh:'洪水；湧入',colls:[
     {e:'a flood of tears',z:'淚如雨下（✏ 敘述文）'},{e:'be flooded with sth',z:'被…淹沒（訊息、工作）'},
+    {e:'flood the market',z:'充斥市場'},{e:'flood of memories',z:'記憶如潮湧來'}
+  ]}
+]},
+{lv:'L3',id:'L3U5b',label:'L3 Unit 14–24 (2)',badge:'lv3',words:[
+  {w:'bind',pos:'v.',zh:'綁；約束；團結',colls:[
     {e:'bind people together',z:'團結人心（✏ 作文主題句）'},{e:'be bound by law/contract',z:'受法律／契約約束'},
-    {e:'bound to do sth',z:'必定會做某事'},{e:'the dawn of civilization',z:'文明的開端（✏ 比喻）'},
-    {e:'buzz with activity',z:'熱鬧非凡'},{e:'tap into resources',z:'利用資源（✏ 政策類）'},
-    {e:'hunger for knowledge',z:'渴望知識（✏ 教育類）'},{e:'pave the way for sth',z:'為某事鋪路（✏ 必學）'},
+    {e:'bound to do sth',z:'必定會做某事'},{e:'bound by duty',z:'受責任約束'}
+  ]},
+  {w:'pave',pos:'v.',zh:'鋪路；開路',colls:[
+    {e:'pave the way for sth',z:'為某事鋪路（✏ 必學）'},{e:'pave the road to success',z:'鋪就成功之路'},
+    {e:'pave over',z:'用鋪路覆蓋（比喻抹去）'},{e:'well-paved path',z:'平坦的道路（比喻）'}
+  ]},
+  {w:'flock',pos:'v./n.',zh:'聚集；群',colls:[
+    {e:'flock to a place',z:'蜂擁至某地（✏ 幾乎必考）'},{e:'flock together',z:'聚集在一起'},
+    {e:'birds of a feather flock together',z:'物以類聚'},{e:'a flock of tourists',z:'一群遊客'}
+  ]}
+]},
+{lv:'L3',id:'L3U5c',label:'L3 Unit 14–24 (3)',badge:'lv3',words:[
+  {w:'tap',pos:'v./n.',zh:'輕拍；利用；水龍頭',colls:[
+    {e:'tap into resources',z:'利用資源（✏ 政策類）'},{e:'tap into potential',z:'發掘潛力'},
+    {e:'tap a market',z:'開拓市場'},{e:'on tap',z:'隨時可用'}
+  ]},
+  {w:'snap',pos:'v./n.',zh:'折斷；倉促決定',colls:[
     {e:'snap under pressure',z:'壓力下崩潰'},{e:'a snap decision',z:'倉促的決定（✏ 高頻）'},
-    {e:'flock to a place',z:'蜂擁至某地（✏ 幾乎必考）'},{e:'the cradle of civilization',z:'文明的搖籃（✏ 必背）'},
-    {e:'keep sb/sth at bay',z:'牽制住（✏ 高分）'},{e:'pay dearly for sth',z:'為某事付出慘痛代價'}
+    {e:'snap out of it',z:'振作起來'},{e:'snap judgement',z:'草率的判斷'}
+  ]},
+  {w:'cradle',pos:'n./v.',zh:'搖籃；發源地',colls:[
+    {e:'the cradle of civilization',z:'文明的搖籃（✏ 必背）'},{e:'from cradle to grave',z:'從搖籃到墳墓（一生）'},
+    {e:'cradle of democracy',z:'民主的搖籃'},{e:'rock the cradle',z:'搖搖籃；影響下一代'}
   ]}
 ]},
 
 // ════════════ LEVEL 4 ════════════
-{lv:'L4',id:'L4U1',label:'L4 Unit 1–2 (P.1–13)',badge:'lv4',words:[
-  {w:'economy / evident / labor / extend / obtain / mere',pos:'n./adj./v.',zh:'經濟；明顯；勞動；延伸；取得；僅僅',
-  tip:'obtain 取代 get；extend sympathy 比 show 更正式；mere 是情緒放大鏡，可用於轉折句',colls:[
-    {e:'boost / stimulate the economy',z:'刺激經濟（✏ 政策類必備）'},{e:'be evident (to sb)',z:'對某人來說是明顯的'},
-    {e:'evident tension / improvement',z:'明顯的緊張感／改善'},{e:'manual labor',z:'體力工作'},
-    {e:'labor under a burden',z:'背負重擔（比喻）'},{e:'extend a deadline',z:'延長截止日期'},
-    {e:'extend an invitation',z:'發出邀請（✏ 正式語氣）'},{e:'extend sympathy / thanks / welcome',z:'表達慰問／感謝／歡迎'},
+{lv:'L4',id:'L4U1a',label:'L4 Unit 1–2 (1)',badge:'lv4',words:[
+  {w:'economy',pos:'n.',zh:'經濟；節省',colls:[
+    {e:'boost / stimulate the economy',z:'刺激經濟（✏ 政策類必備）'},{e:'a thriving economy',z:'蓬勃的經濟'},
+    {e:'economy of scale',z:'規模經濟'},{e:'gig economy',z:'零工經濟'}
+  ]},
+  {w:'evident',pos:'adj.',zh:'明顯的；顯而易見的',colls:[
+    {e:'be evident (to sb)',z:'對某人來說是明顯的'},{e:'evident tension / improvement',z:'明顯的緊張感／改善'},
+    {e:'it is evident that',z:'顯而易見…'},{e:'self-evident',z:'不言而喻的'}
+  ]},
+  {w:'labor',pos:'n./v.',zh:'勞動；努力',colls:[
+    {e:'manual labor',z:'體力工作'},{e:'labor under a burden',z:'背負重擔（比喻）'},
+    {e:'labor force',z:'勞動力'},{e:'child labor',z:'童工'}
+  ]}
+]},
+{lv:'L4',id:'L4U1b',label:'L4 Unit 1–2 (2)',badge:'lv4',words:[
+  {w:'extend',pos:'v.',zh:'延伸；延長；給予',tip:'extend sympathy 比 show 更正式',colls:[
+    {e:'extend a deadline',z:'延長截止日期'},{e:'extend an invitation',z:'發出邀請（✏ 正式語氣）'},
+    {e:'extend sympathy / thanks / welcome',z:'表達慰問／感謝／歡迎'},{e:'extend one\'s lead',z:'擴大領先'}
+  ]},
+  {w:'obtain',pos:'v.',zh:'取得；獲得',tip:'obtain 取代 get，更正式',colls:[
     {e:'obtain permission / approval',z:'獲得許可（✏ 正式文章）'},{e:'obtain results / evidence',z:'得到結果／證據'},
+    {e:'obtain a degree',z:'取得學位'},{e:'legally obtain',z:'合法取得'}
+  ]},
+  {w:'mere',pos:'adj.',zh:'僅僅；不過是',tip:'mere 是情緒放大鏡，可用於轉折句',colls:[
     {e:'the mere thought of it',z:'光是想到這件事（✏ 情緒引入）'},{e:'a mere second / formality',z:'只差一秒／不過是形式'},
-    {e:'a mere illusion / shadow',z:'不過是幻影（貶抑語氣）'}
-  ]},
-  {w:'observe / consistent / capacity / measures',pos:'v./adj./n.',zh:'觀察；一致；能力；措施',
-  tip:'「This is consistent with the data.」比 same 有層次；「take measures to combat」是論述文標配句型',colls:[
+    {e:'a mere illusion / shadow',z:'不過是幻影（貶抑語氣）'},{e:'merely',z:'僅僅（副詞）'}
+  ]}
+]},
+{lv:'L4',id:'L4U1c',label:'L4 Unit 1–2 (3)',badge:'lv4',words:[
+  {w:'observe',pos:'v.',zh:'觀察；遵守；指出',colls:[
     {e:'observe a rule / tradition',z:'遵守規則／傳統（✏ 最易忽略的義）'},{e:'observe that…',z:'指出…（✏ 學術正式用法）'},
-    {e:'generate / attract publicity',z:'獲得關注'},{e:'unwanted / negative publicity',z:'負面曝光'},
-    {e:'consistent with (sth)',z:'與…一致（✏ 論述必備）'},{e:'consistent results / logic',z:'一致的結果／邏輯'},
-    {e:'unless otherwise stated',z:'除非另有說明'},{e:'have the capacity to (do sth)',z:'有能力做某事'},
-    {e:'in one\'s capacity as (職位)',z:'以某身份行事（✏ 正式文體）'},{e:'intellectual / emotional capacity',z:'智力／情感容量'},
-    {e:'take / implement measures',z:'採取／執行措施（✏ 政策類必備）'},{e:'safety / emergency measures',z:'安全／緊急措施'},
-    {e:'a measure of success',z:'一種成功的判準（✏ 議論文妙用）'},{e:'measure up to (expectations)',z:'符合期待'}
-  ]}
-]},
-{lv:'L4',id:'L4U2',label:'L4 Unit 3–5 (P.14–21)',badge:'lv4',words:[
-  {w:'gear / remark / frame / accompany / urge / vast / demonstrate',pos:'v./n./adj.',zh:'針對；備註；框架；伴隨；催促；廣大；示範',
-  tip:'accompany 取代 "come with"；demonstrate 取代 show；vast majority 取代 most people',colls:[
-    {e:'be geared towards (N/Ving)',z:'針對…設計（✏ 正式表達）'},{e:'gear up for sth',z:'為…做準備'},
-    {e:'opening / closing remarks',z:'開場／結語（✏ 演說型作文）'},{e:'remark on / that…',z:'針對⋯發言（比 say 更有觀察感）'},
-    {e:'frame the issue / debate',z:'詮釋議題（✏ 學術必備）'},{e:'frame sth as sth',z:'將…視為…（操控詮釋角度）'},
-    {e:'reframe the narrative',z:'重新定義敘事（✏ 批判思考）'},{e:'essentially flawed',z:'本質上有瑕疵（✏ 批判語氣）'},
-    {e:'essentially a matter of…',z:'歸根究柢是…問題'},{e:'be accompanied by',z:'由…伴隨（✏ 學術邏輯連詞）'},
-    {e:'high unemployment accompanied by social unrest',z:'高失業率伴隨社會動盪'},
-    {e:'urge (sb) to (do sth)',z:'力勸某人做…（比 suggest 更強）'},{e:'feel an urge to',z:'有做某事的衝動'},
-    {e:'urge action / caution',z:'呼籲採取行動／保持謹慎'},{e:'a vast amount of data',z:'大量數據（比 huge 更正式）'},
-    {e:'vast majority',z:'壓倒性多數（✏ 議論文）'},{e:'demonstrate understanding / patience',z:'展現理解／耐心（取代 show）'},
-    {e:'demonstrate against / in favor of',z:'示威抗議／支持某事'},{e:'clearly / convincingly demonstrate',z:'清楚／有說服力地展現'}
-  ]}
-]},
-{lv:'L4',id:'L4U3',label:'L4 Unit 5–7 (P.22–34)',badge:'lv4',words:[
-  {w:'bond / reservation / secure / gulf / commit / shift / resolve',pos:'n./v.',zh:'連結；保留；安全；鴻溝；承諾；轉變；決心',
-  tip:'have reservations about 比 but 更禮貌理性；shift 比 change 更有方向流動感',colls:[
-    {e:'form / strengthen / break a bond',z:'建立／強化／斷裂關係'},{e:'bond over (sth)',z:'因某事而連結（✏ 情感主題）'},
-    {e:'have reservations about',z:'對…有顧慮（✏ 高級轉折語）'},{e:'without reservation',z:'毫無保留地'},
-    {e:'serious reservations',z:'強烈顧慮'},{e:'secure a job / deal / funding',z:'成功取得（✏ 正式語氣）'},
-    {e:'secure long-term advantage',z:'確保長期優勢'},{e:'a wide gulf between',z:'之間有巨大鴻溝（比 gap 更強）'},
-    {e:'bridge the gulf',z:'彌補差距（✏ 議題作文）'},{e:'a cultural / economic gulf',z:'文化／經濟隔閡'},
-    {e:'commit to change / helping others',z:'投入改革／助人（✏ 立場表態）'},{e:'be committed to',z:'全心投入（✏ 常考句型）'},
-    {e:'a shift in attitude / policy',z:'態度／政策轉變（✏ 議題分析）'},{e:'shift focus / responsibility to',z:'轉移焦點／責任'},
-    {e:'a gradual / significant shift',z:'漸進／重大轉變'},{e:'resolve a dispute / conflict',z:'解決爭端（✏ 政策類）'},
-    {e:'resolve to act',z:'決心採取行動'},{e:'show / maintain resolve',z:'展現／維持決心'}
+    {e:'closely observe',z:'密切觀察'},{e:'observe a moment of silence',z:'默哀'}
   ]},
-  {w:'content / shelter / encounter / lean / shade / spark',pos:'n./v./adj.',zh:'滿足；庇護；遭遇；傾斜；陰影；火花',
-  tip:'encounter 取代 face；a shade of irony 是文學描寫利器；spark a debate 優於 cause a debate',colls:[
-    {e:'be content with life / simplicity',z:'對生活感到滿足'},{e:'seek / take shelter from',z:'尋求庇護（✏ 可抽象用）'},
-    {e:'emotional / legal shelter for victims',z:'情緒／法律上的支撐'},{e:'encounter difficulties / challenges',z:'遭遇困難（取代 face）'},
-    {e:'lean on sb for support',z:'仰賴某人（✏ 情感主題）'},{e:'lean toward an idea',z:'傾向某個想法（立場表達）'},
-    {e:'a lean budget / team',z:'精簡的預算／團隊'},{e:'a shade of irony / doubt',z:'一絲諷刺／懷疑（✏ 細膩情感）'},
+  {w:'consistent',pos:'adj.',zh:'一致的；始終如一的',tip:'consistent with 是論述必備',colls:[
+    {e:'consistent with (sth)',z:'與…一致（✏ 論述必備）'},{e:'consistent results / logic',z:'一致的結果／邏輯'},
+    {e:'remain consistent',z:'保持一致'},{e:'consistent effort',z:'持續不懈的努力'}
+  ]},
+  {w:'capacity',pos:'n.',zh:'能力；容量；身份',colls:[
+    {e:'have the capacity to (do sth)',z:'有能力做某事'},{e:'in one\'s capacity as (職位)',z:'以某身份行事（✏ 正式文體）'},
+    {e:'intellectual / emotional capacity',z:'智力／情感容量'},{e:'full capacity',z:'滿載'}
+  ]}
+]},
+{lv:'L4',id:'L4U2a',label:'L4 Unit 3–5 (1)',badge:'lv4',words:[
+  {w:'gear',pos:'v./n.',zh:'針對；齒輪；裝備',colls:[
+    {e:'be geared towards (N/Ving)',z:'針對…設計（✏ 正式表達）'},{e:'gear up for sth',z:'為…做準備'},
+    {e:'in high gear',z:'全力運轉'},{e:'gear a policy toward',z:'將政策導向…'}
+  ]},
+  {w:'frame',pos:'v./n.',zh:'框架；詮釋；建構',tip:'frame the issue 是學術必備',colls:[
+    {e:'frame the issue / debate',z:'詮釋議題（✏ 學術必備）'},{e:'frame sth as sth',z:'將…視為…（操控詮釋角度）'},
+    {e:'reframe the narrative',z:'重新定義敘事（✏ 批判思考）'},{e:'a frame of reference',z:'參考框架'}
+  ]},
+  {w:'accompany',pos:'v.',zh:'伴隨；陪同',tip:'accompany 取代 come with，更正式',colls:[
+    {e:'be accompanied by',z:'由…伴隨（✏ 學術邏輯連詞）'},{e:'high unemployment accompanied by social unrest',z:'高失業率伴隨社會動盪'},
+    {e:'accompany sb to',z:'陪同某人去…'},{e:'accompanied by evidence',z:'佐以證據'}
+  ]}
+]},
+{lv:'L4',id:'L4U2b',label:'L4 Unit 3–5 (2)',badge:'lv4',words:[
+  {w:'urge',pos:'v./n.',zh:'催促；力勸；衝動',tip:'urge 比 suggest 更強烈',colls:[
+    {e:'urge (sb) to (do sth)',z:'力勸某人做…（比 suggest 更強）'},{e:'feel an urge to',z:'有做某事的衝動'},
+    {e:'urge action / caution',z:'呼籲採取行動／保持謹慎'},{e:'an urge to escape',z:'逃離的衝動'}
+  ]},
+  {w:'vast',pos:'adj.',zh:'廣大的；龐大的',tip:'vast majority 取代 most people 更正式',colls:[
+    {e:'a vast amount of data',z:'大量數據（比 huge 更正式）'},{e:'vast majority',z:'壓倒性多數（✏ 議論文）'},
+    {e:'a vast difference',z:'巨大的差異'},{e:'vast potential',z:'巨大潛力'}
+  ]},
+  {w:'demonstrate',pos:'v.',zh:'示範；展現；示威',tip:'demonstrate 取代 show，更學術',colls:[
+    {e:'demonstrate understanding / patience',z:'展現理解／耐心（取代 show）'},{e:'demonstrate against / in favor of',z:'示威抗議／支持某事'},
+    {e:'clearly / convincingly demonstrate',z:'清楚／有說服力地展現'},{e:'demonstrate a point',z:'論證一個觀點'}
+  ]}
+]},
+{lv:'L4',id:'L4U3a',label:'L4 Unit 5–7 (1)',badge:'lv4',words:[
+  {w:'bond',pos:'n./v.',zh:'連結；關係；黏合',colls:[
+    {e:'form / strengthen / break a bond',z:'建立／強化／斷裂關係'},{e:'bond over (sth)',z:'因某事而連結（✏ 情感主題）'},
+    {e:'a bond of trust',z:'信任的連結'},{e:'bonding experience',z:'增進感情的經驗'}
+  ]},
+  {w:'reserve',pos:'n./v.',zh:'保留；顧慮；預訂',tip:'have reservations about 比 but 更禮貌',colls:[
+    {e:'have reservations about',z:'對…有顧慮（✏ 高級轉折語）'},{e:'without reservation',z:'毫無保留地'},
+    {e:'serious reservations',z:'強烈顧慮'},{e:'reserve judgement',z:'保留判斷'}
+  ]},
+  {w:'secure',pos:'v./adj.',zh:'確保；安全的',colls:[
+    {e:'secure a job / deal / funding',z:'成功取得（✏ 正式語氣）'},{e:'secure long-term advantage',z:'確保長期優勢'},
+    {e:'feel secure',z:'感到安全'},{e:'a secure foundation',z:'穩固的基礎'}
+  ]}
+]},
+{lv:'L4',id:'L4U3b',label:'L4 Unit 5–7 (2)',badge:'lv4',words:[
+  {w:'gulf',pos:'n.',zh:'鴻溝；巨大差距',colls:[
+    {e:'a wide gulf between',z:'之間有巨大鴻溝（比 gap 更強）'},{e:'bridge the gulf',z:'彌補差距（✏ 議題作文）'},
+    {e:'a cultural / economic gulf',z:'文化／經濟隔閡'},{e:'an unbridgeable gulf',z:'無法彌補的鴻溝'}
+  ]},
+  {w:'commit',pos:'v.',zh:'承諾；投入；犯罪',colls:[
+    {e:'commit to change / helping others',z:'投入改革／助人（✏ 立場表態）'},{e:'be committed to',z:'全心投入（✏ 常考句型）'},
+    {e:'commit a crime',z:'犯罪'},{e:'commit resources',z:'投入資源'}
+  ]},
+  {w:'shift',pos:'v./n.',zh:'轉變；移動',tip:'shift 比 change 更有方向流動感',colls:[
+    {e:'a shift in attitude / policy',z:'態度／政策轉變（✏ 議題分析）'},{e:'shift focus / responsibility to',z:'轉移焦點／責任'},
+    {e:'a gradual / significant shift',z:'漸進／重大轉變'},{e:'shift the blame',z:'推卸責任'}
+  ]}
+]},
+{lv:'L4',id:'L4U3c',label:'L4 Unit 5–7 (3)',badge:'lv4',words:[
+  {w:'encounter',pos:'v./n.',zh:'遭遇；接觸',tip:'encounter 取代 face，更有書面感',colls:[
+    {e:'encounter difficulties / challenges',z:'遭遇困難（取代 face）'},{e:'encounter resistance',z:'遭遇阻力'},
+    {e:'a chance encounter',z:'偶然相遇'},{e:'encounter a new culture',z:'接觸新文化'}
+  ]},
+  {w:'spark',pos:'v./n.',zh:'火花；引發',colls:[
     {e:'a spark of hope / genius',z:'一絲希望／天才火花'},{e:'spark a debate / protest',z:'引爆辯論／抗議（✏ 社會議題）'},
     {e:'lose one\'s spark',z:'失去活力'},{e:'spark sb\'s imagination',z:'激發想像力'}
+  ]},
+  {w:'resolve',pos:'v./n.',zh:'解決；決心',colls:[
+    {e:'resolve a dispute / conflict',z:'解決爭端（✏ 政策類）'},{e:'resolve to act',z:'決心採取行動'},
+    {e:'show / maintain resolve',z:'展現／維持決心'},{e:'resolve differences',z:'化解歧異'}
   ]}
 ]},
-{lv:'L4',id:'L4U4',label:'L4 Unit 8–11 (P.37–64)',badge:'lv4',words:[
-  {w:'absorb / consume / crack / dignify / conscience / enforce / issue',pos:'v./n.',zh:'吸收；消耗；裂縫；尊嚴；良心；執行；議題',
-  tip:'be consumed with 比 be filled with 更強烈；crack under pressure 是心理壓力描寫神句；crack down on 是政策類標配',colls:[
+{lv:'L4',id:'L4U4a',label:'L4 Unit 8–11 (1)',badge:'lv4',words:[
+  {w:'absorb',pos:'v.',zh:'吸收；沉浸',colls:[
     {e:'be absorbed in reading / work',z:'沉浸於閱讀／工作（✏ 敘述文）'},{e:'absorb knowledge / pressure',z:'吸收知識／承受壓力'},
-    {e:'be consumed with guilt / anxiety',z:'被愧疚／焦慮吞噬（✏ 心理描寫）'},{e:'crack the case / code',z:'破案／破解（✏ 比喻）'},
-    {e:'crack under pressure',z:'壓力下崩潰（✏ 心理描寫）'},{e:'crack down on crime',z:'打擊犯罪（✏ 政策類）'},
-    {e:'dignify sth with a response',z:'認真回應（帶冷嘲語氣）'},{e:'refuse to dignify the rumor',z:'不屑回應謠言'},
+    {e:'absorb the shock',z:'吸收衝擊'},{e:'fully absorbed',z:'全神貫注'}
+  ]},
+  {w:'consume',pos:'v.',zh:'消耗；吞噬',colls:[
+    {e:'be consumed with guilt / anxiety',z:'被愧疚／焦慮吞噬（✏ 心理描寫）'},{e:'consume resources',z:'消耗資源'},
+    {e:'time-consuming',z:'耗時的'},{e:'consume sb\'s thoughts',z:'佔據某人的心思'}
+  ]},
+  {w:'crack',pos:'v./n.',zh:'裂縫；崩潰；破解',tip:'crack under pressure 是心理壓力描寫神句',colls:[
+    {e:'crack the case / code',z:'破案／破解（✏ 比喻）'},{e:'crack under pressure',z:'壓力下崩潰（✏ 心理描寫）'},
+    {e:'crack down on crime',z:'打擊犯罪（✏ 政策類）'},{e:'cracks in the system',z:'制度中的裂縫'}
+  ]}
+]},
+{lv:'L4',id:'L4U4b',label:'L4 Unit 8–11 (2)',badge:'lv4',words:[
+  {w:'conscience',pos:'n.',zh:'良心；道德感',colls:[
     {e:'a clear / guilty conscience',z:'問心無愧／滿懷愧疚'},{e:'on one\'s conscience',z:'成為心頭的負擔（✏ 道德主題）'},
+    {e:'follow one\'s conscience',z:'依良心行事'},{e:'a crisis of conscience',z:'良心危機'}
+  ]},
+  {w:'enforce',pos:'v.',zh:'執行；強制',colls:[
     {e:'enforce a law / regulation',z:'強制執行法規（✏ 政策）'},{e:'enforce compliance',z:'強制遵守'},
-    {e:'address / tackle an issue',z:'處理問題（✏ 論述文必備）'},{e:'a sensitive / controversial issue',z:'敏感／具爭議的議題'},
-    {e:'stem from sth',z:'起因於…（✏ 學術因果連詞）'},{e:'stem the tide of',z:'阻止趨勢惡化（比喻）'}
+    {e:'strictly enforced',z:'嚴格執行的'},{e:'enforce boundaries',z:'維持界線'}
   ]},
-  {w:'discipline / dismiss / resemble / drift / modest / withdraw',pos:'n./v./adj.',zh:'紀律；忽視；相似；漂移；謙遜；撤回',
-  tip:'be dismissed as 是批判議題的強力句型；withdraw into oneself 是創傷/內向主題的精準描寫',colls:[
+  {w:'stem',pos:'v./n.',zh:'起源；阻止；莖',tip:'stem from 取代 come from，更學術',colls:[
+    {e:'stem from sth',z:'起因於…（✏ 學術因果連詞）'},{e:'stem the tide of',z:'阻止趨勢惡化（比喻）'},
+    {e:'stem a crisis',z:'遏制危機'},{e:'problems stemming from',z:'源自…的問題'}
+  ]}
+]},
+{lv:'L4',id:'L4U4c',label:'L4 Unit 8–11 (3)',badge:'lv4',words:[
+  {w:'discipline',pos:'n./v.',zh:'紀律；學科；處分',colls:[
     {e:'self-discipline',z:'自律（✏ 成功學類作文必備）'},{e:'within the discipline of + 學科',z:'在…學術領域中'},
+    {e:'maintain discipline',z:'維持紀律'},{e:'a disciplined approach',z:'有紀律的方法'}
+  ]},
+  {w:'dismiss',pos:'v.',zh:'忽視；否定；解雇',tip:'be dismissed as 是批判議題的強力句型',colls:[
     {e:'be dismissed as + 負面形容詞',z:'被輕易否定為…（✏ 高頻用法）'},{e:'dismiss an idea as unrealistic',z:'視某想法為不切實際'},
-    {e:'closely / vaguely resemble',z:'非常／略微相似'},{e:'bear a resemblance to',z:'與…相似（比 look like 更正式）'},
-    {e:'drift away / apart',z:'逐漸疏遠（✏ 關係主題）'},{e:'drift into (N/Ving)',z:'不知不覺進入某情境'},
-    {e:'remain modest',z:'保持謙遜'},{e:'a modest income / lifestyle',z:'適中的收入／生活'},
+    {e:'dismiss sb\'s concerns',z:'漠視某人的擔憂'},{e:'dismiss with a wave',z:'揮手否定'}
+  ]},
+  {w:'withdraw',pos:'v.',zh:'撤回；退縮',tip:'withdraw into oneself 是心理描寫精準詞',colls:[
     {e:'withdraw an offer / application',z:'撤回提議／申請'},{e:'withdraw into oneself',z:'封閉自我（✏ 心理描寫）'},
-    {e:'withdraw from others',z:'與人疏遠'}
+    {e:'withdraw from others',z:'與人疏遠'},{e:'withdraw support',z:'撤回支持'}
   ]}
 ]},
-{lv:'L4',id:'L4U5',label:'L4 Unit 13–16 (P.68–93)',badge:'lv4',words:[
-  {w:'sketch / landscape / pioneer / access / exhaust / stem',pos:'v./n.',zh:'草繪；地貌；先驅；取得；耗盡；起源',
-  tip:'stem from 取代 come from；landscape 作抽象名詞時是政策分析好詞',colls:[
+{lv:'L4',id:'L4U5a',label:'L4 Unit 13–16 (1)',badge:'lv4',words:[
+  {w:'sketch',pos:'v./n.',zh:'草繪；勾勒',colls:[
     {e:'sketch out a plan',z:'草擬計畫（✏ 提案語境）'},{e:'sketch the background of the issue',z:'勾勒議題背景（引言技巧）'},
+    {e:'a rough sketch',z:'粗略的草圖'},{e:'sketch a portrait',z:'素描肖像'}
+  ]},
+  {w:'landscape',pos:'n.',zh:'地貌；局勢',tip:'landscape 作抽象名詞是政策分析好詞',colls:[
     {e:'the political / digital landscape',z:'政治／數位局勢（✏ 議題分析）'},{e:'reshape the landscape',z:'重塑局勢'},
+    {e:'a changing landscape',z:'不斷變化的局勢'},{e:'the landscape of education',z:'教育生態'}
+  ]},
+  {w:'pioneer',pos:'n./v.',zh:'先驅；開創',colls:[
     {e:'a pioneer in / of N',z:'…領域的開拓者（✏ 人物描寫）'},{e:'pioneer new methods / fields',z:'開創新方法／領域'},
-    {e:'pioneer spirit',z:'拓荒精神（✏ 鼓勵類作文）'},{e:'have / gain access to',z:'有／獲得使用權（✏ 教育/科技）'},
-    {e:'access to healthcare / education',z:'醫療／教育資源的取得權'},{e:'exhaust all options',z:'用盡所有選擇（✏ 轉折前句）'},
-    {e:'exhausting natural resources',z:'耗盡自然資源（環境議題）'},{e:'stem from sth',z:'起因於…（✏ 學術因果連詞）'},
-    {e:'stem the tide of',z:'阻止趨勢惡化（比喻）'}
+    {e:'pioneer spirit',z:'拓荒精神（✏ 鼓勵類作文）'},{e:'a pioneering study',z:'開創性研究'}
+  ]}
+]},
+{lv:'L4',id:'L4U5b',label:'L4 Unit 13–16 (2)',badge:'lv4',words:[
+  {w:'access',pos:'n./v.',zh:'取得；使用權',colls:[
+    {e:'have / gain access to',z:'有／獲得使用權（✏ 教育/科技）'},{e:'access to healthcare / education',z:'醫療／教育資源的取得權'},
+    {e:'equal access',z:'平等取得權'},{e:'restricted access',z:'限制進入'}
   ]},
-  {w:'stroke / mercy / barrier / apparent / wit / carve / contest',pos:'n./v.',zh:'筆觸；憐憫；障礙；明顯；機智；雕刻；競爭',
-  tip:'at the mercy of 是 C1 必學語塊；tear down barriers 比 remove 更震撼；carve out a career 是人物主題精準詞',colls:[
-    {e:'a stroke of genius / luck',z:'天才之舉／好運（✏ 文學感）'},{e:'at the mercy of',z:'任憑…擺佈（✏ C1 必學語塊）'},
-    {e:'show no mercy',z:'毫不留情'},{e:'overcome / break down barriers',z:'克服／打破障礙（✏ 議題必備）'},
-    {e:'language / cultural / psychological barrier',z:'語言／文化／心理障礙'},{e:'tear down barriers',z:'拆除隔閡（比 remove 更有力）'},
-    {e:'barriers to entry / progress',z:'進入門檻／進展障礙'},{e:'for no apparent reason',z:'沒有明顯原因（✏ 常考）'},
-    {e:'a battle of wits',z:'鬥智（✏ 高分慣用語）'},{e:'be at one\'s wits\' end',z:'束手無策（✏ 壓力主題）'},
+  {w:'exhaust',pos:'v.',zh:'耗盡；使精疲力竭',colls:[
+    {e:'exhaust all options',z:'用盡所有選擇（✏ 轉折前句）'},{e:'exhausting natural resources',z:'耗盡自然資源（環境議題）'},
+    {e:'be exhausted',z:'精疲力竭'},{e:'exhaust one\'s patience',z:'耗盡耐心'}
+  ]},
+  {w:'stroke',pos:'n.',zh:'筆觸；一擊；中風',colls:[
+    {e:'a stroke of genius / luck',z:'天才之舉／好運（✏ 文學感）'},{e:'at a stroke',z:'一舉之下'},
+    {e:'a master stroke',z:'妙棋；絕招'},{e:'stroke of fate',z:'命運的捉弄'}
+  ]}
+]},
+{lv:'L4',id:'L4U5c',label:'L4 Unit 13–16 (3)',badge:'lv4',words:[
+  {w:'mercy',pos:'n.',zh:'憐憫；仁慈',colls:[
+    {e:'at the mercy of',z:'任憑…擺佈（✏ C1 必學語塊）'},{e:'show no mercy',z:'毫不留情'},
+    {e:'have mercy on',z:'對…施以憐憫'},{e:'a mercy killing',z:'安樂死（委婉）'}
+  ]},
+  {w:'barrier',pos:'n.',zh:'障礙；壁壘',colls:[
+    {e:'overcome / break down barriers',z:'克服／打破障礙（✏ 議題必備）'},{e:'language / cultural / psychological barrier',z:'語言／文化／心理障礙'},
+    {e:'tear down barriers',z:'拆除隔閡（比 remove 更有力）'},{e:'barriers to entry / progress',z:'進入門檻／進展障礙'}
+  ]},
+  {w:'carve',pos:'v.',zh:'雕刻；開創',tip:'carve out a career 是人物主題精準詞',colls:[
     {e:'carve out a career / niche',z:'開創事業／定位（✏ 成功學）'},{e:'carve a path',z:'開闢道路（比喻）'},
-    {e:'carved in stone',z:'不可更改（慣用語）'},{e:'hotly / fiercely contested',z:'激烈爭奪（✏ 政治/學術）'},
-    {e:'contest a decision / claim',z:'對決定／主張提出質疑'}
+    {e:'carved in stone',z:'不可更改（慣用語）'},{e:'carve up',z:'瓜分'}
   ]}
 ]},
-{lv:'L4',id:'L4U6',label:'L4 Unit 16–21 (P.93–124)',badge:'lv4',words:[
-  {w:'peer / boast / halt / frown / margin / portray / rage / endure / neglect',pos:'n./v.',zh:'同儕；誇耀；停止；皺眉；差距；描繪；憤怒；忍受；忽視',
-  tip:'portray sb as 是媒體批判句型；endure with dignity 比 suffer 更有深度；society frowns on 是抽象批判必學語塊',colls:[
+{lv:'L4',id:'L4U6a',label:'L4 Unit 16–21 (1)',badge:'lv4',words:[
+  {w:'peer',pos:'n./v.',zh:'同儕；凝視',colls:[
     {e:'peer pressure',z:'同儕壓力（✏ 青少年主題）'},{e:'peer review',z:'同儕審查（學術）'},
-    {e:'boast impressive results',z:'擁有令人印象深刻的成績'},{e:'come / bring to a halt',z:'逐漸停止／使停擺（✏ 危機描寫）'},
-    {e:'call a halt to sth',z:'下令終止某事（✏ 政策類）'},{e:'frown in disapproval',z:'因不贊成而皺眉'},
-    {e:'society frowns on sth',z:'社會不贊成…（✏ 抽象用法）'},{e:'by a narrow margin',z:'以些微差距'},
-    {e:'live on the margins',z:'生活在社會邊緣（✏ 社會議題）'},{e:'portray sb as…',z:'將某人描寫為…（✏ 媒體/批判）'},
-    {e:'accurately / vividly portray',z:'準確／生動地描繪'},{e:'fly into a rage',z:'勃然大怒'},
-    {e:'rage against sth',z:'對…極度憤怒（✏ 議題/社運）'},{e:'endure hardship / silently',z:'忍受困難／默默承受'},
-    {e:'endure with dignity',z:'有尊嚴地承受（✏ 高分表達）'},{e:'a friendship that endures',z:'持久的友情（✏ 正面結尾）'},
-    {e:'neglect one\'s responsibility',z:'怠忽職責（批評語氣）'},{e:'gross / serious neglect',z:'重大疏忽'}
+    {e:'peer into the distance',z:'凝視遠方'},{e:'peer group',z:'同儕群體'}
   ]},
-  {w:'tolerate / disguise / herd / preferable / keen / seize / exhibit',pos:'v./adj./n.',zh:'容忍；偽裝；牧群；更可取；渴望；把握；展示',
-  warn:'不可說 "more preferable"——preferable 已含比較意',
-  colls:[
+  {w:'halt',pos:'v./n.',zh:'停止；暫停',colls:[
+    {e:'come / bring to a halt',z:'逐漸停止／使停擺（✏ 危機描寫）'},{e:'call a halt to sth',z:'下令終止某事（✏ 政策類）'},
+    {e:'halt progress',z:'阻止進展'},{e:'a grinding halt',z:'完全停擺'}
+  ]},
+  {w:'margin',pos:'n.',zh:'差距；邊緣；利潤',colls:[
+    {e:'by a narrow margin',z:'以些微差距'},{e:'live on the margins',z:'生活在社會邊緣（✏ 社會議題）'},
+    {e:'profit margin',z:'利潤空間'},{e:'margin of error',z:'誤差範圍'}
+  ]}
+]},
+{lv:'L4',id:'L4U6b',label:'L4 Unit 16–21 (2)',badge:'lv4',words:[
+  {w:'portray',pos:'v.',zh:'描繪；刻畫',tip:'portray sb as 是媒體批判句型',colls:[
+    {e:'portray sb as…',z:'將某人描寫為…（✏ 媒體/批判）'},{e:'accurately / vividly portray',z:'準確／生動地描繪'},
+    {e:'be portrayed as a villain',z:'被塑造成反派'},{e:'portray reality',z:'描繪現實'}
+  ]},
+  {w:'endure',pos:'v.',zh:'忍受；持久',tip:'endure with dignity 比 suffer 更有深度',colls:[
+    {e:'endure hardship / silently',z:'忍受困難／默默承受'},{e:'endure with dignity',z:'有尊嚴地承受（✏ 高分表達）'},
+    {e:'a friendship that endures',z:'持久的友情（✏ 正面結尾）'},{e:'endure the test of time',z:'經得起時間考驗'}
+  ]},
+  {w:'tolerate',pos:'v.',zh:'容忍；包容',colls:[
     {e:'tolerate differences / diversity',z:'包容差異／多樣性（✏ 多元社會）'},{e:'barely / refuse to tolerate',z:'幾乎無法／拒絕容忍'},
-    {e:'disguise sth as sth',z:'把A偽裝成B（✏ 批判語境）'},{e:'in disguise',z:'偽裝中（a blessing in disguise）'},
-    {e:'herd mentality',z:'從眾心理（✏ 社會批判）'},{e:'A is preferable to B',z:'A 比 B 更可取（✏ 對比論述固定句型）'},
-    {e:'preferable in terms of efficiency',z:'在效率方面更理想'},{e:'be keen to V / on Ving',z:'渴望做…（取代 eager）'},
-    {e:'keen competition',z:'激烈競爭（書面語）'},{e:'keen sense of observation',z:'敏銳的觀察力（✏ 人物描寫）'},
-    {e:'seize an opportunity / moment',z:'把握機會／時機（✏ 勵志作文）'},{e:'seize control / power',z:'奪取控制／掌權'},
-    {e:'be seized by panic / fear',z:'被恐慌攫住（✏ 心理描寫）'},{e:'exhibit resilience / discipline',z:'展現韌性／紀律（✏ 取代 show）'},
-    {e:'exhibit signs of stress',z:'表現出壓力的跡象'}
+    {e:'zero tolerance',z:'零容忍'},{e:'tolerate ambiguity',z:'容忍模糊'}
   ]}
 ]},
-{lv:'L4',id:'L4U7',label:'L4 Unit 20–24 (P.106–152)',badge:'lv4',words:[
-  {w:'durable / remedy / grace / dispute / ceaselessly / resign',pos:'adj./n./v.',zh:'持久；補救；優雅；爭論；不斷地；辭職',
-  tip:'durable impact 比 long-lasting 更正式；ceaselessly 比 constantly 更書面；be resigned to 是心理轉化的精準詞',colls:[
-    {e:'durable peace / solution',z:'持久的和平／解決方案（✏ 政策類）'},{e:'True innovation creates durable impact.',z:'真正的創新帶來持久影響（示範句）'},
-    {e:'seek / apply a remedy',z:'尋求／採取補救方法'},{e:'a legal remedy',z:'法律救濟（✏ 法律/政策）'},
-    {e:'accept with grace',z:'優雅地接受（✏ 高分表達）'},{e:'fall from grace',z:'失寵（慣用語）'},
-    {e:'grace period',z:'寬限期'},{e:'settle / resolve a dispute',z:'解決爭端'},
-    {e:'hotly / bitterly dispute',z:'激烈爭辯'},{e:'work / struggle ceaselessly',z:'持續奮鬥（✏ 毅力主題）'},
-    {e:'ceaseless pursuit of perfection',z:'對完美的無盡追求（✏ 結尾金句）'},{e:'be resigned to sth',z:'無奈地接受（✏ 心理轉化）'},
-    {e:'resign oneself to the fact that',z:'認命地接受…的事實'},{e:'breed resentment / hatred',z:'滋生怨恨／仇恨（✏ 社會議題）'}
+{lv:'L4',id:'L4U6c',label:'L4 Unit 16–21 (3)',badge:'lv4',words:[
+  {w:'keen',pos:'adj.',zh:'渴望的；敏銳的',colls:[
+    {e:'be keen to V / on Ving',z:'渴望做…（取代 eager）'},{e:'keen competition',z:'激烈競爭（書面語）'},
+    {e:'keen sense of observation',z:'敏銳的觀察力（✏ 人物描寫）'},{e:'keen interest',z:'濃厚的興趣'}
   ]},
-  {w:'dread / gaze / vain / signature / converse / tumble',pos:'n./v./adj.',zh:'恐懼；凝視；徒勞；招牌；相反；跌落',
-  tip:'tumble 取代 fall（更動態）；the converse is also true 是論述文轉折神句',colls:[
-    {e:'live in dread of',z:'長期懼怕…（✏ 壓抑恐懼）'},{e:'fill sb with dread',z:'讓某人充滿恐懼'},
-    {e:'face one\'s dread',z:'直面恐懼（✏ 成長主題）'},{e:'gaze into the distance',z:'凝望遠方（✏ 詩意描寫）'},
-    {e:'hold / avert one\'s gaze',z:'對視／移開視線'},{e:'a blank / dreamy gaze',z:'空洞／出神的目光（✏ 氛圍描寫）'},
-    {e:'in vain',z:'徒勞無功（✏ 高頻慣用語）'},{e:'a vain attempt / hope',z:'徒然的嘗試／希望'},
-    {e:'a signature dish / look',z:'招牌菜／標誌性造型'},{e:'a signature style / sound',z:'標誌性風格／聲音'},
-    {e:'the converse is also true',z:'反之亦然（✏ 議論文轉折）'},{e:'prices / confidence tumble',z:'價格／信心暴跌（比 fall 更生動）'},
-    {e:'tumble into chaos',z:'陷入混亂'}
+  {w:'seize',pos:'v.',zh:'把握；奪取；攫住',colls:[
+    {e:'seize an opportunity / moment',z:'把握機會／時機（✏ 勵志作文）'},{e:'seize control / power',z:'奪取控制／掌權'},
+    {e:'be seized by panic / fear',z:'被恐慌攫住（✏ 心理描寫）'},{e:'seize the day',z:'把握當下'}
+  ]},
+  {w:'exhibit',pos:'v./n.',zh:'展示；表現；展覽',colls:[
+    {e:'exhibit resilience / discipline',z:'展現韌性／紀律（✏ 取代 show）'},{e:'exhibit signs of stress',z:'表現出壓力的跡象'},
+    {e:'exhibit at a gallery',z:'在藝廊展出'},{e:'exhibit confidence',z:'展現自信'}
   ]}
 ]},
-
+{lv:'L4',id:'L4U7a',label:'L4 Unit 20–24 (1)',badge:'lv4',words:[
+  {w:'durable',pos:'adj.',zh:'持久的；耐用的',tip:'durable impact 比 long-lasting 更正式',colls:[
+    {e:'durable peace / solution',z:'持久的和平／解決方案（✏ 政策類）'},{e:'True innovation creates durable impact.',z:'真正的創新帶來持久影響（示範句）'},
+    {e:'durable goods',z:'耐久財'},{e:'a durable relationship',z:'持久的關係'}
+  ]},
+  {w:'remedy',pos:'n./v.',zh:'補救；解決方法',colls:[
+    {e:'seek / apply a remedy',z:'尋求／採取補救方法'},{e:'a legal remedy',z:'法律救濟（✏ 法律/政策）'},
+    {e:'remedy a situation',z:'補救局面'},{e:'no easy remedy',z:'沒有簡單的解方'}
+  ]},
+  {w:'grace',pos:'n./v.',zh:'優雅；寬限；裝飾',colls:[
+    {e:'accept with grace',z:'優雅地接受（✏ 高分表達）'},{e:'fall from grace',z:'失寵（慣用語）'},
+    {e:'grace period',z:'寬限期'},{e:'social graces',z:'社交禮儀'}
+  ]}
+]},
+{lv:'L4',id:'L4U7b',label:'L4 Unit 20–24 (2)',badge:'lv4',words:[
+  {w:'dispute',pos:'n./v.',zh:'爭端；質疑',colls:[
+    {e:'settle / resolve a dispute',z:'解決爭端'},{e:'hotly / bitterly dispute',z:'激烈爭辯'},
+    {e:'a territorial dispute',z:'領土爭端'},{e:'beyond dispute',z:'無可爭辯'}
+  ]},
+  {w:'resign',pos:'v.',zh:'辭職；接受現實',tip:'be resigned to 是心理轉化的精準詞',colls:[
+    {e:'be resigned to sth',z:'無奈地接受（✏ 心理轉化）'},{e:'resign oneself to the fact that',z:'認命地接受…的事實'},
+    {e:'resign from a position',z:'辭去職位'},{e:'letter of resignation',z:'辭職信'}
+  ]},
+  {w:'dread',pos:'n./v.',zh:'恐懼；畏懼',colls:[
+    {e:'live in dread of',z:'長期懼怕…（✏ 壓抑恐懼）'},{e:'fill sb with dread',z:'讓某人充滿恐懼'},
+    {e:'face one\'s dread',z:'直面恐懼（✏ 成長主題）'},{e:'a sense of dread',z:'一種恐懼感'}
+  ]}
+]},
+{lv:'L4',id:'L4U7c',label:'L4 Unit 20–24 (3)',badge:'lv4',words:[
+  {w:'gaze',pos:'v./n.',zh:'凝視；目光',colls:[
+    {e:'gaze into the distance',z:'凝望遠方（✏ 詩意描寫）'},{e:'hold / avert one\'s gaze',z:'對視／移開視線'},
+    {e:'a blank / dreamy gaze',z:'空洞／出神的目光（✏ 氛圍描寫）'},{e:'under the public gaze',z:'在公眾目光下'}
+  ]},
+  {w:'vain',pos:'adj.',zh:'徒勞的；自負的',colls:[
+    {e:'in vain',z:'徒勞無功（✏ 高頻慣用語）'},{e:'a vain attempt / hope',z:'徒然的嘗試／希望'},
+    {e:'vanity',z:'虛榮（名詞）'},{e:'vain glory',z:'虛榮心'}
+  ]},
+  {w:'converse',pos:'n./v./adj.',zh:'相反；交談',tip:'the converse is also true 是論述文轉折神句',colls:[
+    {e:'the converse is also true',z:'反之亦然（✏ 議論文轉折）'},{e:'converse with sb',z:'與某人交談'},
+    {e:'the converse of this argument',z:'這個論點的反面'},{e:'conversely',z:'反之（副詞）'}
+  ]}
+]},
 // ════════════ LEVEL 5 ════════════
 {lv:'L5',id:'L5U1',label:'L5 Unit 1–5',badge:'lv5',words:[
   {w:'stock',pos:'n./v.',zh:'存貨；股票',tip:'「take stock of the situation」比 reconsider 更有深度，適合議論文反思段落',
