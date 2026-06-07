@@ -125,6 +125,10 @@ header{
 .colloc-item:last-child{border-bottom:none;}
 .colloc-en{font-size:13.5px;color:var(--ink);flex:1;font-weight:500;}
 .colloc-zh{font-size:12px;color:var(--muted);text-align:right;flex-shrink:0;max-width:50%;}
+.colloc-ex{font-size:12px;color:#555;font-style:italic;padding:3px 0 5px 0;line-height:1.5;border-bottom:.5px dashed var(--border);width:100%;}
+.colloc-exz{font-size:11.5px;color:var(--muted);padding-bottom:4px;width:100%;}
+.colloc-item{display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:.5px solid var(--border);flex-wrap:wrap;}
+.colloc-item:last-child{border-bottom:none;}
 
 .writing-tip{margin-top:10px;padding:8px 12px;background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;font-size:12px;color:#7a3010;line-height:1.5;}
 .writing-tip-label{font-weight:600;font-size:11px;margin-bottom:2px;color:var(--accent);}
@@ -211,244 +215,345 @@ const UNITS = [
 // ════════════ LEVEL 3 ════════════
 {lv:'L3',id:'L3U1a',label:'L3 Unit 1–2 (1)',badge:'lv3',words:[
   {w:'remain',pos:'v./n.',zh:'保持；遺骸',colls:[
-    {e:'remain silent',z:'保持沉默'},{e:'remain unchanged',z:'保持不變'},
-    {e:'it remains to be seen',z:'有待觀察（高頻）'},{e:'the remains of an ancient city',z:'古城遺跡'}
+    {e:'remain silent',z:'保持沉默',ex:'He remained silent, which everyone interpreted as agreement. It was not.',exz:'他保持沉默，所有人都把這理解成同意，其實不是。'},
+    {e:'remain unchanged',z:'保持不變',ex:'The meeting agenda remained unchanged for six months. So did the problems.',exz:'會議議程六個月來保持不變，問題也是。'},
+    {e:'it remains to be seen',z:'有待觀察（高頻）',ex:'It remains to be seen whether the new policy will work. (Spoiler: it won\'t.)',exz:'新政策是否有效還有待觀察。（劇透：不會有效的。）'},
+    {e:'the remains of an ancient city',z:'古城遺跡',ex:'The remains of her motivation were found somewhere around week three of the semester.',exz:'她的動力遺跡大約在學期第三週被發現，就剩那麼一點了。'}
   ]},
   {w:'reduce',pos:'v.',zh:'減少；降低',tip:'「be reduced to tears」比 became sad 更有感染力，適合情緒轉折',colls:[
-    {e:'reduce costs',z:'降低成本'},{e:'be reduced to tears',z:'被逼到哭出來'},
-    {e:'be reduced to doing sth.',z:'被迫無奈做某事'},{e:'reduce to ashes',z:'化為灰燼'}
+    {e:'reduce costs',z:'降低成本',ex:'The company reduced costs by removing the free coffee. Productivity collapsed instantly.',exz:'公司削減成本，取消了免費咖啡，生產力立刻崩潰。'},
+    {e:'be reduced to tears',z:'被逼到哭出來',ex:'She was reduced to tears by the printer — on submission day.',exz:'她被印表機逼哭了，就在繳交當天。'},
+    {e:'be reduced to doing sth.',z:'被迫無奈做某事',ex:'He was reduced to asking his little sister for help with the math homework.',exz:'他被迫無奈地去向小妹妹請教數學作業。'},
+    {e:'reduce to ashes',z:'化為灰燼',ex:'His carefully written speech was reduced to ashes when he forgot to save it.',exz:'他精心寫好的演講稿因為忘記存檔而化為烏有。'}
   ]},
   {w:'fade',pos:'v.',zh:'消逝；淡去',colls:[
-    {e:'fade away',z:'慢慢消逝'},{e:'beauty fades',z:'美貌會消逝'},
-    {e:'memories fade',z:'記憶逐漸淡去'},{e:'fade in / fade out',z:'淡入／淡出'}
+    {e:'fade away',z:'慢慢消逝',ex:'His motivation to exercise faded away sometime between buying the gym shoes and using them.',exz:'他運動的動力在買了運動鞋和真正去運動之間某個時間點消逝了。'},
+    {e:'beauty fades',z:'美貌會消逝',ex:'"Beauty fades," she said, while spending forty minutes on skincare.',exz:'「美貌會消逝，」她說，同時花了四十分鐘保養。'},
+    {e:'memories fade',z:'記憶逐漸淡去',ex:'Memories of the exam faded quickly. The grade did not.',exz:'考試的記憶很快淡去，成績卻沒有。'},
+    {e:'fade in / fade out',z:'淡入／淡出',ex:'His interest in the project faded out right as the deadline faded in.',exz:'他對計畫的興趣淡出，正好與截止日期淡入的時間點重合。'}
   ]}
 ]},
 {lv:'L3',id:'L3U1b',label:'L3 Unit 1–2 (2)',badge:'lv3',words:[
   {w:'response',pos:'n.',zh:'回應；反應',colls:[
-    {e:'in response to',z:'回應、因應（高頻銜接詞）'},{e:'an immediate response',z:'立即回應'},
-    {e:'emotional response',z:'情緒反應'},{e:'emergency response',z:'緊急應變'}
+    {e:'in response to',z:'回應、因應（高頻銜接詞）',ex:'In response to the feedback, the app added a new button nobody asked for.',exz:'為了回應意見，app 新增了一個沒有人要求的按鈕。'},
+    {e:'an immediate response',z:'立即回應',ex:'She expected an immediate response. It arrived three days later with "sorry just saw this."',exz:'她期待立即回應，三天後收到「抱歉剛看到」。'},
+    {e:'emotional response',z:'情緒反應',ex:'His emotional response to spoilers was completely disproportionate. He cried for an hour.',exz:'他對劇透的情緒反應完全不成比例，哭了整整一小時。'},
+    {e:'emergency response',z:'緊急應變',ex:'The emergency response to the printer jam was to kick it gently. It worked.',exz:'對卡紙的緊急應變方案是輕踢一下，有效。'}
   ]},
   {w:'moral / morale',pos:'adj./n.',zh:'道德；士氣',warn:'moral（道德）vs morale（士氣）—差一個 e，語意完全不同',colls:[
-    {e:'moral standards',z:'道德標準'},{e:'the moral of the story',z:'故事的寓意'},
-    {e:'a moral dilemma',z:'道德困境（✏ 作文萬用詞）'},{e:'boost morale',z:'提振士氣'},
-    {e:'low morale',z:'士氣低落'}
+    {e:'moral standards',z:'道德標準',ex:'His moral standards were flexible when it came to finishing other people\'s leftovers.',exz:'在吃掉別人剩菜這件事上，他的道德標準相當有彈性。'},
+    {e:'the moral of the story',z:'故事的寓意',ex:'The moral of the story is: always save your document. Always.',exz:'這個故事的寓意是：一定要存檔，永遠要存。'},
+    {e:'a moral dilemma',z:'道德困境（✏ 作文萬用詞）',ex:'It was a genuine moral dilemma: tell her the spinach was in her teeth, or say nothing.',exz:'這是一個真正的道德困境：告訴她牙齒上有菠菜，還是什麼都不說。'},
+    {e:'boost morale',z:'提振士氣',ex:'Free pizza boosted morale more effectively than any motivational speech ever could.',exz:'免費披薩提振士氣的效果，遠超任何一場勵志演講。'},
+    {e:'low morale',z:'士氣低落',ex:'Low morale set in the moment the teacher announced a surprise test.',exz:'老師宣布突擊考試的那一刻，士氣立刻低落。'}
   ]},
   {w:'solid',pos:'adj.',zh:'堅實的；有力的',colls:[
-    {e:'solid ground',z:'堅實的基礎'},{e:'solid support',z:'堅定的支持'},
-    {e:'solid evidence',z:'有力的證據（✏ 議論文必備）'},{e:'three solid days',z:'整整三天'}
+    {e:'solid ground',z:'堅實的基礎',ex:'She was on solid ground with the argument until someone asked a follow-up question.',exz:'她的論點站得住腳，直到有人追問了一個後續問題。'},
+    {e:'solid support',z:'堅定的支持',ex:'His plan had solid support from exactly one person: himself.',exz:'他的計畫獲得了一個人的堅定支持：他自己。'},
+    {e:'solid evidence',z:'有力的證據（✏ 議論文必備）',ex:'There was solid evidence that he hadn\'t studied — namely, his face during the exam.',exz:'有力的證據顯示他沒有讀書，也就是他考試時的表情。'},
+    {e:'three solid days',z:'整整三天',ex:'She spent three solid days on the project. He joined the group chat on day four.',exz:'她花了整整三天做這個計畫，他在第四天才加入群組對話。'}
   ]}
 ]},
 {lv:'L3',id:'L3U2a',label:'L3 Unit 3–5 (1)',badge:'lv3',words:[
   {w:'engage',pos:'v.',zh:'參與；互動',tip:'「engage in meaningful activities」比 do activities 更有深度',colls:[
-    {e:'engage in sth',z:'參與某事（取代 join in）'},{e:'engage with sb/sth',z:'與…互動、打交道'},
-    {e:'actively engage in community service',z:'積極參與社區服務'},
-    {e:'engage the audience\'s attention',z:'吸引觀眾注意力'}
+    {e:'engage in sth',z:'參與某事（取代 join in）',ex:'He engaged in deep reflection after the exam. It lasted about four minutes.',exz:'考完試後他進行了深刻的反思，持續了大約四分鐘。'},
+    {e:'engage with sb/sth',z:'與…互動、打交道',ex:'She struggled to engage with the text — mainly because she\'d opened the wrong chapter.',exz:'她努力想與課文互動，主要是因為她翻到了錯誤的章節。'},
+    {e:'actively engage in community service',z:'積極參與社區服務',ex:'He actively engaged in community service — once, for a school requirement.',exz:'他積極參與社區服務，一次，為了學校的必修規定。'},
+    {e:'engage the audience\'s attention',z:'吸引觀眾注意力',ex:'She engaged the audience\'s attention immediately by dropping her notes on the floor.',exz:'她一開口就吸引了觀眾的注意力，因為她把講稿掉在地上了。'}
   ]},
   {w:'appeal',pos:'v./n.',zh:'呼籲；吸引力；上訴',colls:[
-    {e:'appeal for help',z:'呼籲幫助'},{e:'have broad appeal',z:'有廣泛吸引力'},
-    {e:'appeal to sb\'s sense of adventure',z:'訴諸冒險精神'},{e:'file an appeal',z:'提出上訴'}
+    {e:'appeal for help',z:'呼籲幫助',ex:'He appealed for help with the group project. Three people left the chat.',exz:'他在群組裡呼籲大家幫忙做報告，三個人退出了群組。'},
+    {e:'have broad appeal',z:'有廣泛吸引力',ex:'Free food has broad appeal. This is the only universally agreed fact.',exz:'免費食物有廣泛吸引力，這是唯一一個大家都同意的事實。'},
+    {e:'appeal to sb\'s sense of adventure',z:'訴諸冒險精神',ex:'The teacher appealed to students\' sense of adventure by calling the exam "a challenge."',exz:'老師把考試稱為「一項挑戰」，訴諸學生的冒險精神。'},
+    {e:'file an appeal',z:'提出上訴',ex:'He filed an appeal on the grade. The appeal was denied. He filed another one.',exz:'他對成績提出申訴，申訴被駁回，他又提了一次。'}
   ]},
   {w:'benefit',pos:'n./v.',zh:'利益；受益',tip:'mutual benefit 比 both sides gain 更正式',colls:[
-    {e:'for the benefit of sb',z:'為了某人的利益'},{e:'benefit from sth',z:'受益於某事'},
-    {e:'mutual benefit',z:'互利（✏ 議論文標準詞）'},{e:'benefit of the doubt',z:'暫且相信'}
+    {e:'for the benefit of sb',z:'為了某人的利益',ex:'She repeated the instructions for the benefit of those who had been on their phones.',exz:'她為了那些一直在滑手機的人，重新說明了一次指示。'},
+    {e:'benefit from sth',z:'受益於某事',ex:'He benefited greatly from the extra time — mostly by watching more YouTube.',exz:'他從多出來的時間中獲益良多，主要是多看了一些 YouTube。'},
+    {e:'mutual benefit',z:'互利（✏ 議論文標準詞）',ex:'The partnership was for mutual benefit: she did the work, he brought snacks.',exz:'這是一個互利的合作：她負責做事，他負責帶零食。'},
+    {e:'benefit of the doubt',z:'暫且相信',ex:'She gave him the benefit of the doubt. Twice. Never again.',exz:'她給了他兩次暫且相信的機會，從此再也不給了。'}
   ]}
 ]},
 {lv:'L3',id:'L3U2b',label:'L3 Unit 3–5 (2)',badge:'lv3',words:[
   {w:'credit',pos:'n./v.',zh:'信用；功勞；歸功於',colls:[
-    {e:'give credit where credit is due',z:'該給的讚美要給'},{e:'credit sth to sb',z:'把功勞歸於某人'},
-    {e:'all the credit goes to…',z:'一切功勞都歸於…'},{e:'take credit for',z:'居功'}
+    {e:'give credit where credit is due',z:'該給的讚美要給',ex:'Give credit where credit is due — she stayed up all night and the presentation was perfect.',exz:'該給的讚美要給，她熬了一整夜，簡報做得完美。'},
+    {e:'credit sth to sb',z:'把功勞歸於某人',ex:'He credited the project\'s success to teamwork. The team credited it to her.',exz:'他把計畫的成功歸功於團隊合作，團隊把功勞歸給她。'},
+    {e:'all the credit goes to…',z:'一切功勞都歸於…',ex:'"All the credit goes to my team," she said, having done 90% of the work herself.',exz:'「所有功勞都歸於我的團隊，」她說，儘管她自己做了九成的工作。'},
+    {e:'take credit for',z:'居功',ex:'He took credit for the idea in the meeting. She had emailed it two weeks earlier.',exz:'他在會議上居功說是他的想法，她兩週前就在郵件裡提過了。'}
   ]},
   {w:'mend',pos:'v.',zh:'修復；改善',colls:[
-    {e:'mend fences with sb',z:'重修舊好（比喻）'},{e:'be on the mend',z:'正在康復中'},
-    {e:'mend a broken heart',z:'撫平傷心'},{e:'mend one\'s ways',z:'改過自新'}
+    {e:'mend fences with sb',z:'重修舊好（比喻）',ex:'They mended fences over coffee. The fence broke again by dessert.',exz:'他們喝咖啡時重修舊好，甜點上來之前又鬧翻了。'},
+    {e:'be on the mend',z:'正在康復中',ex:'He was on the mend from exam stress, until the results came out.',exz:'他正在從考試壓力中康復，直到成績出來。'},
+    {e:'mend a broken heart',z:'撫平傷心',ex:'She mended her broken heart with bubble tea, good friends, and a new playlist.',exz:'她用手搖飲、好朋友和新的播放清單撫平了傷心。'},
+    {e:'mend one\'s ways',z:'改過自新',ex:'He promised to mend his ways and submit on time. The next deadline came and went.',exz:'他承諾改過自新、按時繳交，下個截止日期來了又走了。'}
   ]},
   {w:'vision',pos:'n.',zh:'願景；遠見',colls:[
-    {e:'envision a better life',z:'構想更好的生活（✏ 作文結語）'},{e:'a visionary leader',z:'有遠見的領導者'},
-    {e:'have a vision for',z:'對…有願景'},{e:'broaden one\'s vision',z:'拓展視野'}
+    {e:'envision a better life',z:'構想更好的生活（✏ 作文結語）',ex:'She envisioned a better life — one where the Wi-Fi never disconnected during an exam.',exz:'她構想了一個更好的生活，一個考試時 Wi-Fi 永遠不斷線的生活。'},
+    {e:'a visionary leader',z:'有遠見的領導者',ex:'A visionary leader sees ten years ahead. He couldn\'t find his keys.',exz:'有遠見的領導者能看見十年後，他連自己的鑰匙都找不到。'},
+    {e:'have a vision for',z:'對…有願景',ex:'She had a vision for the project. Nobody shared it. She did it alone.',exz:'她對這個計畫有願景，沒有人理解，她自己一個人做完了。'},
+    {e:'broaden one\'s vision',z:'拓展視野',ex:'Travel broadens your vision, she said, before getting lost on the first day.',exz:'旅行可以拓展視野，她說，然後第一天就迷路了。'}
   ]}
 ]},
 {lv:'L3',id:'L3U3a',label:'L3 Unit 6–9 (1)',badge:'lv3',words:[
   {w:'shadow',pos:'n./v.',zh:'陰影；遮蔽',colls:[
-    {e:'cast a shadow over sth',z:'使某事蒙上陰影（✏ 比喻必學）'},{e:'in the shadow of…',z:'在…的陰影下'},
-    {e:'a shadow of doubt',z:'一絲懷疑'},{e:'overshadow',z:'使黯然失色'}
+    {e:'cast a shadow over sth',z:'使某事蒙上陰影（✏ 比喻必學）',ex:'The surprise quiz cast a shadow over what had been a perfectly fine Monday.',exz:'突擊考試讓原本還算不錯的星期一蒙上了陰影。'},
+    {e:'in the shadow of…',z:'在…的陰影下',ex:'Growing up in the shadow of a perfect sibling is a full-time emotional job.',exz:'在一個完美兄弟姊妹的陰影下長大，是一份全職的情緒工作。'},
+    {e:'a shadow of doubt',z:'一絲懷疑',ex:'There was not a shadow of doubt that he had eaten the last slice of pizza.',exz:'毫無疑問，最後一片披薩是他吃掉的。'},
+    {e:'overshadow',z:'使黯然失色',ex:'Her perfect score overshadowed everyone else\'s efforts. She was very calm about it.',exz:'她的滿分讓其他人的努力黯然失色，她本人非常淡定。'}
   ]},
   {w:'comfort',pos:'n./v.',zh:'安慰；舒適',colls:[
-    {e:'find comfort in sth',z:'在某事中找到安慰'},{e:'comfort food',z:'療癒食物'},
-    {e:'take comfort in',z:'從…中得到寬慰'},{e:'a comfort zone',z:'舒適圈'}
+    {e:'find comfort in sth',z:'在某事中找到安慰',ex:'She found comfort in reorganizing her desk instead of starting the essay.',exz:'她在重新整理書桌中找到了安慰，而不是開始寫報告。'},
+    {e:'comfort food',z:'療癒食物',ex:'His comfort food was instant noodles. He ate them before exams, after exams, and during exams.',exz:'他的療癒食物是泡麵，考試前吃、考試後吃、考試中也吃。'},
+    {e:'take comfort in',z:'從…中得到寬慰',ex:'She took comfort in the fact that at least she wasn\'t the only one who failed.',exz:'她從「至少不是只有她一個人不及格」這件事中得到了一點寬慰。'},
+    {e:'a comfort zone',z:'舒適圈',ex:'He stepped out of his comfort zone and raised his hand in class. Once. Never again.',exz:'他踏出舒適圈，在課堂上舉了手，一次，從此再也不舉了。'}
   ]},
   {w:'scale',pos:'n./v.',zh:'規模；比例；攀爬',colls:[
-    {e:'on a large/small scale',z:'大規模／小規模'},{e:'economies of scale',z:'規模經濟'},
-    {e:'tip the scales in sb\'s favor',z:'使某人佔上風'},{e:'scale up / down',z:'擴大／縮小規模'}
+    {e:'on a large/small scale',z:'大規模／小規模',ex:'The chaos was happening on a surprisingly large scale for a single group project.',exz:'對於一個團體報告來說，這場混亂的規模出乎意料地大。'},
+    {e:'economies of scale',z:'規模經濟',ex:'Buying 10 bags of chips is not economies of scale. It\'s a cry for help.',exz:'一次買十包洋芋片不是規模經濟，那是在發出求救信號。'},
+    {e:'tip the scales in sb\'s favor',z:'使某人佔上風',ex:'The last-minute extra slide tipped the scales in her favor. Barely.',exz:'最後一刻加進去的那一頁簡報，讓她以些微優勢占了上風。'},
+    {e:'scale up / down',z:'擴大／縮小規模',ex:'He scaled down his ambitions after realizing the project was due tomorrow.',exz:'得知計畫明天就要交之後，他大幅縮小了自己的野心。'}
   ]}
 ]},
 {lv:'L3',id:'L3U3b',label:'L3 Unit 6–9 (2)',badge:'lv3',words:[
   {w:'fuel',pos:'n./v.',zh:'燃料；激化',colls:[
-    {e:'fuel a conflict',z:'激化衝突'},{e:'add fuel to the fire',z:'火上加油'},
-    {e:'fuel one\'s imagination',z:'激發想像力（✏ 作文好詞）'},{e:'fuel growth',z:'推動成長'}
+    {e:'fuel a conflict',z:'激化衝突',ex:'His "I was just joking" comment fuelled the conflict rather than ending it.',exz:'他那句「我只是在開玩笑」激化了衝突，而不是平息了它。'},
+    {e:'add fuel to the fire',z:'火上加油',ex:'He added fuel to the fire by pointing out she was overreacting. She was not.',exz:'他說她反應過度，火上加油，她並沒有反應過度。'},
+    {e:'fuel one\'s imagination',z:'激發想像力（✏ 作文好詞）',ex:'Boredom fuels imagination. She designed three apps during the lecture.',exz:'無聊激發了想像力，她在那堂課上設計了三個 app。'},
+    {e:'fuel growth',z:'推動成長',ex:'Failure fuels growth, they said. She was growing a lot that semester.',exz:'他們說失敗推動成長，她那學期成長了很多。'}
   ]},
   {w:'risk',pos:'n./v.',zh:'風險；冒險',colls:[
-    {e:'take a risk',z:'冒險'},{e:'at risk',z:'處於危險中'},
-    {e:'run the risk of sth',z:'有…的風險'},{e:'at one\'s own risk',z:'自行承擔風險'}
+    {e:'take a risk',z:'冒險',ex:'She took a risk and didn\'t proofread the email before sending. Big mistake.',exz:'她冒了個險，沒有校對就把郵件寄出去了，大錯。'},
+    {e:'at risk',z:'處於危險中',ex:'His grade was at risk after he submitted the wrong file. The right file was open the whole time.',exz:'他提交了錯誤的檔案，成績因此面臨危險，正確的檔案一直開著。'},
+    {e:'run the risk of sth',z:'有…的風險',ex:'Skipping breakfast runs the risk of making every class feel like a survival challenge.',exz:'不吃早餐會有讓每堂課都感覺像生存挑戰的風險。'},
+    {e:'at one\'s own risk',z:'自行承擔風險',ex:'"Enter the group project at your own risk," should be printed on every syllabus.',exz:'「加入團體報告風險自負」這句話應該印在每份課程大綱上。'}
   ]},
   {w:'dare',pos:'v./n.',zh:'敢；挑戰',colls:[
-    {e:'dare to dream',z:'敢於夢想（✏ 結尾金句）'},{e:'How dare you…',z:'你怎麼敢…（強烈語氣）'},
-    {e:'dare sb to do sth',z:'激將某人做某事'},{e:'I dare say',z:'我敢說…'}
+    {e:'dare to dream',z:'敢於夢想（✏ 結尾金句）',ex:'Dare to dream, they said. She dreamed of a world without group projects.',exz:'勇於夢想，他們說，她夢想著一個沒有團體報告的世界。'},
+    {e:'How dare you…',z:'你怎麼敢…（強烈語氣）',ex:'"How dare you eat my yogurt" — written on a note left in the shared fridge.',exz:'「你怎麼敢吃我的優格」——寫在共用冰箱裡留的字條上。'},
+    {e:'dare sb to do sth',z:'激將某人做某事',ex:'He dared her to ask the question everyone was thinking. She did. The teacher was not pleased.',exz:'他激她問出大家心裡都有的問題，她問了，老師不太高興。'},
+    {e:'I dare say',z:'我敢說…',ex:'I dare say this is the longest essay I\'ve ever written — said no student ever, voluntarily.',exz:'「我敢說這是我寫過最長的報告」——從來沒有學生是自願說這句話的。'}
   ]}
 ]},
 {lv:'L3',id:'L3U3c',label:'L3 Unit 6–9 (3)',badge:'lv3',words:[
   {w:'odd',pos:'adj./n.',zh:'奇怪的；奇數；勝算',colls:[
-    {e:'against all odds',z:'克服萬難（✏ 高分慣用語）'},{e:'the odds are against sb',z:'形勢對某人不利'},
-    {e:'odd one out',z:'格格不入的人'},{e:'at odd moments',z:'偶爾'}
+    {e:'against all odds',z:'克服萬難（✏ 高分慣用語）',ex:'Against all odds, he finished the essay on time. The printer jammed twice.',exz:'他克服萬難，按時完成了報告，印表機卡了兩次紙。'},
+    {e:'the odds are against sb',z:'形勢對某人不利',ex:'The odds were against her: no sleep, wrong notes, wrong classroom. She passed anyway.',exz:'形勢對她極為不利：沒睡覺、帶錯筆記、走錯教室，她還是通過了。'},
+    {e:'odd one out',z:'格格不入的人',ex:'He was the odd one out — the only person who had actually read the assigned article.',exz:'他是格格不入的那個人，唯一真的讀了指定文章的人。'},
+    {e:'at odd moments',z:'偶爾',ex:'At odd moments, she actually enjoyed studying. She kept this information to herself.',exz:'偶爾，她其實挺享受讀書的，她把這個秘密藏在心底。'}
   ]},
   {w:'dawn',pos:'n./v.',zh:'黎明；開端；意識到',colls:[
-    {e:'it dawns on sb (that…)',z:'某人突然意識到…（✏ 轉折）'},{e:'the dawn of a new era',z:'新時代的開始'},
-    {e:'from dawn to dusk',z:'從早到晚'},{e:'at the crack of dawn',z:'破曉時分'}
+    {e:'it dawns on sb (that…)',z:'某人突然意識到…（✏ 轉折）',ex:'It slowly dawned on him that the exam was today, not tomorrow.',exz:'他慢慢意識到考試是今天，不是明天。'},
+    {e:'the dawn of a new era',z:'新時代的開始',ex:'Getting a coffee machine in the office marked the dawn of a new era in productivity.',exz:'辦公室裝了咖啡機，標誌著生產力新時代的開始。'},
+    {e:'from dawn to dusk',z:'從早到晚',ex:'She studied from dawn to dusk. She also checked her phone from dawn to dusk.',exz:'她從早到晚讀書，她也從早到晚在滑手機。'},
+    {e:'at the crack of dawn',z:'破曉時分',ex:'He woke up at the crack of dawn to study. He fell back asleep within minutes.',exz:'他在破曉時分爬起來讀書，幾分鐘後就又睡著了。'}
   ]},
   {w:'bang',pos:'n./v.',zh:'爆響；猛撞',colls:[
-    {e:'go out with a bang',z:'精彩結束、熱鬧收場'},{e:'bang for one\'s buck',z:'物超所值'},
-    {e:'with a bang',z:'轟轟烈烈地'},{e:'bang on',z:'完全正確（英式）'}
+    {e:'go out with a bang',z:'精彩結束、熱鬧收場',ex:'She wanted to go out with a bang on her last day. She accidentally set off the fire alarm.',exz:'她想在最後一天轟轟烈烈地離開，結果不小心觸發了火警警報。'},
+    {e:'bang for one\'s buck',z:'物超所值',ex:'All-you-can-eat hot pot is the best bang for your buck — if you skip lunch beforehand.',exz:'吃到飽火鍋是最物超所值的選擇，前提是你要先跳過午餐。'},
+    {e:'with a bang',z:'轟轟烈烈地',ex:'The semester started with a bang — three assignments due in the first week.',exz:'這學期以轟轟烈烈的方式開始，第一週就有三份作業要交。'},
+    {e:'bang on',z:'完全正確（英式）',ex:'Her prediction was bang on: the exam was harder than anyone expected.',exz:'她的預測完全正確：考試比任何人預期的都要難。'}
   ]}
 ]},
 {lv:'L3',id:'L3U4a',label:'L3 Unit 10–13 (1)',badge:'lv3',words:[
   {w:'rank',pos:'v./n.',zh:'排名；地位',colls:[
-    {e:'rank among the best',z:'名列前茅（✏ 開門見山）'},{e:'rise through the ranks',z:'一路升遷'},
-    {e:'top-ranked',z:'名列前茅的'},{e:'rank high / low',z:'排名高／低'}
+    {e:'rank among the best',z:'名列前茅（✏ 開門見山）',ex:'She ranked among the best in the class — a fact she mentioned only seventeen times that day.',exz:'她名列班上前茅，那天她只提到這件事十七次。'},
+    {e:'rise through the ranks',z:'一路升遷',ex:'He rose through the ranks by always volunteering for tasks nobody else wanted.',exz:'他靠著永遠自願承擔沒人想做的任務，一路升遷。'},
+    {e:'top-ranked',z:'名列前茅的',ex:'The top-ranked student arrived late. Nobody was surprised.',exz:'名列前茅的學生遲到了，沒有人感到驚訝。'},
+    {e:'rank high / low',z:'排名高／低',ex:'His essay ranked low on structure but high on passion. Mostly panic, actually.',exz:'他的文章結構排名低，但熱情分數高，其實主要是恐慌。'}
   ]},
   {w:'assume',pos:'v.',zh:'假設；承擔；就任',colls:[
-    {e:'assume responsibility',z:'承擔責任'},{e:'assume power/office',z:'就任、掌權'},
-    {e:'assume an attitude/air',z:'擺出某種態度'},{e:'it is safe to assume',z:'可以合理假設'}
+    {e:'assume responsibility',z:'承擔責任',ex:'Nobody assumed responsibility for the failed project. Somehow it was everyone\'s fault equally.',exz:'沒有人承擔這個失敗計畫的責任，但不知為何每個人都一樣有罪。'},
+    {e:'assume power/office',z:'就任、掌權',ex:'The new class president assumed office and immediately changed the snack policy.',exz:'新班長就任後，立刻更改了零食規定。'},
+    {e:'assume an attitude/air',z:'擺出某種態度',ex:'He assumed an air of calm confidence during the presentation. Inside: pure chaos.',exz:'他在簡報時擺出一副冷靜自信的態度，內心：一片混亂。'},
+    {e:'it is safe to assume',z:'可以合理假設',ex:'It is safe to assume that nobody read the 40-page report before the meeting.',exz:'可以合理假設，會議前沒有人讀了那份四十頁的報告。'}
   ]},
   {w:'stir',pos:'v./n.',zh:'激起；騷動',colls:[
-    {e:'cause a stir',z:'引起轟動'},{e:'stir one\'s emotions',z:'觸動情感'},
-    {e:'stir up controversy',z:'掀起爭議'},{e:'stir sb into action',z:'激勵某人採取行動'}
+    {e:'cause a stir',z:'引起轟動',ex:'His outfit caused a stir. He had worn pajamas to the presentation.',exz:'他的穿著引起了轟動，他穿著睡衣來做簡報。'},
+    {e:'stir one\'s emotions',z:'觸動情感',ex:'The movie stirred her emotions so deeply she cried twice — once for the dog, once for the ending.',exz:'這部電影深深觸動了她的情感，她哭了兩次，一次為了那隻狗，一次為了結局。'},
+    {e:'stir up controversy',z:'掀起爭議',ex:'His opinion on the cafeteria pasta stirred up more controversy than expected.',exz:'他對食堂義大利麵的看法，掀起了超乎預期的爭議。'},
+    {e:'stir sb into action',z:'激勵某人採取行動',ex:'The approaching deadline stirred the whole group into action. Finally.',exz:'逼近的截止日期終於激勵了整個小組採取行動。'}
   ]}
 ]},
 {lv:'L3',id:'L3U4b',label:'L3 Unit 10–13 (2)',badge:'lv3',words:[
   {w:'cast',pos:'v.',zh:'投射；投票；選角',colls:[
-    {e:'cast a shadow over sth',z:'帶來負面影響（✏ 比喻必學）'},{e:'cast doubt on sth',z:'對…產生懷疑（✏ 高頻）'},
-    {e:'cast a vote',z:'投票'},{e:'cast aside',z:'拋棄'}
+    {e:'cast a shadow over sth',z:'帶來負面影響（✏ 比喻必學）',ex:'One bad group member cast a shadow over the entire project experience.',exz:'一個表現糟糕的組員讓整個計畫體驗蒙上了陰影。'},
+    {e:'cast doubt on sth',z:'對…產生懷疑（✏ 高頻）',ex:'His confident tone cast doubt on whether he had actually read the question.',exz:'他自信的語氣讓人懷疑他是否真的讀懂了題目。'},
+    {e:'cast a vote',z:'投票',ex:'They cast a vote on where to eat. It ended in a tie. They stood outside for 20 minutes.',exz:'他們投票決定去哪裡吃飯，結果平票，站在外面二十分鐘。'},
+    {e:'cast aside',z:'拋棄',ex:'He cast aside his study plan on day two. It was a very detailed plan.',exz:'他在第二天就拋棄了讀書計畫，那是一份非常詳細的計畫。'}
   ]},
   {w:'presence',pos:'n.',zh:'存在；出席；氣場',colls:[
-    {e:'in the presence of sb',z:'在某人面前'},{e:'make your presence felt',z:'讓人感受到存在感'},
-    {e:'a strong police presence',z:'強大的警力存在'},{e:'stage presence',z:'舞台魅力'}
+    {e:'in the presence of sb',z:'在某人面前',ex:'In the presence of the professor, he suddenly forgot everything he had studied.',exz:'在教授面前，他突然忘記了所有讀過的東西。'},
+    {e:'make your presence felt',z:'讓人感受到存在感',ex:'She made her presence felt the moment she walked in — she was carrying food.',exz:'她一走進來就讓人感受到她的存在，因為她帶了食物。'},
+    {e:'a strong police presence',z:'強大的警力存在',ex:'There was a strong police presence at the event, which turned out to be a book fair.',exz:'活動現場有強大的警力，結果那只是一個書展。'},
+    {e:'stage presence',z:'舞台魅力',ex:'He had incredible stage presence — mostly because he tripped walking up and recovered perfectly.',exz:'他有著驚人的舞台魅力，主要是因為他走上台時絆倒了，但完美地恢復了。'}
   ]},
   {w:'bitter',pos:'adj.',zh:'苦澀的；激烈的',colls:[
-    {e:'a bitter conflict',z:'激烈的衝突'},{e:'bitter cold',z:'刺骨的寒冷'},
-    {e:'fight to the bitter end',z:'奮戰到底（✏ 高分慣用語）'},{e:'leave a bitter taste',z:'留下不快的印象'}
+    {e:'a bitter conflict',z:'激烈的衝突',ex:'A bitter conflict broke out over who forgot to save the shared document.',exz:'因為有人忘了儲存共用文件，一場激烈的衝突爆發了。'},
+    {e:'bitter cold',z:'刺骨的寒冷',ex:'The bitter cold outside made staying in bed the only rational decision.',exz:'外面刺骨的寒冷讓賴在床上成為唯一理性的選擇。'},
+    {e:'fight to the bitter end',z:'奮戰到底（✏ 高分慣用語）',ex:'She fought to the bitter end against the auto-correct. Auto-correct won.',exz:'她奮戰到底，對抗自動更正功能，自動更正贏了。'},
+    {e:'leave a bitter taste',z:'留下不快的印象',ex:'Getting the answer right but losing points for formatting left a bitter taste.',exz:'答案對了卻因為格式扣分，讓人心裡很不是滋味。'}
   ]}
 ]},
 {lv:'L3',id:'L3U5a',label:'L3 Unit 14–24 (1)',badge:'lv3',words:[
   {w:'leap',pos:'v./n.',zh:'跳躍；飛躍',colls:[
-    {e:'a leap in technology',z:'技術上的飛躍（✏ 作文好詞）'},{e:'a giant leap for mankind',z:'人類的一大飛躍'},
-    {e:'heart leaps',z:'心臟猛跳（驚喜或興奮）'},{e:'a leap of faith',z:'信念上的躍進'}
+    {e:'a leap in technology',z:'技術上的飛躍（✏ 作文好詞）',ex:'The new software was marketed as a leap in technology. It crashed on day one.',exz:'這款新軟體被宣傳為技術上的飛躍，第一天就當機了。'},
+    {e:'a giant leap for mankind',z:'人類的一大飛躍',ex:'Inventing the snooze button was a giant leap for mankind. Productivity disagreed.',exz:'發明貪睡按鈕是人類的一大飛躍，生產力對此持不同意見。'},
+    {e:'heart leaps',z:'心臟猛跳（驚喜或興奮）',ex:'Her heart leapt when she saw the email subject — then sank when she read the content.',exz:'她看到郵件主旨時心臟猛跳，讀完內容後又沉了下去。'},
+    {e:'a leap of faith',z:'信念上的躍進',ex:'Joining the group project was a leap of faith. She landed badly.',exz:'加入這個團體報告是一次信念上的躍進，她摔得很重。'}
   ]},
   {w:'grasp',pos:'v./n.',zh:'理解；緊握；掌握',colls:[
-    {e:'grasp the meaning/idea',z:'理解意義／概念'},{e:'within sb\'s grasp',z:'在某人掌握之內'},
-    {e:'beyond sb\'s grasp',z:'超出某人掌握（比喻）'},{e:'grasp an opportunity',z:'把握機會'}
+    {e:'grasp the meaning/idea',z:'理解意義／概念',ex:'He grasped the idea immediately and explained it back completely wrong.',exz:'他立刻理解了這個概念，然後完全錯誤地解釋了出來。'},
+    {e:'within sb\'s grasp',z:'在某人掌握之內',ex:'An A grade was within her grasp — if she had started two days earlier.',exz:'A 的成績本在她的掌握之內，如果她早兩天開始的話。'},
+    {e:'beyond sb\'s grasp',z:'超出某人掌握（比喻）',ex:'Why the printer always jams on deadline day remains beyond anyone\'s grasp.',exz:'為什麼印表機永遠在截止日當天卡紙，這至今超出所有人的理解。'},
+    {e:'grasp an opportunity',z:'把握機會',ex:'She grasped the opportunity to speak first and immediately set the bar very high.',exz:'她把握機會第一個發言，立刻把標準設得非常高。'}
   ]},
   {w:'flood',pos:'v./n.',zh:'洪水；湧入',colls:[
-    {e:'a flood of tears',z:'淚如雨下（✏ 敘述文）'},{e:'be flooded with sth',z:'被…淹沒（訊息、工作）'},
-    {e:'flood the market',z:'充斥市場'},{e:'flood of memories',z:'記憶如潮湧來'}
+    {e:'a flood of tears',z:'淚如雨下（✏ 敘述文）',ex:'A flood of tears followed the season finale. She had been warned about the ending.',exz:'季末集結束後淚如雨下，有人早就警告過她結局了。'},
+    {e:'be flooded with sth',z:'被…淹沒（訊息、工作）',ex:'She was flooded with messages after accidentally texting the whole class instead of one person.',exz:'她不小心傳訊給全班而不是單一個人，之後被訊息淹沒了。'},
+    {e:'flood the market',z:'充斥市場',ex:'Cheap productivity apps flooded the market. None of them made anyone more productive.',exz:'廉價的生產力 app 充斥市場，沒有一個讓任何人真的更有生產力。'},
+    {e:'flood of memories',z:'記憶如潮湧來',ex:'A flood of memories hit her when she found her old exam papers. Mostly bad memories.',exz:'找到舊考卷時，記憶如潮湧來，大多是不好的記憶。'}
   ]}
 ]},
 {lv:'L3',id:'L3U5b',label:'L3 Unit 14–24 (2)',badge:'lv3',words:[
   {w:'bind',pos:'v.',zh:'綁；約束；團結',colls:[
-    {e:'bind people together',z:'團結人心（✏ 作文主題句）'},{e:'be bound by law/contract',z:'受法律／契約約束'},
-    {e:'bound to do sth',z:'必定會做某事'},{e:'bound by duty',z:'受責任約束'}
+    {e:'bind people together',z:'團結人心（✏ 作文主題句）',ex:'Shared suffering binds people together. That\'s why group projects create lifelong friendships.',exz:'共同的苦難把人們綁在一起，這就是為什麼團體報告會創造終身的友誼。'},
+    {e:'be bound by law/contract',z:'受法律／契約約束',ex:'He was bound by contract to finish the project. He finished it 4 minutes before the deadline.',exz:'他受契約約束必須完成這個計畫，他在截止前四分鐘完成了。'},
+    {e:'bound to do sth',z:'必定會做某事',ex:'With that much coffee, he was bound to crash by 3pm.',exz:'喝了那麼多咖啡，他下午三點必定會崩潰。'},
+    {e:'bound by duty',z:'受責任約束',ex:'She felt bound by duty to answer every student email — even the ones sent at midnight.',exz:'她覺得有責任回覆每一封學生郵件，包括午夜寄來的那些。'}
   ]},
   {w:'pave',pos:'v.',zh:'鋪路；開路',colls:[
-    {e:'pave the way for sth',z:'為某事鋪路（✏ 必學）'},{e:'pave the road to success',z:'鋪就成功之路'},
-    {e:'pave over',z:'用鋪路覆蓋（比喻抹去）'},{e:'well-paved path',z:'平坦的道路（比喻）'}
+    {e:'pave the way for sth',z:'為某事鋪路（✏ 必學）',ex:'Her first terrible draft paved the way for the actually decent final version.',exz:'她第一份糟糕透頂的草稿，為最終還不錯的版本鋪了路。'},
+    {e:'pave the road to success',z:'鋪就成功之路',ex:'Countless failed attempts paved the road to success. The road was very long.',exz:'無數次失敗嘗試鋪就了成功之路，那條路非常長。'},
+    {e:'pave over',z:'用鋪路覆蓋（比喻抹去）',ex:'He tried to pave over the awkward silence with a joke. It made things worse.',exz:'他試圖用一個笑話掩蓋尷尬的沉默，結果讓情況更糟了。'},
+    {e:'well-paved path',z:'平坦的道路（比喻）',ex:'She chose the well-paved path and played it safe. She got a solid B.',exz:'她選擇了走平坦的路，求穩，拿到了一個穩定的 B。'}
   ]},
   {w:'flock',pos:'v./n.',zh:'聚集；群',colls:[
-    {e:'flock to a place',z:'蜂擁至某地（✏ 幾乎必考）'},{e:'flock together',z:'聚集在一起'},
-    {e:'birds of a feather flock together',z:'物以類聚'},{e:'a flock of tourists',z:'一群遊客'}
+    {e:'flock to a place',z:'蜂擁至某地（✏ 幾乎必考）',ex:'Students flocked to the library the night before finals. The seats were gone by 8am.',exz:'期末考前一晚學生們蜂擁至圖書館，早上八點就沒有位子了。'},
+    {e:'flock together',z:'聚集在一起',ex:'Night owls flock together — usually in the 24-hour section of the library.',exz:'夜貓子們聚在一起，通常是在圖書館的二十四小時區。'},
+    {e:'birds of a feather flock together',z:'物以類聚',ex:'Birds of a feather flock together: all the procrastinators ended up in the same study group.',exz:'物以類聚：所有拖延症患者最後都進了同一個讀書小組。'},
+    {e:'a flock of tourists',z:'一群遊客',ex:'A flock of tourists arrived at the café simultaneously. The barista did not look happy.',exz:'一群遊客同時抵達咖啡廳，咖啡師看起來不太開心。'}
   ]}
 ]},
 {lv:'L3',id:'L3U5c',label:'L3 Unit 14–24 (3)',badge:'lv3',words:[
   {w:'tap',pos:'v./n.',zh:'輕拍；利用；水龍頭',colls:[
-    {e:'tap into resources',z:'利用資源（✏ 政策類）'},{e:'tap into potential',z:'發掘潛力'},
-    {e:'tap a market',z:'開拓市場'},{e:'on tap',z:'隨時可用'}
+    {e:'tap into resources',z:'利用資源（✏ 政策類）',ex:'She tapped into every available resource — including her friend who had taken the course last year.',exz:'她利用了所有可用的資源，包括去年修過這門課的朋友。'},
+    {e:'tap into potential',z:'發掘潛力',ex:'The coach tapped into his potential by simply asking him to try. Nobody had done that before.',exz:'教練只是請他試試看，就發掘了他的潛力，以前從來沒有人這樣做過。'},
+    {e:'tap a market',z:'開拓市場',ex:'She tapped the midnight snack market by delivering chips to the dorms. Brilliant.',exz:'她向宿舍送洋芋片，開拓了深夜零食市場，太聰明了。'},
+    {e:'on tap',z:'隨時可用',ex:'With notes on her phone, information was on tap at all times. Except during the exam.',exz:'手機裡有筆記，資訊隨時可用，考試時除外。'}
   ]},
   {w:'snap',pos:'v./n.',zh:'折斷；倉促決定',colls:[
-    {e:'snap under pressure',z:'壓力下崩潰'},{e:'a snap decision',z:'倉促的決定（✏ 高頻）'},
-    {e:'snap out of it',z:'振作起來'},{e:'snap judgement',z:'草率的判斷'}
+    {e:'snap under pressure',z:'壓力下崩潰',ex:'He snapped under pressure and submitted the rough draft by mistake. It got a B+.',exz:'他在壓力下崩潰，不小心提交了草稿，拿了個 B+。'},
+    {e:'a snap decision',z:'倉促的決定（✏ 高頻）',ex:'Joining the committee was a snap decision. He regretted it for the rest of the semester.',exz:'加入委員會是一個倉促的決定，他後悔了整個學期。'},
+    {e:'snap out of it',z:'振作起來',ex:'She told herself to snap out of it and start the essay. She made tea instead.',exz:'她告訴自己要振作起來開始寫報告，然後去泡了茶。'},
+    {e:'snap judgement',z:'草率的判斷',ex:'His snap judgement that the project was easy cost him three sleepless nights.',exz:'他草率判斷這個計畫很簡單，結果換來了三個不眠之夜。'}
   ]},
   {w:'cradle',pos:'n./v.',zh:'搖籃；發源地',colls:[
-    {e:'the cradle of civilization',z:'文明的搖籃（✏ 必背）'},{e:'from cradle to grave',z:'從搖籃到墳墓（一生）'},
-    {e:'cradle of democracy',z:'民主的搖籃'},{e:'rock the cradle',z:'搖搖籃；影響下一代'}
+    {e:'the cradle of civilization',z:'文明的搖籃（✏ 必背）',ex:'The library is the cradle of civilization — or it would be if people stopped talking on the phone in it.',exz:'圖書館是文明的搖籃，如果人們不在裡面講電話的話。'},
+    {e:'from cradle to grave',z:'從搖籃到墳墓（一生）',ex:'From cradle to grave, humans seek comfort food. Science confirms this.',exz:'人類從搖籃到墳墓都在尋找療癒食物，科學證實了這一點。'},
+    {e:'cradle of democracy',z:'民主的搖籃',ex:'The student council called itself the cradle of democracy. Elections were uncontested.',exz:'學生會稱自己為民主的搖籃，選舉是無競爭的。'},
+    {e:'rock the cradle',z:'搖搖籃；影響下一代',ex:'Great teachers rock the cradle of the next generation. So do great textbooks.',exz:'偉大的老師塑造下一代，好的教科書也是。'}
   ]}
 ]},
 
 // ════════════ LEVEL 4 ════════════
 {lv:'L4',id:'L4U1a',label:'L4 Unit 1–2 (1)',badge:'lv4',words:[
   {w:'economy',pos:'n.',zh:'經濟；節省',colls:[
-    {e:'boost / stimulate the economy',z:'刺激經濟（✏ 政策類必備）'},{e:'a thriving economy',z:'蓬勃的經濟'},
-    {e:'economy of scale',z:'規模經濟'},{e:'gig economy',z:'零工經濟'}
+    {e:'boost / stimulate the economy',z:'刺激經濟（✏ 政策類必備）',ex:'The government tried to boost the economy. The economy had other plans.',exz:'政府試圖刺激經濟，經濟有它自己的打算。'},
+    {e:'a thriving economy',z:'蓬勃的經濟',ex:'A thriving economy sounds great in theory. In practice, rent still goes up.',exz:'蓬勃的經濟聽起來很好，在現實中，房租還是漲了。'},
+    {e:'economy of scale',z:'規模經濟',ex:'Buying 50 pens because they were cheaper per unit is not economy of scale. It\'s a problem.',exz:'因為單價更便宜而買了五十支筆，這不是規模經濟，這是個問題。'},
+    {e:'gig economy',z:'零工經濟',ex:'He thrived in the gig economy — three part-time jobs and zero time to spend the money.',exz:'他在零工經濟中如魚得水，三份兼職，零時間花錢。'}
   ]},
   {w:'evident',pos:'adj.',zh:'明顯的；顯而易見的',colls:[
-    {e:'be evident (to sb)',z:'對某人來說是明顯的'},{e:'evident tension / improvement',z:'明顯的緊張感／改善'},
-    {e:'it is evident that',z:'顯而易見…'},{e:'self-evident',z:'不言而喻的'}
+    {e:'be evident (to sb)',z:'對某人來說是明顯的',ex:'It was evident to everyone that he hadn\'t prepared — except to him.',exz:'所有人都看得出來他沒有準備，除了他自己。'},
+    {e:'evident tension / improvement',z:'明顯的緊張感／改善',ex:'There was evident tension in the group chat after someone sent a voice message.',exz:'有人傳了語音訊息後，群組裡出現了明顯的緊張感。'},
+    {e:'it is evident that',z:'顯而易見…',ex:'It is evident that the printer only jams when you are already late.',exz:'顯而易見，印表機只在你已經遲到時才會卡紙。'},
+    {e:'self-evident',z:'不言而喻的',ex:'It seemed self-evident that the meeting could have been an email. Nobody said it out loud.',exz:'這場會議完全可以用郵件代替，這是不言而喻的，但沒有人說出口。'}
   ]},
   {w:'labor',pos:'n./v.',zh:'勞動；努力',colls:[
-    {e:'manual labor',z:'體力工作'},{e:'labor under a burden',z:'背負重擔（比喻）'},
-    {e:'labor force',z:'勞動力'},{e:'child labor',z:'童工'}
+    {e:'manual labor',z:'體力工作',ex:'He considered moving furniture "manual labor" and charged accordingly.',exz:'他認為搬家具是「體力工作」，收費也相應地收了。'},
+    {e:'labor under a burden',z:'背負重擔（比喻）',ex:'She labored under the burden of three deadlines and a dying laptop battery.',exz:'她背負著三個截止日期和一塊快沒電的筆電電池。'},
+    {e:'labor force',z:'勞動力',ex:'The labor force was exhausted. It was only Tuesday.',exz:'勞動力已經精疲力竭了，才星期二而已。'},
+    {e:'child labor',z:'童工',ex:'Making your little sibling do your chores is not "delegation." It\'s child labor.',exz:'叫弟弟妹妹幫你做家事不叫「授權」，那叫童工。'}
   ]}
 ]},
 {lv:'L4',id:'L4U1b',label:'L4 Unit 1–2 (2)',badge:'lv4',words:[
   {w:'extend',pos:'v.',zh:'延伸；延長；給予',tip:'extend sympathy 比 show 更正式',colls:[
-    {e:'extend a deadline',z:'延長截止日期'},{e:'extend an invitation',z:'發出邀請（✏ 正式語氣）'},
-    {e:'extend sympathy / thanks / welcome',z:'表達慰問／感謝／歡迎'},{e:'extend one\'s lead',z:'擴大領先'}
+    {e:'extend a deadline',z:'延長截止日期',ex:'She asked to extend the deadline. The professor said no. She submitted at 11:59pm anyway.',exz:'她請求延長截止日期，教授說不，她還是在晚上十一點五十九分提交了。'},
+    {e:'extend an invitation',z:'發出邀請（✏ 正式語氣）',ex:'He extended an invitation to the whole class. Three people showed up.',exz:'他向全班發出邀請，三個人出現了。'},
+    {e:'extend sympathy / thanks / welcome',z:'表達慰問／感謝／歡迎',ex:'She extended her thanks so thoroughly that the speech lasted twenty minutes.',exz:'她的謝詞說得如此詳盡，演講持續了二十分鐘。'},
+    {e:'extend one\'s lead',z:'擴大領先',ex:'She extended her lead by answering bonus questions nobody else attempted.',exz:'她回答了其他人都沒有嘗試的加分題，擴大了領先優勢。'}
   ]},
   {w:'obtain',pos:'v.',zh:'取得；獲得',tip:'obtain 取代 get，更正式',colls:[
-    {e:'obtain permission / approval',z:'獲得許可（✏ 正式文章）'},{e:'obtain results / evidence',z:'得到結果／證據'},
-    {e:'obtain a degree',z:'取得學位'},{e:'legally obtain',z:'合法取得'}
+    {e:'obtain permission / approval',z:'獲得許可（✏ 正式文章）',ex:'She obtained permission to leave early — after asking four different people.',exz:'她獲得了提早離開的許可，在問了四個不同的人之後。'},
+    {e:'obtain results / evidence',z:'得到結果／證據',ex:'He obtained results from the experiment. The results were not what he hoped for.',exz:'他從實驗中得到了結果，結果不是他所希望的。'},
+    {e:'obtain a degree',z:'取得學位',ex:'She obtained her degree after five years. The degree was in four-year program.',exz:'她花了五年取得了學位，那是個四年制的學程。'},
+    {e:'legally obtain',z:'合法取得',ex:'He legally obtained every answer by just asking the professor after class. Simple.',exz:'他只是在課後去問教授，完全合法地得到了所有答案，就這麼簡單。'}
   ]},
   {w:'mere',pos:'adj.',zh:'僅僅；不過是',tip:'mere 是情緒放大鏡，可用於轉折句',colls:[
-    {e:'the mere thought of it',z:'光是想到這件事（✏ 情緒引入）'},{e:'a mere second / formality',z:'只差一秒／不過是形式'},
-    {e:'a mere illusion / shadow',z:'不過是幻影（貶抑語氣）'},{e:'merely',z:'僅僅（副詞）'}
+    {e:'the mere thought of it',z:'光是想到這件事（✏ 情緒引入）',ex:'The mere thought of public speaking made him want to fake a stomachache.',exz:'光是想到要在公眾面前演講，他就想假裝肚子痛。'},
+    {e:'a mere second / formality',z:'只差一秒／不過是形式',ex:'The interview was a mere formality, they said. He was sweating for two hours.',exz:'面試只是個形式，他們說，他卻緊張了兩個小時。'},
+    {e:'a mere illusion / shadow',z:'不過是幻影（貶抑語氣）',ex:'His work-life balance was a mere illusion. Mostly work. No life.',exz:'他的工作與生活平衡不過是個幻影，主要是工作，沒有生活。'},
+    {e:'merely',z:'僅僅（副詞）',ex:'She was merely suggesting an idea. Three people took it personally.',exz:'她只是在提出一個想法，三個人覺得是在針對他們。'}
   ]}
 ]},
 {lv:'L4',id:'L4U1c',label:'L4 Unit 1–2 (3)',badge:'lv4',words:[
   {w:'observe',pos:'v.',zh:'觀察；遵守；指出',colls:[
-    {e:'observe a rule / tradition',z:'遵守規則／傳統（✏ 最易忽略的義）'},{e:'observe that…',z:'指出…（✏ 學術正式用法）'},
-    {e:'closely observe',z:'密切觀察'},{e:'observe a moment of silence',z:'默哀'}
+    {e:'observe a rule / tradition',z:'遵守規則／傳統（✏ 最易忽略的義）',ex:'He observed every rule in the handbook — except the ones that applied to him.',exz:'他遵守了手冊裡的每一條規定，除了那些適用於他的。'},
+    {e:'observe that…',z:'指出…（✏ 學術正式用法）',ex:'The researcher observed that students perform better when they\'re not hungry. Groundbreaking.',exz:'研究人員指出學生在不餓的時候表現更好，真是突破性發現。'},
+    {e:'closely observe',z:'密切觀察',ex:'She closely observed the group dynamics and concluded that nobody was actually working.',exz:'她密切觀察了小組動態，得出結論：沒有人真的在做事。'},
+    {e:'observe a moment of silence',z:'默哀',ex:'They observed a moment of silence for the crashed file. It had not been saved.',exz:'他們為那個當機的檔案默哀了一下，那個檔案沒有存檔。'}
   ]},
   {w:'consistent',pos:'adj.',zh:'一致的；始終如一的',tip:'consistent with 是論述必備',colls:[
-    {e:'consistent with (sth)',z:'與…一致（✏ 論述必備）'},{e:'consistent results / logic',z:'一致的結果／邏輯'},
-    {e:'remain consistent',z:'保持一致'},{e:'consistent effort',z:'持續不懈的努力'}
+    {e:'consistent with (sth)',z:'與…一致（✏ 論述必備）',ex:'His behavior was consistent with someone who had absolutely no idea what was going on.',exz:'他的行為與一個完全不知道發生了什麼事的人完全一致。'},
+    {e:'consistent results / logic',z:'一致的結果／邏輯',ex:'The data showed consistent results: coffee before 9am helps, coffee after 9pm doesn\'t.',exz:'數據顯示出一致的結果：早上九點前喝咖啡有幫助，晚上九點後則沒有。'},
+    {e:'remain consistent',z:'保持一致',ex:'Her excuses for being late remained consistent: traffic, then traffic, then also traffic.',exz:'她遲到的藉口始終保持一致：塞車，然後塞車，然後還是塞車。'},
+    {e:'consistent effort',z:'持續不懈的努力',ex:'Consistent effort over time beats last-minute panic. Theoretically.',exz:'長期持續的努力勝過最後一刻的恐慌，理論上是這樣。'}
   ]},
   {w:'capacity',pos:'n.',zh:'能力；容量；身份',colls:[
-    {e:'have the capacity to (do sth)',z:'有能力做某事'},{e:'in one\'s capacity as (職位)',z:'以某身份行事（✏ 正式文體）'},
-    {e:'intellectual / emotional capacity',z:'智力／情感容量'},{e:'full capacity',z:'滿載'}
+    {e:'have the capacity to (do sth)',z:'有能力做某事',ex:'She had the capacity to finish in one hour. She took four. Both are true.',exz:'她有能力一小時內完成，她花了四小時，兩件事都是真的。'},
+    {e:'in one\'s capacity as (職位)',z:'以某身份行事（✏ 正式文體）',ex:'In his capacity as group leader, he forwarded everyone\'s work to himself and called it done.',exz:'以小組長的身份，他把所有人的工作轉發給自己，然後說完成了。'},
+    {e:'intellectual / emotional capacity',z:'智力／情感容量',ex:'Her emotional capacity after finals week was approximately zero. She ordered food and slept.',exz:'期末週結束後，她的情感容量大約是零，她叫了外送然後睡覺了。'},
+    {e:'full capacity',z:'滿載',ex:'The group chat was running at full capacity: twelve people, zero useful messages.',exz:'群組對話以滿載狀態運行：十二個人，零條有用的訊息。'}
   ]}
 ]},
 {lv:'L4',id:'L4U2a',label:'L4 Unit 3–5 (1)',badge:'lv4',words:[
   {w:'gear',pos:'v./n.',zh:'針對；齒輪；裝備',colls:[
-    {e:'be geared towards (N/Ving)',z:'針對…設計（✏ 正式表達）'},{e:'gear up for sth',z:'為…做準備'},
-    {e:'in high gear',z:'全力運轉'},{e:'gear a policy toward',z:'將政策導向…'}
+    {e:'be geared towards (N/Ving)',z:'針對…設計（✏ 正式表達）',ex:'The course was geared towards advanced students. She was there by accident.',exz:'這門課是針對進階學生設計的，她是誤打誤撞進來的。'},
+    {e:'gear up for sth',z:'為…做準備',ex:'She geared up for the exam with new pens, new highlighters, and zero actual studying.',exz:'她用新鋼筆和新螢光筆為考試做準備，完全沒有讀書。'},
+    {e:'in high gear',z:'全力運轉',ex:'The team finally moved into high gear — 48 hours before the deadline.',exz:'團隊終於全力運轉了，距截止日期還有四十八小時。'},
+    {e:'gear a policy toward',z:'將政策導向…',ex:'The new policy was geared toward efficiency. It achieved the opposite.',exz:'新政策的方向是提升效率，結果達到了相反的效果。'}
   ]},
   {w:'frame',pos:'v./n.',zh:'框架；詮釋；建構',tip:'frame the issue 是學術必備',colls:[
-    {e:'frame the issue / debate',z:'詮釋議題（✏ 學術必備）'},{e:'frame sth as sth',z:'將…視為…（操控詮釋角度）'},
-    {e:'reframe the narrative',z:'重新定義敘事（✏ 批判思考）'},{e:'a frame of reference',z:'參考框架'}
+    {e:'frame the issue / debate',z:'詮釋議題（✏ 學術必備）',ex:'How you frame the issue determines what solutions people will accept.',exz:'你如何詮釋議題，決定了人們會接受什麼樣的解決方案。'},
+    {e:'frame sth as sth',z:'將…視為…（操控詮釋角度）',ex:'He framed his lateness as "fashionably on time" and genuinely expected it to work.',exz:'他把自己的遲到詮釋為「時尚的準時」，而且真的期待這說法能奏效。'},
+    {e:'reframe the narrative',z:'重新定義敘事（✏ 批判思考）',ex:'She reframed the narrative: it wasn\'t procrastination, it was "strategic time management."',exz:'她重新定義了敘事：那不是拖延，那是「策略性時間管理」。'},
+    {e:'a frame of reference',z:'參考框架',ex:'Without a shared frame of reference, the group meeting lasted three hours and solved nothing.',exz:'沒有共同的參考框架，這場小組會議開了三個小時，什麼都沒解決。'}
   ]},
   {w:'accompany',pos:'v.',zh:'伴隨；陪同',tip:'accompany 取代 come with，更正式',colls:[
-    {e:'be accompanied by',z:'由…伴隨（✏ 學術邏輯連詞）'},{e:'high unemployment accompanied by social unrest',z:'高失業率伴隨社會動盪'},
-    {e:'accompany sb to',z:'陪同某人去…'},{e:'accompanied by evidence',z:'佐以證據'}
+    {e:'be accompanied by',z:'由…伴隨（✏ 學術邏輯連詞）',ex:'His grand entrance was accompanied by the sound of his bag falling off his shoulder.',exz:'他的隆重登場伴隨著書包從肩上滑落的聲音。'},
+    {e:'high unemployment accompanied by social unrest',z:'高失業率伴隨社會動盪',ex:'High unemployment accompanied by social unrest is the classic setup for a history exam question.',exz:'高失業率伴隨社會動盪，這是歷史考題的經典開場。'},
+    {e:'accompany sb to',z:'陪同某人去…',ex:'She accompanied him to the doctor. He had been fine until she arrived.',exz:'她陪他去看醫生，在她到之前他還好好的。'},
+    {e:'accompanied by evidence',z:'佐以證據',ex:'His claims were not accompanied by evidence. Just very strong feelings.',exz:'他的主張沒有佐以任何證據，只有非常強烈的感覺。'}
   ]}
 ]},
 {lv:'L4',id:'L4U2b',label:'L4 Unit 3–5 (2)',badge:'lv4',words:[
   {w:'urge',pos:'v./n.',zh:'催促；力勸；衝動',tip:'urge 比 suggest 更強烈',colls:[
-    {e:'urge (sb) to (do sth)',z:'力勸某人做…（比 suggest 更強）'},{e:'feel an urge to',z:'有做某事的衝動'},
-    {e:'urge action / caution',z:'呼籲採取行動／保持謹慎'},{e:'an urge to escape',z:'逃離的衝動'}
+    {e:'urge (sb) to (do sth)',z:'力勸某人做…（比 suggest 更強）',ex:'She urged him to proofread before sending. He did not. The typo went to his professor.',exz:'她力勸他寄出前先校對，他沒有，錯字就這樣寄給了教授。'},
+    {e:'feel an urge to',z:'有做某事的衝動',ex:'She felt an urge to reorganize her entire room instead of writing the essay.',exz:'她有一股衝動想要重新整理整個房間，而不是寫報告。'},
+    {e:'urge action / caution',z:'呼籲採取行動／保持謹慎',ex:'Experts urged caution. Everyone proceeded without caution anyway.',exz:'專家呼籲保持謹慎，但所有人還是不謹慎地繼續了。'},
+    {e:'an urge to escape',z:'逃離的衝動',ex:'A strong urge to escape hit her during the third hour of the group project meeting.',exz:'在小組報告會議的第三小時，她有了強烈的逃離衝動。'}
   ]},
   {w:'vast',pos:'adj.',zh:'廣大的；龐大的',tip:'vast majority 取代 most people 更正式',colls:[
-    {e:'a vast amount of data',z:'大量數據（比 huge 更正式）'},{e:'vast majority',z:'壓倒性多數（✏ 議論文）'},
-    {e:'a vast difference',z:'巨大的差異'},{e:'vast potential',z:'巨大潛力'}
+    {e:'a vast amount of data',z:'大量數據（比 huge 更正式）',ex:'He collected a vast amount of data and used exactly two numbers in his presentation.',exz:'他收集了大量數據，在簡報中只用了兩個數字。'},
+    {e:'vast majority',z:'壓倒性多數（✏ 議論文）',ex:'The vast majority of students agreed the exam was unfair. The professor disagreed.',exz:'壓倒性多數的學生認為考試不公平，教授不同意。'},
+    {e:'a vast difference',z:'巨大的差異',ex:'There is a vast difference between understanding the material and actually explaining it.',exz:'理解課程內容和真正能解釋出來之間，有著巨大的差異。'},
+    {e:'vast potential',z:'巨大潛力',ex:'The project had vast potential — if anyone had started it before the last minute.',exz:'這個計畫有巨大潛力，如果有人不是最後一刻才開始做的話。'}
   ]},
   {w:'demonstrate',pos:'v.',zh:'示範；展現；示威',tip:'demonstrate 取代 show，更學術',colls:[
-    {e:'demonstrate understanding / patience',z:'展現理解／耐心（取代 show）'},{e:'demonstrate against / in favor of',z:'示威抗議／支持某事'},
-    {e:'clearly / convincingly demonstrate',z:'清楚／有說服力地展現'},{e:'demonstrate a point',z:'論證一個觀點'}
+    {e:'demonstrate understanding / patience',z:'展現理解／耐心（取代 show）',ex:'She demonstrated extraordinary patience waiting for him to find the file he had just opened.',exz:'她展現了驚人的耐心，等他找到他剛剛開啟過的那個檔案。'},
+    {e:'demonstrate against / in favor of',z:'示威抗議／支持某事',ex:'Students demonstrated in favor of extending the library hours. The library extended them by 30 minutes.',exz:'學生示威要求延長圖書館開放時間，圖書館延長了三十分鐘。'},
+    {e:'clearly / convincingly demonstrate',z:'清楚／有說服力地展現',ex:'Her results clearly demonstrated the hypothesis was wrong. She changed the hypothesis.',exz:'她的結果清楚地證明假設是錯誤的，她更換了假設。'},
+    {e:'demonstrate a point',z:'論證一個觀點',ex:'He demonstrated his point so thoroughly that everyone forgot what the original argument was.',exz:'他如此徹底地論證了自己的觀點，以至於所有人都忘了原本的爭論是什麼。'}
   ]}
 ]},
 {lv:'L4',id:'L4U3a',label:'L4 Unit 5–7 (1)',badge:'lv4',words:[
@@ -665,132 +770,262 @@ const UNITS = [
 {lv:'L5',id:'L5U1',label:'L5 Unit 1–5',badge:'lv5',words:[
   {w:'stock',pos:'n./v.',zh:'存貨；股票',tip:'「take stock of the situation」比 reconsider 更有深度，適合議論文反思段落',
   bloom:{r:{b:'run out of',c:'記住：<span class="bw">run out of</span>（缺貨）→ 升級為 run low on stock'},u:{b:'understand',c:'理解：stock 有「存貨」和「股票」兩義，語境決定意義'},a:{b:'use it',c:'應用：The hospital is running low on medical stock due to rising demand.'},n:{b:'compare',c:'分析：stock（存貨/評估）vs inventory（清單式庫存）—stock 更口語與比喻用法'},e:{b:'judge',c:'評估：「take stock of」暗示暫停反省，比 reconsider 更有思考深度'},c:{b:'write your own',c:'創造：用「take stock of one\'s values」為議論文開頭句'}},
-  colls:[{e:'take stock of',z:'重新評估'},{e:'out of stock',z:'無庫存'},{e:'stock market',z:'股票市場'},{e:'stock phrase',z:'老套說法'}]},
+  colls:[
+    {e:'take stock of',z:'重新評估',ex:'After failing the exam, she finally took stock of her study habits. Too late, but still.',exz:'考試不及格後，她終於重新審視自己的讀書方法，太晚了，但至少做了。'},
+    {e:'out of stock',z:'無庫存',ex:'The boba shop was out of stock on brown sugar. A national tragedy.',exz:'手搖飲的黑糖賣完了，這是全國性的悲劇。'},
+    {e:'stock market',z:'股票市場',ex:'He checked the stock market every 5 minutes and called it "investing."',exz:'他每五分鐘看一次股市，還稱之為「投資」。'},
+    {e:'stock phrase',z:'老套說法',ex:'His essay was full of stock phrases like "in conclusion" and "it goes without saying."',exz:'他的文章充滿「in conclusion」和「it goes without saying」這類老套說法。'}
+  ]},
   {w:'conduct',pos:'v./n.',zh:'執行；行為',tip:'「conduct research」比 do research 更正式，議論文必備',
   bloom:{r:{b:'do / carry out',c:'記住：<span class="bw">do</span>（做）→ 升級為 conduct'},u:{b:'difference',c:'理解：conduct 強調「正式、有組織地執行」，不同於 perform 或 do'},a:{b:'write a sentence',c:'應用：The government conducted a nationwide survey to assess public opinion.'},n:{b:'compare forms',c:'分析：conduct（v.執行）vs conduct（n.行為）—同字不同詞性，語境判斷'},e:{b:'rate it',c:'評估："We did a study" vs "We conducted a systematic study"—哪句更有說服力？'},c:{b:'make your own',c:'創造：為你的小論文寫一句含 conduct 的學術開場句'}},
-  colls:[{e:'conduct research / a survey',z:'進行研究／調查'},{e:'code of conduct',z:'行為準則'},{e:'conduct an interview',z:'進行訪談'},{e:'professional conduct',z:'專業行為'}]},
+  colls:[
+    {e:'conduct research / a survey',z:'進行研究／調查',ex:'Scientists conducted a study on why cats knock things off tables. Still no conclusion.',exz:'科學家研究貓為何把東西推下桌，至今尚無定論。'},
+    {e:'code of conduct',z:'行為準則',ex:'The code of conduct said "be respectful." He read it once and forgot immediately.',exz:'行為準則寫著「保持尊重」，他看了一次就忘了。'},
+    {e:'conduct an interview',z:'進行訪談',ex:'She conducted the interview so confidently that she got the job — and forgot to ask about the salary.',exz:'她面試時自信滿滿，拿到 offer 後才發現忘了問薪水。'},
+    {e:'professional conduct',z:'專業行為',ex:'Replying to emails three weeks late is not, strictly speaking, professional conduct.',exz:'嚴格來說，三週後才回信不算是專業行為。'}
+  ]},
   {w:'mount',pos:'v.',zh:'增加；逐步上升',tip:'「mounting evidence」比 more and more evidence 更精確，適合論述句',
   bloom:{r:{b:'grow / increase',c:'記住：<span class="bw">grow</span>（增長）→ 升級為 mount'},u:{b:'feeling sense',c:'理解：mount 有「逐步累積」的感覺，強調過程而非結果'},a:{b:'use it',c:'應用：Public anger mounted as the scandal unfolded.'},n:{b:'compare rise',c:'分析：mount（逐漸積累）vs surge（急速上升）—情緒/壓力用 mount 更細膩'},e:{b:'which is stronger',c:'評估：mounting concerns 和 growing worries 哪個更有書面語威力？'},c:{b:'write for environment',c:'創造：為一篇環境議題文章，用 mounting 寫一個主題句'}},
-  colls:[{e:'mount pressure / tension',z:'壓力／緊張加劇'},{e:'mounting evidence',z:'越來越多的證據'},{e:'mount a campaign',z:'發動行動'},{e:'mounting concerns',z:'日益增加的疑慮'}]},
+  colls:[
+    {e:'mount pressure / tension',z:'壓力／緊張加劇',ex:'Tension mounted as the teacher slowly walked toward his desk with the graded paper.',exz:'老師慢慢走向他的桌子，手拿批改好的考卷，氣氛越來越緊繃。'},
+    {e:'mounting evidence',z:'越來越多的證據',ex:'There is mounting evidence that staying up until 3am "studying" is just procrastination.',exz:'越來越多的證據顯示，熬夜到凌晨三點「讀書」其實只是在拖延。'},
+    {e:'mount a campaign',z:'發動行動',ex:'Students mounted a campaign to extend the exam deadline. It did not work.',exz:'學生們發起行動要求延長考試截止日，沒有成功。'},
+    {e:'mounting concerns',z:'日益增加的疑慮',ex:'There are mounting concerns about screen time — mainly from people who spent 8 hours on their phones.',exz:'對螢幕使用時間的疑慮與日俱增，主要來自那些自己每天滑手機八小時的人。'}
+  ]},
   {w:'entitle',pos:'v.',zh:'賦予資格；給予權利',tip:'「feel entitled」暗含批評語氣，是社會議題的精準詞',
   bloom:{r:{b:'have the right to',c:'記住：<span class="bw">have the right to</span> → 升級為 be entitled to'},u:{b:'nuance',c:'理解：entitled 可以正面（合法權利）也可以負面（特權心態）'},a:{b:'write it',c:'應用：Every citizen is entitled to equal access to education.'},n:{b:'analyze tone',c:'分析：「entitled attitude」帶批判語氣 vs「legally entitled」中性合法'},e:{b:'evaluate impact',c:'評估：在批評社會不公的文章中，用 entitlement culture 比 privilege 更有什麼效果？'},c:{b:'argue equality',c:'創造：用 be entitled to 寫一句支持教育平等的主題句'}},
-  colls:[{e:'be entitled to sth',z:'有權獲得某物'},{e:'feel entitled',z:'覺得理所當然'},{e:'entitled to vote / speak',z:'有權投票／發言'},{e:'entitlement culture',z:'特權文化'}]},
+  colls:[
+    {e:'be entitled to sth',z:'有權獲得某物',ex:'Everyone is entitled to one bad day. She was on day forty-seven.',exz:'每個人都有資格有一個糟糕的日子，她已經過了第四十七天了。'},
+    {e:'feel entitled',z:'覺得理所當然',ex:'He felt entitled to the front seat simply because he called it first.',exz:'他覺得前座理所當然是他的，因為他先喊到。'},
+    {e:'entitled to vote / speak',z:'有權投票／發言',ex:'She reminded him that he was entitled to speak — but not for twenty minutes.',exz:'她提醒他有發言權，但不是二十分鐘那種。'},
+    {e:'entitlement culture',z:'特權文化',ex:'Wanting decent wages isn\'t entitlement culture. Skipping the queue is.',exz:'要求合理薪資不是特權文化，插隊才是。'}
+  ]},
   {w:'prevail',pos:'v.',zh:'盛行；佔上風',tip:'「the prevailing view」比 the popular opinion 更學術',
   bloom:{r:{b:'win / be common',c:'記住：<span class="bw">win</span>（贏得）→ 升級為 prevail'},u:{b:'two meanings',c:'理解：prevail 有「最終勝出」或「廣泛流行」兩種意思'},a:{b:'write it',c:'應用：Despite fierce opposition, the reformers ultimately prevailed.'},n:{b:'prevailing adj.',c:'分析：prevailing（形容詞）用法：prevailing winds / beliefs / attitudes'},e:{b:'evaluate tone',c:'評估：「justice will prevail」和「justice may be achieved」哪個更有說服力？'},c:{b:'closing sentence',c:'創造：用 prevail 寫一句結尾金句，表達正義或理性終將獲勝'}},
-  colls:[{e:'common sense prevails',z:'常識占上風'},{e:'prevail over / against',z:'勝過；克服'},{e:'a prevailing view',z:'主流觀點'},{e:'prevailing conditions',z:'現行狀況'}]},
+  colls:[
+    {e:'common sense prevails',z:'常識占上風',ex:'In the end, common sense prevailed and nobody ordered a fourth round of drinks.',exz:'最終常識占了上風，沒有人點第四輪飲料。'},
+    {e:'prevail over / against',z:'勝過；克服',ex:'She prevailed over every obstacle — including the printer jamming on the day of submission.',exz:'她克服了所有困難，包括繳交當天印表機卡紙。'},
+    {e:'a prevailing view',z:'主流觀點',ex:'The prevailing view was that the meeting could have been an email.',exz:'主流觀點是這場會議完全可以用一封電郵代替。'},
+    {e:'prevailing conditions',z:'現行狀況',ex:'Given the prevailing conditions, staying in bed seemed like the most rational choice.',exz:'考慮到目前的狀況，賴在床上似乎是最理性的選擇。'}
+  ]},
   {w:'attribute',pos:'v.',zh:'歸因於',tip:'「be attributed to」是學術論述的因果句型，取代 because of 更正式',
   bloom:{r:{b:'because of',c:'記住：<span class="bw">because of</span> → 升級為 attribute sth to'},u:{b:'structure',c:'理解：attribute A to B（把A歸因於B）—結構固定'},a:{b:'write it',c:'應用：The decline in reading habits is often attributed to the rise of social media.'},n:{b:'compare',c:'分析：attribute to（主觀判斷因果）vs stem from（客觀起源）'},e:{b:'evaluate framing',c:'評估：把問題 attribute to 個人 vs 制度，有何不同立場效果？'},c:{b:'write a thesis',c:'創造：用 attribute 寫一個議論文主題句，提出問題的根本原因'}},
-  colls:[{e:'attribute sth to sth',z:'將某事歸因於…'},{e:'be attributed to',z:'被歸因於'},{e:'attribute the rise to',z:'將上升歸因於'},{e:'key attributes',z:'關鍵特質（名詞）'}]},
+  colls:[{e:'attribute sth to sth',z:'將某事歸因於…',ex:'He attributed his success to hard work, good timing, and his mom\'s cooking.',exz:'他把成功歸因於努力、好時機，還有他媽媽的廚藝。'},
+    {e:'be attributed to',z:'被歸因於',ex:'The decline in grades was attributed to stress — not the 6-hour gaming sessions.',exz:'成績下滑被歸因於壓力，而非每天六小時的遊戲時間。'},
+    {e:'attribute the rise to',z:'將上升歸因於',ex:'Experts attribute the rise in coffee consumption to the invention of deadlines.',exz:'專家將咖啡消費量上升歸因於截止日期的發明。'},
+    {e:'key attributes',z:'關鍵特質（名詞）',ex:'His key attributes include confidence, creativity, and an inability to be on time.',exz:'他的關鍵特質包括自信、創意，以及永遠準時不了的能力。'}]},
   {w:'strain',pos:'n./v.',zh:'拉緊；壓力；負擔',tip:'「put a strain on relationships」比 damage 更細膩',
   bloom:{r:{b:'stress / pressure',c:'記住：<span class="bw">stress</span>（壓力）→ 升級為 strain'},u:{b:'image',c:'理解：strain 有「繃緊的繩子」的意象，強調關係/資源被拉扯到極限'},a:{b:'write it',c:'應用：Rapid urbanization has put enormous strain on public transportation systems.'},n:{b:'compare',c:'分析：strain（外力造成的拉扯）vs stress（心理/物理壓力）'},e:{b:'evaluate',c:'評估：用 under strain 描寫制度或關係，比 struggling 更客觀中性嗎？'},c:{b:'urbanization essay',c:'創造：用 put a strain on 為一篇討論城市化的文章寫一個議題句'}},
-  colls:[{e:'under considerable strain',z:'承受巨大壓力'},{e:'financial / mental strain',z:'財務／心理壓力'},{e:'strain a relationship',z:'使關係緊繃'},{e:'put a strain on',z:'對…造成負擔'}]},
+  colls:[{e:'under considerable strain',z:'承受巨大壓力',ex:'The school Wi-Fi was under considerable strain every time exams started.',exz:'每次考試開始，學校 Wi-Fi 就承受巨大壓力。'},
+    {e:'financial / mental strain',z:'財務／心理壓力',ex:'Buying bubble tea every day creates both financial and mental strain — but mostly financial.',exz:'每天買手搖飲會造成財務和心理壓力，主要是財務方面。'},
+    {e:'strain a relationship',z:'使關係緊繃',ex:'Arguing about where to eat for 40 minutes really strains a relationship.',exz:'為了決定去哪裡吃飯爭論四十分鐘，真的會讓關係很緊繃。'},
+    {e:'put a strain on',z:'對…造成負擔',ex:'Three group projects due the same week put a serious strain on everyone\'s sanity.',exz:'同一週有三個團體報告要交，對所有人的理智造成嚴重負擔。'}]},
   {w:'essence',pos:'n.',zh:'本質；核心',tip:'「in essence」是高分銜接詞，取代 in short 更優雅',
   bloom:{r:{b:'the main point',c:'記住：<span class="bw">the main point</span> → 升級為 the essence'},u:{b:'in essence',c:'理解：in essence 作為銜接詞，表示「本質上來說」，用於歸納'},a:{b:'use in summary',c:'應用：In essence, the debate centers on whether individual freedom outweighs collective responsibility.'},n:{b:'compare',c:'分析：in essence vs in short vs in sum—語氣和使用場合有別'},e:{b:'placement',c:'評估：in essence 放在段落開頭 vs 結尾，對讀者理解有何不同效果？'},c:{b:'write conclusion',c:'創造：用「in essence」為你的文章寫一個結尾歸納句'}},
-  colls:[{e:'in essence',z:'本質上（銜接詞）'},{e:'the essence of sth',z:'某事的核心'},{e:'capture the essence',z:'捕捉精髓'},{e:'time is of the essence',z:'時間至關重要'}]},
+  colls:[{e:'in essence',z:'本質上（銜接詞）',ex:'In essence, the three-hour meeting concluded that we should have another meeting.',exz:'本質上，這場三小時的會議得出的結論是：我們應該再開一場會議。'},
+    {e:'the essence of sth',z:'某事的核心',ex:'The essence of good sleep is not checking your phone at 2am. Nobody follows this.',exz:'好睡眠的核心在於凌晨兩點不要看手機，但沒有人做到。'},
+    {e:'capture the essence',z:'捕捉精髓',ex:'The photo captured the essence of the trip: everyone looked exhausted but happy.',exz:'這張照片捕捉了旅途的精髓：每個人看起來又累又開心。'},
+    {e:'time is of the essence',z:'時間至關重要',ex:'Time is of the essence, she said, as she spent 20 minutes picking a font.',exz:'時間至關重要，她說，然後花了二十分鐘選字體。'}]},
   {w:'sustain',pos:'v.',zh:'維持；支撐',tip:'「sustainable development」是環境類必備詞組',
   bloom:{r:{b:'keep / maintain',c:'記住：<span class="bw">keep</span>（保持）→ 升級為 sustain'},u:{b:'scope',c:'理解：sustain 可用於抽象（sustain hope）也可用於具體（sustain injuries）'},a:{b:'write it',c:'應用：Without adequate funding, it is difficult to sustain long-term community programs.'},n:{b:'word family',c:'分析：sustain → sustainable → sustainability—三種詞性都要會用'},e:{b:'policy context',c:'評估："sustain economic growth" 和 "maintain growth" 有何細微差別？'},c:{b:'environment essay',c:'創造：用 sustain 為一篇環境或教育文章寫一句核心論點'}},
-  colls:[{e:'sustain growth / development',z:'維持增長／發展'},{e:'sustain an injury',z:'受傷（正式）'},{e:'sustainable development',z:'永續發展'},{e:'sustain attention / interest',z:'維持注意力／興趣'}]},
+  colls:[{e:'sustain growth / development',z:'維持增長／發展',ex:'The startup sustained rapid growth until it ran out of free snacks for employees.',exz:'這家新創公司維持了快速成長，直到員工零食福利耗盡為止。'},
+    {e:'sustain an injury',z:'受傷（正式）',ex:'He sustained an injury during PE class. The activity was badminton.',exz:'他在體育課受傷了，活動項目是羽毛球。'},
+    {e:'sustainable development',z:'永續發展',ex:'Sustainable development means thinking about the future — something humans are famously bad at.',exz:'永續發展意味著思考未來，這偏偏是人類出了名不擅長的事。'},
+    {e:'sustain attention / interest',z:'維持注意力／興趣',ex:'The lecture failed to sustain interest after the professor turned off the lights for "slides."',exz:'教授關燈「放投影片」之後，這堂課就失去了維持大家注意力的能力。'}]},
   {w:'conceive',pos:'v.',zh:'想像；構思',tip:'「broadly conceived」是學術討論中界定範疇的精準詞',
   bloom:{r:{b:'imagine',c:'記住：<span class="bw">imagine</span> → 升級為 conceive of'},u:{b:'word family',c:'理解：conceive → concept → conception—同根詞群'},a:{b:'use in argument',c:'應用：It is difficult to conceive of a just society without equal access to education.'},n:{b:'narrowly vs broadly',c:'分析：narrowly conceived（狹義）vs broadly conceived（廣義）—學術定義技巧'},e:{b:'why academic',c:'評估：為何 "difficult to conceive" 比 "unimaginable" 在學術文章中更受歡迎？'},c:{b:'define scope',c:'創造：用 broadly conceived 寫一句為某議題「界定範疇」的學術句'}},
-  colls:[{e:'conceive of sth',z:'想像某事'},{e:'conceive a plan / idea',z:'構思計畫／想法'},{e:'hard to conceive',z:'難以想像'},{e:'broadly / narrowly conceived',z:'廣義／狹義地理解'}]}
+  colls:[{e:'conceive of sth',z:'想像某事',ex:'It\'s hard to conceive of a world without instant noodles. Truly terrifying.',exz:'很難想像一個沒有泡麵的世界，真的非常可怕。'},
+    {e:'conceive a plan / idea',z:'構思計畫／想法',ex:'She conceived a brilliant plan to avoid the awkward reunion — fake a stomachache.',exz:'她構思了一個絕妙計畫來逃避尷尬的聚會：裝肚子痛。'},
+    {e:'hard to conceive',z:'難以想像',ex:'It is hard to conceive how anyone finishes a 3000-word essay the night before.',exz:'很難想像怎麼有人能在前一晚完成三千字的報告。'},
+    {e:'broadly / narrowly conceived',z:'廣義／狹義地理解',ex:'Broadly conceived, "exercise" includes walking to the fridge. She was very fit.',exz:'廣義來說，「運動」包括走到冰箱前，她身體非常好。'}]}
 ]},
 {lv:'L5',id:'L5U2',label:'L5 Unit 6–10',badge:'lv5',words:[
   {w:'elaborate',pos:'v./adj.',zh:'詳細說明；精緻的',tip:'「elaborate on」取代 explain in detail，口頭和書面都適用',
   bloom:{r:{b:'explain more',c:'記住：<span class="bw">explain more</span> → 升級為 elaborate on'},u:{b:'verb vs adj.',c:'理解：elaborate（動詞：說明）vs elaborate（形容詞：精緻複雜）—重音不同'},a:{b:'write it',c:'應用：The report fails to elaborate on the long-term consequences of the policy.'},n:{b:'compare',c:'分析：elaborate on vs expand on vs clarify—層次不同'},e:{b:'when to use',c:'評估：什麼情況需要 elaborate？什麼情況應保持簡潔？'},c:{b:'add detail',c:'創造：找出你文章中一個論點，加一句用 elaborate 的延伸說明'}},
-  colls:[{e:'elaborate on sth',z:'進一步說明某事'},{e:'elaborate plans',z:'精心策劃的計畫'},{e:'please elaborate',z:'請進一步說明'},{e:'an elaborate system',z:'複雜精密的系統'}]},
+  colls:[{e:'elaborate on sth',z:'進一步說明某事',ex:'"I\'m fine," he said. When asked to elaborate, he said, "I\'m fine."',exz:'「我沒事，」他說。被要求進一步說明時，他說：「我沒事。」'},
+    {e:'elaborate plans',z:'精心策劃的計畫',ex:'She made elaborate plans for the trip. The bus was late and it rained. Classic.',exz:'她為這趟旅程精心策劃，結果公車誤點又下雨，一如往常。'},
+    {e:'please elaborate',z:'請進一步說明',ex:'The teacher said "please elaborate" and he deeply regretted raising his hand.',exz:'老師說「請進一步說明」，他深深後悔自己舉了手。'},
+    {e:'an elaborate system',z:'複雜精密的系統',ex:'She developed an elaborate system to remember passwords. She still forgot them all.',exz:'她建立了一套複雜精密的密碼記憶系統，還是全部忘了。'}]},
   {w:'render',pos:'v.',zh:'使成為；造成',tip:'「render sth adj.」是批評政策時的高分句型',
   bloom:{r:{b:'make sth + adj.',c:'記住：<span class="bw">make sth + adj.</span> → 升級為 render sth + adj.'},u:{b:'structure',c:'理解：render + 受詞 + 形容詞，比 make 更正式有力'},a:{b:'critical sentence',c:'應用：Lack of enforcement renders the new regulation virtually meaningless.'},n:{b:'compare causative',c:'分析：render（正式）vs make（口語）vs leave（殘留狀態）'},e:{b:'rhetorical advantage',c:'評估：用 render 批評政策，比用 make 有什麼修辭優勢？'},c:{b:'policy critique',c:'創造：用 render + adj. 寫一句對某項社會政策的批評句'}},
-  colls:[{e:'render sth impossible / useless',z:'使某事不可能／無用'},{e:'render assistance',z:'提供援助（正式）'},{e:'render a verdict',z:'做出裁決'},{e:'render sth + adj.',z:'使某物變成某狀態'}]},
+  colls:[{e:'render sth impossible / useless',z:'使某事不可能／無用',ex:'One Windows update rendered his laptop a very expensive paperweight.',exz:'一個 Windows 更新把他的筆電變成了一個非常昂貴的鎮紙。'},
+    {e:'render assistance',z:'提供援助（正式）',ex:'He rendered assistance by forwarding the email to someone else.',exz:'他透過把郵件轉發給別人來「提供協助」。'},
+    {e:'render a verdict',z:'做出裁決',ex:'After 20 minutes, the group rendered a verdict: pineapple does not belong on pizza.',exz:'討論二十分鐘後，小組做出裁決：鳳梨不屬於披薩。'},
+    {e:'render sth + adj.',z:'使某物變成某狀態',ex:'The four-hour meeting rendered everyone too exhausted to act on anything decided.',exz:'四小時的會議讓所有人精疲力竭，什麼決議都執行不了。'}]},
   {w:'sensation',pos:'n.',zh:'轟動；感覺',tip:'「a sensation of + 情緒名詞」比 I felt... 更有文學質感',
   bloom:{r:{b:'hit / big success',c:'記住：<span class="bw">hit</span>（大成功）→ 升級為 sensation'},u:{b:'two meanings',c:'理解：sensation 有「身體感覺」和「轟動效應」兩種義'},a:{b:'write description',c:'應用：A sensation of unease swept through the audience as the speaker revealed the data.'},n:{b:'sensational vs sensation',c:'分析：sensation（轟動）vs sensational（有時帶負面誇張意涵）'},e:{b:'media language',c:'評估："sensational" 和 "a sensation"，哪個更偏負面語氣？'},c:{b:'opening hook',c:'創造：用 sensation 為一篇文章寫一個吸引讀者的開場句'}},
-  colls:[{e:'cause / create a sensation',z:'引起轟動'},{e:'overnight sensation',z:'一夜成名'},{e:'a sensation of dread',z:'一種恐懼感'},{e:'mixed sensations',z:'複雜的感受'}]},
+  colls:[{e:'cause / create a sensation',z:'引起轟動',ex:'The new boba flavor caused a sensation. People queued for three hours. For tea.',exz:'新口味手搖飲引起轟動，大家排隊三小時，為了一杯茶。'},
+    {e:'overnight sensation',z:'一夜成名',ex:'He became an overnight sensation after his cat accidentally went live on TikTok.',exz:'他的貓不小心在 TikTok 開了直播，他因此一夜成名。'},
+    {e:'a sensation of dread',z:'一種恐懼感',ex:'A sensation of dread washed over her when she saw "group project" on the syllabus.',exz:'她看到課程大綱上寫著「團體報告」，頓時一股恐懼感湧上心頭。'},
+    {e:'mixed sensations',z:'複雜的感受',ex:'Getting the last exam question right but too late gave him mixed sensations.',exz:'在考試結束前一秒寫對最後一題，讓他百感交集。'}]},
   {w:'tribute',pos:'n.',zh:'致敬；讚揚',tip:'「stands as a tribute to」是結尾段的高分句型',
   bloom:{r:{b:'praise / respect',c:'記住：<span class="bw">praise</span>（讚揚）→ 升級為 pay tribute to'},u:{b:'formality',c:'理解：pay tribute to 正式且莊重，用於人物描寫或結尾致敬段落'},a:{b:'concluding sentence',c:'應用：His life\'s work stands as a tribute to the power of perseverance.'},n:{b:'compare honor',c:'分析：tribute vs compliment vs praise—正式度遞減'},e:{b:'emotional tone',c:'評估：用 tribute 結尾比用 praise 有什麼更深的情感效果？'},c:{b:'write tribute',c:'創造：為一位你欣賞的人物，用 tribute 寫一句結尾金句'}},
-  colls:[{e:'pay tribute to',z:'向…致敬'},{e:'stand as a tribute to',z:'是…的見證'},{e:'a fitting tribute',z:'恰如其分的致敬'},{e:'floral tribute',z:'獻花致哀'}]},
+  colls:[{e:'pay tribute to',z:'向…致敬',ex:'The student paid tribute to his teacher by actually using the feedback.',exz:'這名學生真的採用了老師的回饋意見，以此向老師致敬。'},
+    {e:'stand as a tribute to',z:'是…的見證',ex:'The finished essay stood as a tribute to three sleepless nights and too much coffee.',exz:'這篇完成的文章是三個不眠之夜和過量咖啡的最好見證。'},
+    {e:'a fitting tribute',z:'恰如其分的致敬',ex:'A nap after the exam was a fitting tribute to weeks of hard work.',exz:'考完試後睡一覺，是對數週辛苦備考最恰如其分的致敬。'},
+    {e:'floral tribute',z:'獻花致哀',ex:'He sent a floral tribute. She preferred chocolate. Classic miscommunication.',exz:'他送了花，她比較想要巧克力，典型的溝通問題。'}]},
   {w:'highlight',pos:'v./n.',zh:'強調；凸顯',tip:'「highlights the urgent need for」是論述文必備句型',
   bloom:{r:{b:'show / point out',c:'記住：<span class="bw">show</span>（展示）→ 升級為 highlight'},u:{b:'emphasis',c:'理解：highlight 強調「使某事更顯眼、更受注目」，帶有「呼籲關注」的語氣'},a:{b:'topic sentence',c:'應用：Recent statistics highlight a widening gap between urban and rural educational resources.'},n:{b:'compare emphasis',c:'分析：highlight vs emphasize vs underscore—正式度相近但語感不同'},e:{b:'in reports',c:'評估：在政策報告摘要中，highlight 比 mention 有什麼功能差異？'},c:{b:'write report sentence',c:'創造：用 highlight 為一篇議論文寫一個點出核心問題的主題句'}},
-  colls:[{e:'highlight the importance of',z:'強調…的重要性'},{e:'highlight a disparity',z:'凸顯差距'},{e:'highlight the need for',z:'強調對…的需求'},{e:'a key highlight',z:'重要亮點（名詞）'}]},
+  colls:[{e:'highlight the importance of',z:'強調…的重要性',ex:'The teacher highlighted the importance of sleep while assigning homework due at 8am.',exz:'老師強調睡眠的重要性，同時布置了早上八點要交的作業。'},
+    {e:'highlight a disparity',z:'凸顯差距',ex:'The results highlighted a disparity between effort and outcome. He studied for one night.',exz:'結果凸顯了努力與成果之間的差距，他只讀了一個晚上。'},
+    {e:'highlight the need for',z:'強調對…的需求',ex:'The group chat highlighted the urgent need for a "read but won\'t reply" button.',exz:'群組對話凸顯了大家迫切需要一個「已讀但不想回」的按鈕。'},
+    {e:'a key highlight',z:'重要亮點（名詞）',ex:'The key highlight of the trip was finding a café with perfect Wi-Fi and no people.',exz:'這趟旅行最大的亮點是找到一間 Wi-Fi 超強又沒有人的咖啡廳。'}]},
   {w:'deliberate',pos:'adj./v.',zh:'深思熟慮的；蓄意的',tip:'「deliberate」比 intentional 語氣更嚴重',
   bloom:{r:{b:'on purpose / careful',c:'記住：<span class="bw">on purpose</span> → 升級為 deliberate'},u:{b:'adj. vs v.',c:'理解：deliberate（形容詞：蓄意/深思）vs deliberate（動詞：仔細考量）—重音位置不同'},a:{b:'critical sentence',c:'應用：The company\'s deliberate concealment of safety data raises serious ethical concerns.'},n:{b:'intent words',c:'分析：deliberate vs accidental vs negligent—法律/道德文章常用'},e:{b:'moral weight',c:'評估：說一個行為是 deliberate 而非 accidental，在道德評判上有何差異？'},c:{b:'write judgment',c:'創造：用 deliberate 寫一句對企業不當行為的批評句'}},
-  colls:[{e:'a deliberate attempt / choice',z:'蓄意的嘗試／選擇'},{e:'deliberate efforts',z:'深思熟慮的努力'},{e:'deliberate over',z:'仔細考量'},{e:'deliberate misleading',z:'蓄意誤導'}]},
+  colls:[{e:'a deliberate attempt / choice',z:'蓄意的嘗試／選擇',ex:'It was a deliberate choice to sit next to the power outlet. No regrets.',exz:'坐在插座旁邊是蓄意的選擇，毫不後悔。'},
+    {e:'deliberate efforts',z:'深思熟慮的努力',ex:'Despite deliberate efforts to be on time, he arrived 12 minutes late as usual.',exz:'儘管費盡心思想要準時，他還是像往常一樣遲到了十二分鐘。'},
+    {e:'deliberate over',z:'仔細考量',ex:'She deliberated over the menu for 15 minutes and ordered what she always orders.',exz:'她花了十五分鐘仔細考量菜單，最後還是點了一樣的東西。'},
+    {e:'deliberate misleading',z:'蓄意誤導',ex:'"The exam is easy," the teacher said. That was deliberate misleading.',exz:'「這次考試很簡單，」老師說，那是蓄意誤導。'}]},
   {w:'initiative',pos:'n.',zh:'主動性；倡議',tip:'「launch an initiative」比 start a program 更正式',
   bloom:{r:{b:'plan / action',c:'記住：<span class="bw">plan</span>（計畫）→ 升級為 initiative'},u:{b:'two uses',c:'理解：initiative 既是「倡議行動」（可數名詞）也是「主動精神」（不可數）'},a:{b:'policy sentence',c:'應用：The government launched a nationwide initiative to promote digital literacy among elderly citizens.'},n:{b:'collocations differ',c:'分析：take initiative（個人主動）vs launch an initiative（機構行動）'},e:{b:'tone difference',c:'評估："a successful initiative" 比 "a good policy" 有哪些語氣差異？'},c:{b:'propose solution',c:'創造：用 initiative 為一篇社會問題文章寫一個「提出解決方案」的句子'}},
-  colls:[{e:'take the initiative',z:'採取主動'},{e:'launch / introduce an initiative',z:'推出倡議'},{e:'policy initiative',z:'政策倡議'},{e:'on one\'s own initiative',z:'自發地'}]},
+  colls:[{e:'take the initiative',z:'採取主動',ex:'For once, he took the initiative and booked the restaurant. Wrong day, but still.',exz:'他難得主動訂了餐廳，雖然訂錯日期了，但還是很努力。'},
+    {e:'launch / introduce an initiative',z:'推出倡議',ex:'The school launched an initiative to reduce phone use. Nobody put their phone down.',exz:'學校推出了減少手機使用的倡議，沒有人把手機放下來。'},
+    {e:'policy initiative',z:'政策倡議',ex:'The new policy initiative had a great name and a very confusing implementation plan.',exz:'這項新政策倡議有個很好聽的名字，執行方案則讓人一頭霧水。'},
+    {e:'on one\'s own initiative',z:'自發地',ex:'On her own initiative, she reorganized the entire filing system. Her boss found nothing for weeks.',exz:'她自發地重新整理了整個檔案系統，她的老闆有好幾週什麼都找不到。'}]},
   {w:'concede',pos:'v.',zh:'承認；讓步',tip:'「concede that + 子句」是議論文讓步技巧，顯示思考周全',
   bloom:{r:{b:'admit / agree',c:'記住：<span class="bw">admit</span>（承認）→ 升級為 concede'},u:{b:'argument use',c:'理解：concede 在辯論中代表「讓步但不放棄整體立場」'},a:{b:'concession sentence',c:'應用：I concede that technology has improved efficiency, but it has also led to social isolation.'},n:{b:'structure',c:'分析：concede + but/however…是「退一步再推進」的論述結構'},e:{b:'rhetorical effect',c:'評估：在議論文中主動 concede 對手觀點，對讀者信任感有什麼作用？'},c:{b:'balanced argument',c:'創造：用 concede that… but… 寫一個顯示論點成熟度的讓步句'}},
-  colls:[{e:'concede a point',z:'承認某一論點'},{e:'concede defeat',z:'承認失敗'},{e:'concede that…',z:'承認⋯（接子句）'},{e:'reluctantly concede',z:'不情願地承認'}]},
+  colls:[{e:'concede a point',z:'承認某一論點',ex:'He conceded the point but immediately brought up three new ones. Classic.',exz:'他承認了這個論點，但馬上又提出了三個新的，典型操作。'},
+    {e:'concede defeat',z:'承認失敗',ex:'After the third hour of assembling the furniture, he conceded defeat and called his dad.',exz:'組裝家具組了三個小時後，他承認失敗，打電話給爸爸求救。'},
+    {e:'concede that…',z:'承認⋯（接子句）',ex:'She conceded that the movie was good, but refused to admit she cried.',exz:'她承認這部電影很好看，但拒絕承認自己哭了。'},
+    {e:'reluctantly concede',z:'不情願地承認',ex:'He reluctantly conceded that yes, the GPS was right and he was wrong.',exz:'他不情願地承認，導航是對的，他錯了。'}]},
   {w:'steer',pos:'v.',zh:'引導；帶領',tip:'「steer clear of」表示「刻意避開」，可用於負面事物的警告句',
   bloom:{r:{b:'guide / lead',c:'記住：<span class="bw">guide</span>（引導）→ 升級為 steer'},u:{b:'direction sense',c:'理解：steer 有「主動掌舵」的隱喻，強調引導方向而非強迫'},a:{b:'education sentence',c:'應用：Parents should steer children toward healthy habits rather than imposing rigid rules.'},n:{b:'compare guide words',c:'分析：steer（掌舵引導）vs guide（指引）vs direct（直接指示）—自主程度不同'},e:{b:'leadership style',c:'評估：「steer a team」和「lead a team」在描述領導風格時有何細微差異？'},c:{b:'education proposal',c:'創造：用 steer toward 為一篇教育或家庭議題文章寫一個建議句'}},
-  colls:[{e:'steer toward / away from',z:'引導朝向／遠離'},{e:'steer a course',z:'把持方向'},{e:'steer clear of',z:'刻意迴避'},{e:'steer the conversation',z:'引導對話方向'}]}
+  colls:[{e:'steer toward / away from',z:'引導朝向／遠離',ex:'She steered the conversation away from the topic of grades with impressive speed.',exz:'她以驚人的速度把話題從成績上引開。'},
+    {e:'steer a course',z:'把持方向',ex:'He tried to steer a steady course through the chaotic group project. He failed.',exz:'他試圖在混亂的團體報告中把持方向，沒有成功。'},
+    {e:'steer clear of',z:'刻意迴避',ex:'She steered clear of the front row ever since the teacher started calling on people randomly.',exz:'自從老師開始隨機點人回答問題，她就刻意避開第一排。'},
+    {e:'steer the conversation',z:'引導對話方向',ex:'He tried to steer the conversation toward the topic he\'d actually prepared for.',exz:'他試圖把對話引向他真正有準備的那個主題。'}]}
 ]},
 {lv:'L5',id:'L5U3',label:'L5 Unit 11–15',badge:'lv5',words:[
   {w:'sole',pos:'adj.',zh:'唯一的；獨有的',tip:'「not the sole measure」是批評「過度依賴單一標準」的高分句型',
   bloom:{r:{b:'only / one',c:'記住：<span class="bw">only</span>（唯一）→ 升級為 sole'},u:{b:'formality',c:'理解：sole 是書面語，比 only 更正式，常出現在法律、學術語境'},a:{b:'limitation sentence',c:'應用：Grades should not be the sole indicator of a student\'s academic ability.'},n:{b:'compare',c:'分析：sole vs solitary vs singular—用途各有側重'},e:{b:'single standard',c:'評估：為何依賴 sole measure 評估人的能力是個問題？'},c:{b:'education critique',c:'創造：用 sole measure 寫一句批評考試制度的論點'}},
-  colls:[{e:'the sole purpose / reason',z:'唯一目的／原因'},{e:'sole responsibility',z:'唯一責任'},{e:'sole survivor',z:'唯一倖存者'},{e:'for the sole purpose of',z:'僅為了…目的'}]},
+  colls:[{e:'the sole purpose / reason',z:'唯一目的／原因',ex:'The sole purpose of the meeting was to schedule the next meeting.',exz:'這場會議唯一的目的，是安排下一場會議的時間。'},
+    {e:'sole responsibility',z:'唯一責任',ex:'He claimed sole responsibility for the project\'s success. He had joined the group last week.',exz:'他宣稱獨自承擔了這個計畫的成功，他上週才加入這個小組的。'},
+    {e:'sole survivor',z:'唯一倖存者',ex:'He was the sole survivor of the group who actually read the instructions.',exz:'他是小組裡唯一真的讀了說明書的倖存者。'},
+    {e:'for the sole purpose of',z:'僅為了…目的',ex:'She opened the app for the sole purpose of turning off notifications. Two hours later.',exz:'她打開 app 純粹是為了關閉通知，兩小時後。'}]},
   {w:'norm',pos:'n.',zh:'常態；基準',tip:'「defy social norms」比 break rules 更有學術感',
   bloom:{r:{b:'normal / standard',c:'記住：<span class="bw">normal</span>（正常）→ 升級為 norm'},u:{b:'social dimension',c:'理解：norm 帶有「社會共識/集體預期」，比 standard 更強調無形社會壓力'},a:{b:'social observation',c:'應用：Digital communication has become the norm, gradually replacing face-to-face interaction.'},n:{b:'norm vs rule',c:'分析：norm（不成文規範）vs rule（明確規定）—前者更難挑戰，為什麼？'},e:{b:'conformity pressure',c:'評估：當某行為 becomes the norm，它對個人的自由有哪些隱性影響？'},c:{b:'social change',c:'創造：用 defy the norm 寫一句描述社會進步的論點'}},
-  colls:[{e:'become the norm',z:'成為常態'},{e:'social / cultural norms',z:'社會／文化規範'},{e:'defy the norm',z:'挑戰常規'},{e:'the norm is to V',z:'慣例是…'}]},
+  colls:[{e:'become the norm',z:'成為常態',ex:'Replying "haha" to avoid conversation has become the norm in every group chat.',exz:'回覆「哈哈」來迴避對話已成為所有群組對話的常態。'},
+    {e:'social / cultural norms',z:'社會／文化規範',ex:'Social norms say you shouldn\'t eat on the MRT. She had a full bento box.',exz:'社會規範說捷運上不能吃東西，她帶了一個完整的便當盒。'},
+    {e:'defy the norm',z:'挑戰常規',ex:'He defied the norm by submitting the assignment three days early. Nobody believed him.',exz:'他提前三天交作業，挑戰了常規，沒有人相信他。'},
+    {e:'the norm is to V',z:'慣例是…',ex:'The norm is to pretend you\'re busy when the teacher asks for a volunteer.',exz:'慣例是老師徵求自願者時，假裝自己很忙。'}]},
   {w:'compromise',pos:'v./n.',zh:'妥協；損害',tip:'「compromise integrity」是批評讓步代價過大的高分句',
   bloom:{r:{b:'give in / damage',c:'記住：<span class="bw">give in</span>（讓步）→ 升級為 compromise'},u:{b:'positive vs negative',c:'理解：compromise 可以是正面（達成妥協）也可以是負面（損害品質）'},a:{b:'values sentence',c:'應用：A leader should never compromise on ethical principles, even under political pressure.'},n:{b:'two uses',c:'分析：compromise（妥協）vs compromise + 原則/安全（損害）—搭配詞不同'},e:{b:'trade-offs',c:'評估：什麼時候妥協是智慧，什麼時候又是讓步過多？'},c:{b:'firm stance',c:'創造：用 compromise 寫一句表達「原則不可退讓」的立場句'}},
-  colls:[{e:'reach a compromise',z:'達成妥協'},{e:'compromise on sth',z:'在某事上妥協'},{e:'compromise one\'s integrity',z:'損害誠信'},{e:'without compromise',z:'毫不妥協地'}]},
+  colls:[{e:'reach a compromise',z:'達成妥協',ex:'They reached a compromise: she chose the restaurant, he paid. He regretted this deal.',exz:'他們達成妥協：她選餐廳，他付錢。他後悔了這個協議。'},
+    {e:'compromise on sth',z:'在某事上妥協',ex:'She refused to compromise on sleep. Eight hours minimum. Non-negotiable.',exz:'她拒絕在睡眠上妥協，最少八小時，沒有商量餘地。'},
+    {e:'compromise one\'s integrity',z:'損害誠信',ex:'Copying one sentence, he told himself, wouldn\'t compromise his integrity. It would.',exz:'他告訴自己抄一句話不會損害誠信，其實會的。'},
+    {e:'without compromise',z:'毫不妥協地',ex:'She pursued excellence without compromise — and reminded everyone of it regularly.',exz:'她毫不妥協地追求卓越，並且定期提醒所有人這一點。'}]},
   {w:'manifest',pos:'v.',zh:'表現；顯示',tip:'「manifest itself in + 名詞」是描述抽象問題具體呈現的精準學術用法',
   bloom:{r:{b:'show / appear',c:'記住：<span class="bw">show</span>（顯示）→ 升級為 manifest'},u:{b:'reflexive use',c:'理解：「manifest itself in sth」是學術慣用結構，意指「以某種形式具體呈現」'},a:{b:'social trend',c:'應用：Social inequality manifests itself in unequal access to healthcare and education.'},n:{b:'compare reveal words',c:'分析：manifest vs reflect vs indicate—研究報告中各有用武之地'},e:{b:'abstraction to concrete',c:'評估：為何說「inequality manifests in X」比「inequality causes X」更符合學術分析的邏輯？'},c:{b:'analysis sentence',c:'創造：選一個社會問題，用 manifest itself in 說明它如何具體呈現'}},
-  colls:[{e:'manifest itself in',z:'以…形式表現'},{e:'manifest signs of',z:'呈現…的跡象'},{e:'clearly manifest',z:'清楚地表現出'},{e:'a manifest injustice',z:'明顯的不公義（形容詞）'}]},
+  colls:[{e:'manifest itself in',z:'以…形式表現',ex:'Exam stress manifests itself in many ways: nail-biting, over-eating, and excessive playlist-making.',exz:'考試壓力以許多方式呈現：咬指甲、暴飲暴食，以及瘋狂製作播放清單。'},
+    {e:'manifest signs of',z:'呈現…的跡象',ex:'The project manifested signs of crisis when no one had started two days before the deadline.',exz:'截止日期前兩天沒有人開始做，計畫呈現出危機的跡象。'},
+    {e:'clearly manifest',z:'清楚地表現出',ex:'His boredom was clearly manifest — he had doodled an entire city on his notebook.',exz:'他的無聊清楚地表現出來：他在筆記本上畫了一整個城市。'},
+    {e:'a manifest injustice',z:'明顯的不公義（形容詞）',ex:'Being assigned the longest part of the group project last minute was a manifest injustice.',exz:'最後一刻被分配到最長的部分，是明顯的不公義。'}]},
   {w:'exploit',pos:'v./n.',zh:'剝削；善用',tip:'「exploit an opportunity」是正面用法；「exploit workers」是負面—語境決定',
   bloom:{r:{b:'use / take advantage',c:'記住：<span class="bw">use</span>（使用）→ 升級為 exploit'},u:{b:'positive vs negative',c:'理解：exploit 可正面（充分利用機會）也可負面（剝削），受詞決定意義'},a:{b:'critical sentence',c:'應用：Corporations that exploit cheap labor overseas must be held accountable.'},n:{b:'object effect',c:'分析：exploit + 資源/機會（中性）vs exploit + 人/弱勢（負面）—搭配詞決定語義'},e:{b:'ethical dimension',c:'評估：exploit natural resources 和 exploit workers，道德問題是否相同？'},c:{b:'policy critique',c:'創造：用 exploit 寫一句批評不公平勞動條件的論點句'}},
-  colls:[{e:'exploit workers / resources',z:'剝削工人／開採資源'},{e:'exploit an opportunity',z:'充分利用機會'},{e:'exploit a weakness',z:'利用弱點'},{e:'economic exploitation',z:'經濟剝削'}]},
+  colls:[{e:'exploit workers / resources',z:'剝削工人／開採資源',ex:'The internship exploited young workers with "exposure" as the only compensation.',exz:'這份實習以「增加曝光」作為唯一報酬，剝削年輕工作者。'},
+    {e:'exploit an opportunity',z:'充分利用機會',ex:'She exploited the five-minute break to eat, check emails, and emotionally recover.',exz:'她充分利用了五分鐘休息時間吃東西、查郵件，並進行情緒修復。'},
+    {e:'exploit a weakness',z:'利用弱點',ex:'He exploited her weakness for dessert to win every single argument.',exz:'他利用她對甜點的弱點，贏得了每一場爭論。'},
+    {e:'economic exploitation',z:'經濟剝削',ex:'Charging $8 for airport water is economic exploitation and everyone knows it.',exz:'機場的水賣八塊美金是經濟剝削，大家都知道。'}]},
   {w:'coverage',pos:'n.',zh:'報導；涵蓋範圍',tip:'「media coverage shapes perception」是媒體批判類的核心論點',
   bloom:{r:{b:'news reporting',c:'記住：<span class="bw">news reporting</span> → 升級為 media coverage'},u:{b:'framing power',c:'理解：coverage 不只是「報導了什麼」，也包含「如何報導」'},a:{b:'media critique',c:'應用：Biased media coverage can distort public understanding of complex social issues.'},n:{b:'framing',c:'分析：extensive coverage vs limited coverage—不同程度的報導對公眾認知有何影響？'},e:{b:'media bias',c:'評估：沉默（lack of coverage）和誇大（sensational coverage）哪個危害更大？'},c:{b:'media argument',c:'創造：用 coverage 為一篇討論媒體責任的文章寫一個核心論點句'}},
-  colls:[{e:'media / news coverage',z:'媒體／新聞報導'},{e:'extensive / limited coverage',z:'廣泛／有限的報導'},{e:'healthcare coverage',z:'醫療保障範圍'},{e:'give coverage to',z:'給予報導'}]},
+  colls:[{e:'media / news coverage',z:'媒體／新聞報導',ex:'The media coverage focused on the drama, not the actual issue. Naturally.',exz:'媒體報導聚焦在戲劇性衝突上，而非真正的問題，當然。'},
+    {e:'extensive / limited coverage',z:'廣泛／有限的報導',ex:'The event received extensive coverage. The correction the next day received none.',exz:'這個事件獲得了廣泛報導，隔天的更正聲明則完全沒有。'},
+    {e:'healthcare coverage',z:'醫療保障範圍',ex:'She checked her healthcare coverage before the exam season. Wise.',exz:'她在考試季前確認了自己的醫療保障範圍，非常明智。'},
+    {e:'give coverage to',z:'給予報導',ex:'The news gave coverage to the celebrity\'s lunch but not the policy change. Priorities.',exz:'新聞報導了名人的午餐，但沒有報導政策變更，重要性顯而易見。'}]},
   {w:'prone',pos:'adj.',zh:'易於…的',tip:'「be prone to + Ving」描述某類人或事物固有的傾向',
   bloom:{r:{b:'likely to',c:'記住：<span class="bw">likely to</span> → 升級為 prone to'},u:{b:'negative lean',c:'理解：prone to 通常搭配負面結果，有「不幸的傾向」之意'},a:{b:'risk groups',c:'應用：Children from disadvantaged backgrounds are more prone to developmental delays.'},n:{b:'compare tendency',c:'分析：prone to vs inclined to vs liable to—細微差別'},e:{b:'stigma risk',c:'評估：說某群體 prone to 某問題，是客觀描述還是可能強化偏見？'},c:{b:'risk analysis',c:'創造：用 prone to 為一篇分析社會弱勢群體的文章寫一個說明句'}},
-  colls:[{e:'be prone to + N/Ving',z:'容易發生…'},{e:'prone to error / risk',z:'容易出錯／冒險'},{e:'prone to exaggeration',z:'容易誇大'},{e:'error-prone',z:'容易出錯的（複合形容詞）'}]}
+  colls:[{e:'be prone to + N/Ving',z:'容易發生…',ex:'She was prone to overthinking — especially at 2am when nothing required thinking.',exz:'她容易想太多，尤其是在凌晨兩點，那時根本沒有什麼需要思考的。'},
+    {e:'prone to error / risk',z:'容易出錯／冒險',ex:'Typing while sleepy is prone to error. His email to the professor proved this.',exz:'睏了還在打字容易出錯，他寄給教授的郵件就是明證。'},
+    {e:'prone to exaggeration',z:'容易誇大',ex:'He was prone to exaggeration. The "impossible" exam had an average of 85.',exz:'他容易誇大，那份「超難」的考卷平均分是八十五分。'},
+    {e:'error-prone',z:'容易出錯的（複合形容詞）',ex:'The error-prone Wi-Fi chose to crash during the most important part of the presentation.',exz:'容易出錯的 Wi-Fi 偏偏在簡報最重要的部分當機了。'}]}
 ]},
 {lv:'L5',id:'L5U4',label:'L5 Unit 16–20',badge:'lv5',words:[
   {w:'foster',pos:'v.',zh:'培養；促進',tip:'「foster independent thinking」比 develop 更有「悉心培育」的語感',
   bloom:{r:{b:'develop / encourage',c:'記住：<span class="bw">develop</span>（發展）→ 升級為 foster'},u:{b:'nurturing sense',c:'理解：foster 有「長期悉心培育」的意象，強調過程'},a:{b:'education sentence',c:'應用：A supportive classroom environment fosters both academic growth and emotional resilience.'},n:{b:'compare nurture',c:'分析：foster vs cultivate vs nurture—語氣和語境有細微差別'},e:{b:'teaching approach',c:'評估：學校應該 foster creativity 還是 ensure academic achievement？'},c:{b:'education proposal',c:'創造：用 foster 寫一句為教育改革文章提出的核心主張句'}},
-  colls:[{e:'foster creativity / growth',z:'培養創意／促進成長'},{e:'foster a sense of community',z:'培養社群感'},{e:'foster dialogue / cooperation',z:'促進對話／合作'},{e:'foster independence',z:'培養獨立性'}]},
+  colls:[{e:'foster creativity / growth',z:'培養創意／促進成長',ex:'The teacher fostered creativity by letting students choose their own essay topics. Chaos ensued.',exz:'老師讓學生自選作文主題來培養創意，結果一片混亂。'},
+    {e:'foster a sense of community',z:'培養社群感',ex:'The group chat fostered a sense of community — until someone sent a voice message.',exz:'群組對話培養了社群感，直到有人傳了語音訊息。'},
+    {e:'foster dialogue / cooperation',z:'促進對話／合作',ex:'The project was meant to foster cooperation. It mostly fostered passive aggression.',exz:'這個專案的目的是促進合作，結果大多促進了冷戰。'},
+    {e:'foster independence',z:'培養獨立性',ex:'Cooking for yourself fosters independence. Ordering delivery every night does not.',exz:'自己煮飯能培養獨立性，每天叫外送則不行。'}]},
   {w:'acute',pos:'adj.',zh:'嚴重的；敏銳的',tip:'「acutely aware of」比 very aware 更有力',
   bloom:{r:{b:'serious / sharp',c:'記住：<span class="bw">serious</span>（嚴重）→ 升級為 acute'},u:{b:'medical origin',c:'理解：acute 源自醫療術語（急性），延伸為「突發嚴重」；也有「感知敏銳」的意思'},a:{b:'crisis sentence',c:'應用：The need for mental health services in schools has become increasingly acute.'},n:{b:'compare severity',c:'分析：acute（突發性嚴重）vs chronic（長期性慢性）vs severe（程度嚴重）'},e:{b:'urgency language',c:'評估：為什麼說 acute shortage 比 big shortage 更有緊迫感？'},c:{b:'policy argument',c:'創造：用 acute 為一篇討論都市問題的文章寫一個緊迫感強烈的主題句'}},
-  colls:[{e:'acute shortage / crisis',z:'嚴重的短缺／危機'},{e:'acute awareness',z:'敏銳的意識'},{e:'acutely aware',z:'敏銳地察覺到（副詞用法）'},{e:'acute problem / pain',z:'嚴重的問題／劇痛'}]},
+  colls:[{e:'acute shortage / crisis',z:'嚴重的短缺／危機',ex:'There was an acute shortage of printer ink on every deadline day. Coincidence? No.',exz:'每個截止日都會出現嚴重的印表機墨水短缺，這是巧合嗎？不是。'},
+    {e:'acute awareness',z:'敏銳的意識',ex:'She had an acute awareness of when someone was lying — a very inconvenient skill.',exz:'她對別人說謊有著敏銳的意識，這是個非常不方便的能力。'},
+    {e:'acutely aware',z:'敏銳地察覺到（副詞用法）',ex:'He was acutely aware that he was the only one who hadn\'t read the assigned chapter.',exz:'他敏銳地察覺到自己是唯一一個沒有讀指定章節的人。'},
+    {e:'acute problem / pain',z:'嚴重的問題／劇痛',ex:'The acute pain of seeing a typo in a submitted assignment is universal.',exz:'繳出去的作業發現有錯字的那種劇烈痛苦，是全人類共同的體驗。'}]},
   {w:'provoke',pos:'v.',zh:'激起；引發',tip:'「provoke thought」是正面用法，表示「引發深思」',
   bloom:{r:{b:'cause / trigger',c:'記住：<span class="bw">cause</span>（引起）→ 升級為 provoke'},u:{b:'positive vs negative',c:'理解：provoke 可以是負面（激怒）也可以是正面（激發思考）'},a:{b:'controversy',c:'應用：The artist\'s work deliberately provoked reflection on racial inequality.'},n:{b:'reaction words',c:'分析：provoke vs trigger vs inspire—情緒強度不同'},e:{b:'intentionality',c:'評估：「provoked controversy」和「sparked debate」各暗示什麼不同立場？'},c:{b:'social impact',c:'創造：用 provoke 寫一句描述某政策引發社會反響的句子'}},
-  colls:[{e:'provoke debate / controversy',z:'引發辯論／爭議'},{e:'provoke an angry response',z:'激起憤怒的反應'},{e:'provoke thought / reflection',z:'激發思考／反思'},{e:'deliberately provocative',z:'蓄意挑釁的'}]},
+  colls:[{e:'provoke debate / controversy',z:'引發辯論／爭議',ex:'The pineapple-on-pizza debate provoked more controversy than most political issues.',exz:'鳳梨披薩之爭引發的爭議，比大多數政治議題還要激烈。'},
+    {e:'provoke an angry response',z:'激起憤怒的反應',ex:'His "it\'s just a suggestion" provoked an extremely angry response from the team.',exz:'他那句「這只是個建議」激起了團隊極度憤怒的反應。'},
+    {e:'provoke thought / reflection',z:'激發思考／反思',ex:'The documentary provoked reflection. She turned it off and ordered pizza instead.',exz:'這部紀錄片激發了反思，她把它關掉，改成去點了披薩。'},
+    {e:'deliberately provocative',z:'蓄意挑釁的',ex:'His comment was deliberately provocative. He knew exactly what he was doing.',exz:'他的評論是蓄意挑釁的，他完全清楚自己在做什麼。'}]},
   {w:'advocate',pos:'v./n.',zh:'提倡；擁護',tip:'「advocate for + 族群」表示為某群體發聲',
   bloom:{r:{b:'support / argue for',c:'記住：<span class="bw">support</span>（支持）→ 升級為 advocate'},u:{b:'advocate for vs N',c:'理解：advocate + N（倡導政策）vs advocate for + 人/群體（為某群體發聲）'},a:{b:'position sentence',c:'應用：This essay advocates for a more inclusive approach to evaluating student performance.'},n:{b:'compare',c:'分析：advocate vs support vs endorse—積極程度和正式度不同'},e:{b:'stance clarity',c:'評估：明確說 "I advocate for X" 比 "X might be a good idea" 有何修辭優勢？'},c:{b:'thesis',c:'創造：用 advocate 為你的文章寫一個清楚表達立場的主張句'}},
-  colls:[{e:'advocate for / against',z:'支持／反對'},{e:'advocate stricter laws',z:'倡導更嚴格的法律'},{e:'a strong advocate of',z:'強力擁護者（名詞）'},{e:'advocate change / reform',z:'倡導改變／改革'}]},
+  colls:[{e:'advocate for / against',z:'支持／反對',ex:'She advocated passionately for better school lunches. The lunches did not improve.',exz:'她熱情地倡導改善學校午餐，午餐並沒有改善。'},
+    {e:'advocate stricter laws',z:'倡導更嚴格的法律',ex:'He advocated stricter phone rules at dinner. He checked his own phone twice during the speech.',exz:'他倡導吃飯時更嚴格的手機規定，演講中他自己看了兩次手機。'},
+    {e:'a strong advocate of',z:'強力擁護者（名詞）',ex:'She was a strong advocate of eight-hour sleep — mostly because she loved sleeping.',exz:'她是八小時睡眠的強力擁護者，主要是因為她很喜歡睡覺。'},
+    {e:'advocate change / reform',z:'倡導改變／改革',ex:'He advocated reform in the exam system while secretly being very good at the current one.',exz:'他倡導改革考試制度，同時暗地裡對現行制度非常在行。'}]},
   {w:'undermine',pos:'v.',zh:'削弱；動搖',tip:'「undermine」比 weaken 更強調漸進式的危害',
   bloom:{r:{b:'weaken / damage',c:'記住：<span class="bw">weaken</span>（削弱）→ 升級為 undermine'},u:{b:'gradual erosion',c:'理解：undermine 有「從根基挖空」的意象，強調漸進式、不易察覺的破壞'},a:{b:'critique',c:'應用：Inconsistent enforcement of environmental laws undermines their intended effect.'},n:{b:'compare damage',c:'分析：undermine vs damage vs erode—時間感和語感不同'},e:{b:'long-term effects',c:'評估：「undermines trust」比「reduces trust」更能傳達長期危害嗎？'},c:{b:'policy warning',c:'創造：用 undermine 寫一句警告某政策可能帶來負面長期影響的句子'}},
-  colls:[{e:'undermine trust / confidence',z:'削弱信任／信心'},{e:'undermine authority',z:'動搖權威'},{e:'undermine efforts',z:'破壞努力成果'},{e:'systematically undermine',z:'系統性地削弱'}]},
+  colls:[{e:'undermine trust / confidence',z:'削弱信任／信心',ex:'Being late three times in a row completely undermined his "I\'m a punctual person" claim.',exz:'連續三次遲到，完全削弱了他「我是個守時的人」的說法。'},
+    {e:'undermine authority',z:'動搖權威',ex:'The cat undermined his authority by ignoring every command with visible contempt.',exz:'那隻貓對每個命令都帶著明顯的鄙視無視，動搖了他的權威。'},
+    {e:'undermine efforts',z:'破壞努力成果',ex:'Eating a whole bag of chips after the gym effectively undermined his efforts.',exz:'健身完吃掉一整包洋芋片，實際上破壞了他所有的努力。'},
+    {e:'systematically undermine',z:'系統性地削弱',ex:'The constant schedule changes systematically undermined any attempt at planning.',exz:'不斷變更的時程表，系統性地削弱了任何計畫的可能性。'}]},
   {w:'facilitate',pos:'v.',zh:'促進；使更容易',tip:'「facilitate」強調「消除阻礙、使事情更順暢發生」',
   bloom:{r:{b:'help / make easier',c:'記住：<span class="bw">help</span>（幫助）→ 升級為 facilitate'},u:{b:'enabling sense',c:'理解：facilitate 的核心是「移除障礙，使事情得以發生」'},a:{b:'technology sentence',c:'應用：Social media platforms facilitate the rapid spread of both information and misinformation.'},n:{b:'compare enable',c:'分析：facilitate vs enable vs support—主動程度有別'},e:{b:'neutral framing',c:'評估：說某科技 facilitates connection 和 enables surveillance，為何道德評判不同？'},c:{b:'tech argument',c:'創造：用 facilitate 寫一句關於科技對教育正面影響的句子'}},
-  colls:[{e:'facilitate communication',z:'促進溝通'},{e:'facilitate learning / access',z:'促進學習／取得'},{e:'facilitate change',z:'推動改變'},{e:'facilitate a process',z:'使流程更順暢'}]}
+  colls:[{e:'facilitate communication',z:'促進溝通',ex:'The new app was supposed to facilitate communication. Everyone switched back to LINE.',exz:'新的 app 應該要促進溝通，但大家都換回去用 LINE 了。'},
+    {e:'facilitate learning / access',z:'促進學習／取得',ex:'Good lighting facilitates learning. She bought a new lamp and immediately took a nap.',exz:'好的照明有助於學習，她買了一盞新燈，馬上睡著了。'},
+    {e:'facilitate change',z:'推動改變',ex:'The committee met every month to facilitate change. Nothing changed for three years.',exz:'委員會每個月開會推動改變，三年內什麼都沒有改變。'},
+    {e:'facilitate a process',z:'使流程更順暢',ex:'The new system was meant to facilitate the process. It added four extra steps.',exz:'這個新系統應該要讓流程更順暢，結果多了四個步驟。'}]}
 ]},
 {lv:'L5',id:'L5U5',label:'L5 Unit 21–25',badge:'lv5',words:[
   {w:'trigger',pos:'v./n.',zh:'引發；觸發',tip:'「trigger + 集體反應」是社會議題文章的高頻動詞搭配',
   bloom:{r:{b:'cause / start',c:'記住：<span class="bw">cause</span>（引起）→ 升級為 trigger'},u:{b:'mechanism sense',c:'理解：trigger 有「扣下板機即刻啟動」的意象，比 cause 更有爆發感'},a:{b:'social events',c:'應用：The leaked report triggered a wave of public outrage that forced the government to respond.'},n:{b:'compare causation',c:'分析：trigger vs provoke vs ignite—強度和隱喻不同'},e:{b:'media framing',c:'評估：媒體說某事件 triggered protests 和 caused protests，哪個更帶批判語氣？'},c:{b:'cause-effect sentence',c:'創造：用 trigger 寫一句描述政策引發社會回應的強力句子'}},
-  colls:[{e:'trigger a response / reaction',z:'觸發反應'},{e:'trigger debate / protest',z:'引發辯論／抗議'},{e:'trigger point',z:'導火線；觸發點'},{e:'emotionally triggered',z:'情緒被觸發（心理描寫）'}]},
+  colls:[{e:'trigger a response / reaction',z:'觸發反應',ex:'His "we need to talk" text triggered a full existential crisis in under three seconds.',exz:'他那條「我們需要談談」的訊息，在三秒內觸發了一場全面的存在危機。'},
+    {e:'trigger debate / protest',z:'引發辯論／抗議',ex:'Changing the canteen menu triggered more protest than the actual policy announcement.',exz:'更換餐廳菜單引發的抗議，比真正的政策公告還要多。'},
+    {e:'trigger point',z:'導火線；觸發點',ex:'The trigger point was not the big argument — it was someone finishing the last biscuit.',exz:'導火線不是那場大爭吵，而是有人吃掉了最後一塊餅乾。'},
+    {e:'emotionally triggered',z:'情緒被觸發（心理描寫）',ex:'She got emotionally triggered by a song that came on shuffle. She wasn\'t even sad before.',exz:'隨機播放到一首歌，她的情緒就被觸發了，她之前根本沒有在難過。'}]},
   {w:'soar',pos:'v.',zh:'飆升；急速上升',tip:'「soaring + 名詞」比 rising 更有緊迫感',
   bloom:{r:{b:'rise quickly',c:'記住：<span class="bw">rise quickly</span> → 升級為 soar'},u:{b:'upward force',c:'理解：soar 源自「翱翔高飛」，強調急速且大幅上升，帶有「難以控制」的意涵'},a:{b:'economic issue',c:'應用：As tuition fees continue to soar, many students are forced to take on substantial debt.'},n:{b:'compare rise words',c:'分析：soar（急速飆升）vs surge（湧現）vs climb（緩慢攀升）—速度感不同'},e:{b:'alarm language',c:'評估：新聞報導偏好 soar 而非 increase，製造了什麼讀者心理效果？'},c:{b:'economic alarm',c:'創造：用 soar 為一篇討論生活成本的文章寫一個引起關注的開場句'}},
-  colls:[{e:'prices / costs soar',z:'價格／成本飆升'},{e:'soaring inequality',z:'急速擴大的不平等'},{e:'spirits soar',z:'精神大振（文學用法）'},{e:'soar to new heights',z:'攀升至新高'}]},
+  colls:[{e:'prices / costs soar',z:'價格／成本飆升',ex:'Coffee prices soared and productivity mysteriously dropped the following week.',exz:'咖啡價格飆升，接下來那週的生產力神秘地下滑了。'},
+    {e:'soaring inequality',z:'急速擴大的不平等',ex:'Soaring inequality meant some students had tutors, others had YouTube. It showed.',exz:'急速擴大的不平等意味著有些學生有補習老師，有些只有 YouTube，這點很明顯。'},
+    {e:'spirits soar',z:'精神大振（文學用法）',ex:'Her spirits soared when she saw the exam had a bonus question she actually knew.',exz:'當她看到考卷上有一題她真的會的加分題，精神為之大振。'},
+    {e:'soar to new heights',z:'攀升至新高',ex:'His confidence soared to new heights the moment he answered one question correctly.',exz:'他答對一個問題的那一刻，自信心攀升至新高。'}]},
   {w:'forge',pos:'v.',zh:'建立；鍛造',tip:'「forge a path forward」是論述文結尾段的高分慣用語',
   bloom:{r:{b:'build / create',c:'記住：<span class="bw">build</span>（建立）→ 升級為 forge'},u:{b:'effort sense',c:'理解：forge 有「在烈火中鍛造」的隱喻，強調克服阻礙才能建立'},a:{b:'cooperation sentence',c:'應用：Nations must forge stronger international agreements to combat climate change effectively.'},n:{b:'compare create',c:'分析：forge vs establish vs create—努力程度和正式度不同'},e:{b:'metaphor power',c:'評估：為什麼用 forge a path 比 find a way 在鼓勵性文章中更有力量感？'},c:{b:'call to action',c:'創造：用 forge 為一篇倡議文章寫一個呼籲行動的結尾句'}},
-  colls:[{e:'forge a partnership / alliance',z:'建立夥伴關係／聯盟'},{e:'forge a path / way',z:'開闢道路'},{e:'forge a bond / connection',z:'建立連結'},{e:'forge ahead',z:'奮勇前進'}]},
+  colls:[{e:'forge a partnership / alliance',z:'建立夥伴關係／聯盟',ex:'The two rivals forged an unlikely alliance when they both hated the new policy.',exz:'這兩個對手在都討厭新政策這件事上，建立了一個不太可能的聯盟。'},
+    {e:'forge a path / way',z:'開闢道路',ex:'She forged her own path — mostly because she refused to ask for directions.',exz:'她開闢了自己的道路，主要是因為她拒絕問路。'},
+    {e:'forge a bond / connection',z:'建立連結',ex:'They forged a strong bond over their mutual hatred of 8am classes.',exz:'他們因為共同討厭早八的課，建立了深厚的感情連結。'},
+    {e:'forge ahead',z:'奮勇前進',ex:'Despite the confusion, they forged ahead with the plan. It was the wrong plan.',exz:'儘管一頭霧水，他們還是奮勇執行了計畫，那是個錯誤的計畫。'}]},
   {w:'discourse',pos:'n.',zh:'論述；正式討論',tip:'「shape the discourse」比 affect the debate 更有學術深度',
   bloom:{r:{b:'discussion / debate',c:'記住：<span class="bw">discussion</span>（討論）→ 升級為 discourse'},u:{b:'power dimension',c:'理解：discourse 不只是「討論」，更指「社會上流通的思想框架和說話方式」'},a:{b:'media sentence',c:'應用：Media outlets that dominate public discourse have a significant responsibility to present balanced views.'},n:{b:'framing power',c:'分析：誰 shapes the discourse？這種能力帶來什麼社會影響？'},e:{b:'critical literacy',c:'評估：為什麼理解 who shapes the discourse 對批判思考如此重要？'},c:{b:'media critique',c:'創造：用 discourse 為一篇分析媒體影響力的文章寫一個核心主張句'}},
-  colls:[{e:'public discourse',z:'公共論述'},{e:'shape / dominate the discourse',z:'形塑／主導論述'},{e:'political discourse',z:'政治論述'},{e:'enter the discourse',z:'進入辯論圈'}]},
+  colls:[{e:'public discourse',z:'公共論述',ex:'Public discourse has shifted from "what should we do" to "who should we blame."',exz:'公共論述已從「我們該怎麼做」轉變為「我們該怪誰」。'},
+    {e:'shape / dominate the discourse',z:'形塑／主導論述',ex:'Whoever controls the trending topics shapes the discourse. Scary but true.',exz:'控制熱門話題的人就主導了論述，很可怕，但是真的。'},
+    {e:'political discourse',z:'政治論述',ex:'Political discourse these days consists mostly of people yelling past each other online.',exz:'現在的政治論述主要是人們在網路上各說各話。'},
+    {e:'enter the discourse',z:'進入辯論圈',ex:'The topic entered the discourse overnight after one viral post. Nobody asked for this.',exz:'這個話題因為一篇爆紅貼文在一夜之間進入了公共討論圈，沒有人希望這樣。'}]},
   {w:'premise',pos:'n.',zh:'前提；假設',tip:'「question the premise」是高階批判思考的標誌',
   bloom:{r:{b:'assumption',c:'記住：<span class="bw">assumption</span>（假設）→ 升級為 premise'},u:{b:'logical role',c:'理解：premise 是論述的「起點假設」，前提錯誤則整個論證崩塌'},a:{b:'logical critique',c:'應用：The policy rests on the flawed premise that economic growth automatically benefits all citizens.'},n:{b:'trace logic',c:'分析：premise → argument → conclusion—邏輯結構三層次'},e:{b:'foundation',c:'評估：「question the premise」比「reject the conclusion」更有力嗎？為什麼？'},c:{b:'critical analysis',c:'創造：用 flawed premise 寫一個挑戰對手論點的句子'}},
-  colls:[{e:'on the premise that',z:'基於…的前提'},{e:'the underlying premise',z:'潛在的前提假設'},{e:'a false / flawed premise',z:'錯誤的前提'},{e:'question the premise',z:'質疑前提'}]},
+  colls:[{e:'on the premise that',z:'基於…的前提',ex:'The plan was built on the premise that everyone would cooperate. Bold assumption.',exz:'這個計畫建立在所有人都會配合的前提上，非常大膽的假設。'},
+    {e:'the underlying premise',z:'潛在的前提假設',ex:'The underlying premise of the argument was that more meetings solve problems. They do not.',exz:'這個論點的潛在假設是開更多會議能解決問題，並不能。'},
+    {e:'a false / flawed premise',z:'錯誤的前提',ex:'"If I stay up later, I\'ll get more done" is a deeply flawed premise.',exz:'「熬夜越晚就能做越多」是一個根本上錯誤的前提。'},
+    {e:'question the premise',z:'質疑前提',ex:'She questioned the premise of the entire project in the final presentation. Brave.',exz:'她在最後的報告上質疑了整個計畫的前提，很勇敢。'}]},
   {w:'envision',pos:'v.',zh:'想像；預見',tip:'「envision a future where…」是論述文結尾段的必備句型',
   bloom:{r:{b:'imagine / picture',c:'記住：<span class="bw">imagine</span>（想像）→ 升級為 envision'},u:{b:'forward-looking',c:'理解：envision 帶有「主動構想理想未來」的積極性，不只是被動想像'},a:{b:'visionary conclusion',c:'應用：We must envision a society where access to quality education is guaranteed for every child.'},n:{b:'compare vision',c:'分析：envision vs imagine vs anticipate—導向不同'},e:{b:'utopian language',c:'評估：在政策論述中用 envision 有什麼風險？（過於理想化 vs 激勵人心）'},c:{b:'closing vision',c:'創造：用 envision 為你的文章寫一個充滿展望的結尾金句'}},
-  colls:[{e:'envision a future',z:'設想未來'},{e:'envision a world where',z:'構想一個…的世界'},{e:'hard to envision',z:'難以想像'},{e:'envision the consequences',z:'預見後果'}]},
+  colls:[{e:'envision a future',z:'設想未來',ex:'He envisioned a future where emails responded to themselves. Still waiting.',exz:'他設想了一個郵件可以自動回覆的未來，至今仍在等待。'},
+    {e:'envision a world where',z:'構想一個…的世界',ex:'She envisioned a world where group chats had a mute button for one specific person.',exz:'她構想了一個群組對話可以對特定一個人靜音的世界。'},
+    {e:'hard to envision',z:'難以想像',ex:'It\'s hard to envision finishing the essay when you\'ve only written the title.',exz:'當你只寫了標題，很難想像報告要怎麼完成。'},
+    {e:'envision the consequences',z:'預見後果',ex:'She failed to envision the consequences of replying "sure" without reading the full message.',exz:'她沒有預見到在沒有讀完整條訊息就回「好啊」的後果。'}]},
   {w:'mandate',pos:'v./n.',zh:'授權；命令；強制規定',tip:'「mandate that + 子句」是政策類文章的高正式度表達',
   bloom:{r:{b:'order / require',c:'記住：<span class="bw">require</span>（要求）→ 升級為 mandate'},u:{b:'authority sense',c:'理解：mandate 帶有「授權強制」的法律意味，比 require 更正式'},a:{b:'policy sentence',c:'應用：The new legislation mandates that all public buildings be accessible to people with disabilities.'},n:{b:'compare order words',c:'分析：mandate vs require vs compel—法律強制力不同'},e:{b:'government authority',c:'評估：什麼情況下政府 mandate 某行為是合理的？何時又是對自由的侵害？'},c:{b:'policy proposal',c:'創造：用 mandate 為一篇提倡某政策的文章寫一個有法律約束感的主張句'}},
-  colls:[{e:'mandate sth by law',z:'以法律強制規定'},{e:'a government mandate',z:'政府授權/命令'},{e:'mandate that + 子句',z:'規定…（正式）'},{e:'exceed one\'s mandate',z:'超越職權'}]},
+  colls:[{e:'mandate sth by law',z:'以法律強制規定',ex:'Wearing seatbelts was mandated by law. Common sense should have been enough.',exz:'繫安全帶被法律強制規定，其實常識就應該足夠了。'},
+    {e:'a government mandate',z:'政府授權/命令',ex:'The government mandate arrived on a Friday afternoon. Nobody read it until Tuesday.',exz:'政府授權在週五下午發佈，沒有人在週二之前讀它。'},
+    {e:'mandate that + 子句',z:'規定…（正式）',ex:'The rules mandated that all submissions be in black ink. She used dark blue. Close enough.',exz:'規定要求所有作業必須用黑色墨水繳交，她用了深藍色，差不多吧。'},
+    {e:'exceed one\'s mandate',z:'超越職權',ex:'By redesigning the entire curriculum, the committee clearly exceeded its mandate.',exz:'委員會重新設計整個課程，顯然超越了自己的職權。'}]},
   {w:'striking',pos:'adj.',zh:'醒目的；顯著的',tip:'「strikingly absent」是強烈諷刺語氣，適合批評類文章',
   bloom:{r:{b:'obvious / noticeable',c:'記住：<span class="bw">obvious</span>（明顯）→ 升級為 striking'},u:{b:'visual impact',c:'理解：striking 源自「強力敲擊」，暗示強力吸引注意，不只是明顯，而是令人印象深刻'},a:{b:'comparison sentence',c:'應用：The report reveals a striking gap between the life expectancy of the wealthy and the poor.'},n:{b:'compare standout',c:'分析：striking vs remarkable vs notable—程度和語氣不同'},e:{b:'rhetorical punch',c:'評估：說某問題是 "strikingly absent from the agenda" 比 "not discussed" 有何更大衝擊力？'},c:{b:'contrast sentence',c:'創造：用 striking contrast 或 strikingly absent 為一篇批評政策的文章寫一個有衝擊力的句子'}},
-  colls:[{e:'a striking contrast / difference',z:'顯著的對比／差異'},{e:'strikingly similar / different',z:'驚人地相似／不同'},{e:'a striking example',z:'顯著的例子'},{e:'strikingly absent',z:'明顯缺席（諷刺用法）'}]}
+  colls:[{e:'a striking contrast / difference',z:'顯著的對比／差異',ex:'There was a striking contrast between his confident presentation voice and his shaking hands.',exz:'他自信的簡報聲音和顫抖的雙手之間，形成了顯著的對比。'},
+    {e:'strikingly similar / different',z:'驚人地相似／不同',ex:'Their excuses for being late were strikingly similar. "Traffic." Always traffic.',exz:'他們遲到的藉口驚人地相似，「塞車」，永遠都是塞車。'},
+    {e:'a striking example',z:'顯著的例子',ex:'His inbox was a striking example of what happens when you ignore emails for a month.',exz:'他的收件箱是一個顯著的例子，展示了無視郵件一個月後會發生什麼事。'},
+    {e:'strikingly absent',z:'明顯缺席（諷刺用法）',ex:'Any sense of urgency was strikingly absent from the team meeting about the urgent deadline.',exz:'在這場討論緊急截止日期的團隊會議中，任何緊迫感都明顯缺席。'}]}
 ]}
 ];
 
@@ -816,7 +1051,10 @@ function bloomHTML(b){
 }
 
 function cardHTML(w){
-  const colls=w.colls.map(c=>`<div class="colloc-item"><span class="colloc-en">${c.e}</span><span class="colloc-zh">${c.z}</span></div>`).join('');
+  const colls=w.colls.map(c=>`<div class="colloc-item">
+      <span class="colloc-en">${c.e}</span><span class="colloc-zh">${c.z}</span>
+      ${c.ex?`<span class="colloc-ex">${c.ex}</span><span class="colloc-exz">${c.exz||''}</span>`:''}
+    </div>`).join('');
   const tip=w.tip?`<div class="writing-tip"><div class="writing-tip-label">✏ 寫作升級</div>${w.tip}</div>`:'';
   const warn=w.warn?`<div class="warn-note">⚠ ${w.warn}</div>`:'';
   const bloomBadge=w.bloom?'<span class="scaffold-badge">🧠 Bloom</span>':'';
