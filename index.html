@@ -156,6 +156,62 @@ header{
 .bl6{background:var(--bloom-6);}.bl6 .bloom-num{background:var(--b6t);color:white;}.bl6 .bloom-level-name{color:var(--b6t);}
 
 .empty{text-align:center;padding:60px 20px;color:var(--muted);font-size:14px;}
+/* ── 遮罩模式 ── */
+.mask-on .colloc-zh,
+.mask-on .colloc-exz{
+  background:#c8c4bc;color:transparent;border-radius:4px;
+  cursor:pointer;user-select:none;transition:all .15s;
+}
+.mask-on .colloc-zh:hover,
+.mask-on .colloc-exz:hover,
+.mask-on .colloc-zh.revealed,
+.mask-on .colloc-exz.revealed{
+  background:transparent!important;color:var(--muted)!important;
+}
+/* ── 複製按鈕 ── */
+.copy-btn{
+  background:none;border:none;cursor:pointer;
+  font-size:13px;padding:1px 4px;border-radius:4px;
+  color:#aaa;transition:color .15s;flex-shrink:0;
+  line-height:1;
+}
+.copy-btn:hover{color:var(--accent);}
+/* ── 語音按鈕 ── */
+.tts-btn{
+  background:none;border:none;cursor:pointer;
+  font-size:13px;padding:1px 4px;border-radius:4px;
+  color:#aaa;transition:color .15s;flex-shrink:0;
+  line-height:1;
+}
+.tts-btn:hover{color:#1a6b2e;}
+/* ── Toast 提示 ── */
+.toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--ink);color:white;
+  padding:8px 18px;border-radius:20px;
+  font-size:13px;opacity:0;pointer-events:none;
+  transition:all .25s;z-index:999;
+  white-space:nowrap;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+/* ── 功能列 ── */
+.feature-bar{
+  display:flex;align-items:center;gap:8px;
+  padding:8px 16px;
+  background:var(--cream);
+  border-bottom:1px solid var(--border);
+  flex-wrap:wrap;
+}
+.feat-btn{
+  display:flex;align-items:center;gap:5px;
+  padding:5px 12px;border-radius:20px;
+  border:1.5px solid var(--border);
+  background:white;font-size:12px;
+  color:var(--muted);cursor:pointer;
+  transition:all .15s;white-space:nowrap;
+}
+.feat-btn.active{background:var(--ink);border-color:var(--ink);color:white;}
+
 .visitor-bar{
   display:flex;align-items:center;gap:6px;
   padding:5px 16px;
@@ -200,6 +256,10 @@ header{
       <span class="toggle-slider"></span>
     </label>
   </div>
+</div>
+<div class="feature-bar">
+  <button class="feat-btn" id="maskBtn" onclick="toggleMask()">👀 遮罩測驗模式</button>
+  <button class="feat-btn" id="ttsBtn" onclick="toggleTTS()">🔊 語音朗讀</button>
 </div>
 <div class="visitor-bar">
   <span class="visitor-icon">👁</span>
@@ -1143,8 +1203,14 @@ function bloomHTML(b){
 
 function cardHTML(w){
   const colls=w.colls.map(c=>`<div class="colloc-item">
-      <span class="colloc-en">${c.e}</span><span class="colloc-zh">${c.z}</span>
-      ${c.ex?`<span class="colloc-ex">${c.ex}</span><span class="colloc-exz">${c.exz||''}</span>`:''}
+      <span class="colloc-en">${c.e}</span>
+      <span class="colloc-zh" onclick="this.classList.toggle('revealed')">${c.z}</span>
+      <button class="tts-btn" onclick="speakText('${c.e.replace(/'/g,"\\'")}')" title="朗讀">🔊</button>
+      <button class="copy-btn" onclick="copyText('${c.e.replace(/'/g,"\\'")} — ${c.z.replace(/'/g,"\\'")}')" title="複製">📋</button>
+      ${c.ex?`<span class="colloc-ex">${c.ex}
+        <button class="copy-btn" onclick="copyText('${(c.ex||'').replace(/'/g,"\\'")}')">📋</button>
+        <button class="tts-btn" onclick="speakText('${(c.ex||'').replace(/'/g,"\\'")}')">🔊</button>
+      </span><span class="colloc-exz" onclick="this.classList.toggle('revealed')">${c.exz||''}</span>`:''}
     </div>`).join('');
   const tip=w.tip?`<div class="writing-tip"><div class="writing-tip-label">✏ 寫作升級</div>${w.tip}</div>`:'';
   const warn=w.warn?`<div class="warn-note">⚠ ${w.warn}</div>`:'';
@@ -1186,9 +1252,115 @@ document.getElementById('filterBar').addEventListener('click',e=>{
   const b=e.target.closest('.filter-btn');
   if(!b)return;
   document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));
-  b.classList.add('active');filter=b.dataset.f;render();
+  b.classList.add('active');filter=b.dataset.f;
+// ── 遮罩模式 ──
+let maskOn = false;
+function toggleMask(){
+  maskOn = !maskOn;
+  document.body.classList.toggle('mask-on', maskOn);
+  document.getElementById('maskBtn').classList.toggle('active', maskOn);
+  // Clear any revealed items when toggling off
+  if(!maskOn) document.querySelectorAll('.revealed').forEach(el=>el.classList.remove('revealed'));
+}
+
+// ── 語音朗讀 ──
+let ttsOn = false;
+function toggleTTS(){
+  ttsOn = !ttsOn;
+  document.getElementById('ttsBtn').classList.toggle('active', ttsOn);
+}
+function speakText(text){
+  if(!ttsOn) return;
+  if(!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US';
+  u.rate = 0.9;
+  window.speechSynthesis.speak(u);
+}
+
+// ── 複製 ──
+function copyText(text){
+  navigator.clipboard.writeText(text).then(()=>{
+    showToast('✅ 已複製！');
+  }).catch(()=>{
+    // fallback
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('✅ 已複製！');
+  });
+}
+
+// ── Toast ──
+let toastTimer;
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 1800);
+}
+
+render();
 });
 document.getElementById('bloomToggle').addEventListener('change',e=>{bloomOn=e.checked;render();});
+
+// ── 遮罩模式 ──
+let maskOn = false;
+function toggleMask(){
+  maskOn = !maskOn;
+  document.body.classList.toggle('mask-on', maskOn);
+  document.getElementById('maskBtn').classList.toggle('active', maskOn);
+  // Clear any revealed items when toggling off
+  if(!maskOn) document.querySelectorAll('.revealed').forEach(el=>el.classList.remove('revealed'));
+}
+
+// ── 語音朗讀 ──
+let ttsOn = false;
+function toggleTTS(){
+  ttsOn = !ttsOn;
+  document.getElementById('ttsBtn').classList.toggle('active', ttsOn);
+}
+function speakText(text){
+  if(!ttsOn) return;
+  if(!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US';
+  u.rate = 0.9;
+  window.speechSynthesis.speak(u);
+}
+
+// ── 複製 ──
+function copyText(text){
+  navigator.clipboard.writeText(text).then(()=>{
+    showToast('✅ 已複製！');
+  }).catch(()=>{
+    // fallback
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('✅ 已複製！');
+  });
+}
+
+// ── Toast ──
+let toastTimer;
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 1800);
+}
+
 render();
 
 // Fetch visitor count from GoatCounter API
@@ -1211,5 +1383,6 @@ fetch('https://marcz.goatcounter.com/api/v0/stats/total', {
 </script>
 <script data-goatcounter="https://marcz.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+<div class="toast" id="toast"></div>
 </body>
 </html>
