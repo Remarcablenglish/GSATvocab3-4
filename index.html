@@ -156,6 +156,61 @@ header{
 .bl6{background:var(--bloom-6);}.bl6 .bloom-num{background:var(--b6t);color:white;}.bl6 .bloom-level-name{color:var(--b6t);}
 
 .empty{text-align:center;padding:60px 20px;color:var(--muted);font-size:14px;}
+/* ── 單字卡標題置頂 ── */
+.word-card.open .word-card-header{
+  position:sticky;
+  top:310px;
+  z-index:70;
+  background:white;
+  border-bottom:1px solid var(--border);
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+body.dark-mode .word-card.open .word-card-header{
+  background:#242424;
+  box-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+
+/* ── 浮動說明按鈕 ── */
+.float-help{
+  position:fixed;
+  bottom:24px;right:20px;
+  z-index:8888;
+  display:flex;flex-direction:column;align-items:flex-end;gap:8px;
+}
+.float-help-btn{
+  width:54px;height:54px;border-radius:50%;
+  background:#00260D;
+  border:2px solid #D1B06B44;
+  cursor:pointer;
+  box-shadow:0 4px 18px rgba(0,0,0,.3);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .2s, box-shadow .2s;
+  animation:float-pulse 2.5s ease-in-out infinite;
+  padding:0;
+}
+.float-help-btn:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(209,176,107,.5);}
+.float-help-btn svg{width:30px;height:30px;}
+@keyframes float-pulse{
+  0%,100%{box-shadow:0 4px 18px rgba(0,0,0,.3);}
+  50%{box-shadow:0 6px 26px rgba(209,176,107,.5);}
+}
+.float-help-bubble{
+  background:#00260D;color:#e8e4da;
+  padding:7px 14px;border-radius:20px;
+  font-size:12px;white-space:nowrap;
+  box-shadow:0 3px 12px rgba(0,0,0,.2);
+  border:1px solid #D1B06B33;
+  animation:bubble-float 3s ease-in-out infinite;
+  cursor:pointer;font-weight:500;
+}
+@keyframes bubble-float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-5px);}
+}
+.float-help-bubble.hidden{display:none;}
+body.dark-mode .float-help-btn{background:#1a1a1a;border-color:#D1B06B55;}
+body.dark-mode .float-help-bubble{background:#1a1a1a;}
+
 /* ── 深色模式 ── */
 body.dark-mode{
   --cream:#1a1a1a;--ink:#e8e4da;--muted:#9a9488;
@@ -230,11 +285,7 @@ body.dark-mode .onboard-desc strong{color:#8fad90;}
   cursor:pointer;transition:background .15s;
 }
 .onboard-start:hover{background:#003d15;}
-.help-btn{
-  background:none;border:none;cursor:pointer;
-  font-size:18px;color:#8fad90;padding:2px 6px;
-  margin-left:auto;flex-shrink:0;
-}
+
 
 /* ── 遮罩模式 ── */
 .mask-on .colloc-zh,
@@ -281,7 +332,11 @@ body.dark-mode .onboard-desc strong{color:#8fad90;}
   background:var(--cream);
   border-bottom:1px solid var(--border);
   flex-wrap:wrap;
+  position:sticky;
+  top:228px;
+  z-index:85;
 }
+body.dark-mode .feature-bar{background:#1a1a1a;}
 .feat-btn{
   display:flex;align-items:center;gap:5px;
   padding:5px 12px;border-radius:20px;
@@ -316,8 +371,7 @@ body.dark-mode .onboard-desc strong{color:#8fad90;}
     <div class="header-line1">REMARKABLE ENGLISH｜馬克精緻語言訓練</div>
     <div class="header-line2">學測寫作高分搭配詞</div>
     <div class="header-line3">Level 3 · Level 4 · Level 5</div>
-    <button class="help-btn" onclick="showOnboard()" title="使用說明">❓</button>
-</div>
+  </div>
 </header>
 
 <div class="top-bar">
@@ -1338,63 +1392,17 @@ document.getElementById('filterBar').addEventListener('click',e=>{
   const b=e.target.closest('.filter-btn');
   if(!b)return;
   document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));
-  b.classList.add('active');filter=b.dataset.f;
-// ── 遮罩模式 ──
-let maskOn = false;
-function toggleMask(){
-  maskOn = !maskOn;
-  document.body.classList.toggle('mask-on', maskOn);
-  document.getElementById('maskBtn').classList.toggle('active', maskOn);
-  // Clear any revealed items when toggling off
-  if(!maskOn) document.querySelectorAll('.revealed').forEach(el=>el.classList.remove('revealed'));
-}
-
-// ── 語音朗讀 ──
-let ttsOn = false;
-function toggleTTS(){
-  ttsOn = !ttsOn;
-  document.getElementById('ttsBtn').classList.toggle('active', ttsOn);
-}
-function speakText(text){
-  if(!ttsOn) return;
-  if(!window.speechSynthesis) return;
-  window.speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'en-US';
-  u.rate = 0.9;
-  window.speechSynthesis.speak(u);
-}
-
-// ── 複製 ──
-function copyText(text){
-  navigator.clipboard.writeText(text).then(()=>{
-    showToast('✅ 已複製！');
-  }).catch(()=>{
-    // fallback
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    showToast('✅ 已複製！');
-  });
-}
-
-// ── Toast ──
-let toastTimer;
-function showToast(msg){
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(()=>t.classList.remove('show'), 1800);
-}
-
-render();
+  b.classList.add('active');
+  filter=b.dataset.f;
+  const toggle=document.getElementById('bloomToggle');
+  if(filter==='L5'){
+    bloomOn=true;toggle.checked=true;
+    showToast('🧠 已自動開啟 Bloom Taxonomy！');
+  } else if(bloomOn){
+    bloomOn=false;toggle.checked=false;
+  }
+  render();
 });
-document.getElementById('bloomToggle').addEventListener('change',e=>{bloomOn=e.checked;render();});
-
 // ── 遮罩模式 ──
 let maskOn=false;
 function toggleMask(){
@@ -1490,14 +1498,19 @@ function showOnboard(){document.getElementById('onboardOverlay').classList.remov
 function closeOnboard(){
   document.getElementById('onboardOverlay').classList.add('hidden');
   localStorage.setItem('re_onboard_done','1');
+  const b=document.getElementById('floatBubble');
+  if(b)b.classList.add('hidden');
 }
 // Show on first visit
-if(!localStorage.getItem('re_onboard_done')){
-  document.addEventListener('DOMContentLoaded',()=>{
-    // slight delay so page renders first
-    setTimeout(showOnboard,400);
-  });
-}
+document.addEventListener('DOMContentLoaded',()=>{
+  if(!localStorage.getItem('re_onboard_done')){
+    setTimeout(showOnboard,500);
+  } else {
+    // returning user: hide bubble
+    const b=document.getElementById('floatBubble');
+    if(b)b.classList.add('hidden');
+  }
+});
 
 
 render();
@@ -1523,6 +1536,24 @@ fetch('https://marcz.goatcounter.com/api/v0/stats/total', {
 <script data-goatcounter="https://marcz.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 
+
+<div class="float-help" id="floatHelp">
+  <div class="float-help-bubble" id="floatBubble" onclick="showOnboard()">
+    👋 不知道怎麼用？點我！
+  </div>
+  <button class="float-help-btn" onclick="showOnboard()" title="使用說明"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldQ" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8d5a3"/>
+      <stop offset="35%" style="stop-color:#f5e6c0"/>
+      <stop offset="60%" style="stop-color:#D1B06B"/>
+      <stop offset="100%" style="stop-color:#b8922a"/>
+    </linearGradient>
+  </defs>
+  <text x="16" y="24" font-family="Georgia,serif" font-size="26" font-weight="700"
+        text-anchor="middle" fill="url(#goldQ)">?</text>
+</svg></button>
+</div>
 <div class="onboard-overlay" id="onboardOverlay">
   <div class="onboard-box">
     <h2>🛡️ 歡迎來到 Remarkable English</h2>
