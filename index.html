@@ -156,6 +156,19 @@ header{
 .bl6{background:var(--bloom-6);}.bl6 .bloom-num{background:var(--b6t);color:white;}.bl6 .bloom-level-name{color:var(--b6t);}
 
 .empty{text-align:center;padding:60px 20px;color:var(--muted);font-size:14px;}
+/* ── 深色模式 Bloom 層級 ── */
+body.dark-mode .bloom-section{border-color:#444;}
+body.dark-mode .bloom-title{background:#2a2a2a;color:#9a9488;}
+body.dark-mode .bl1{background:#1a2a35;}
+body.dark-mode .bl2{background:#1a2e1e;}
+body.dark-mode .bl3{background:#2e2a12;}
+body.dark-mode .bl4{background:#2a1a2e;}
+body.dark-mode .bl5{background:#2e2010;}
+body.dark-mode .bl6{background:#251a2e;}
+body.dark-mode .bloom-level{border-color:#333;}
+body.dark-mode .bloom-level-content{color:#d0ccc4;}
+body.dark-mode .bw{background:#333;color:#b0a898;}
+
 /* ── Bloom bar 只在 L5 顯示 ── */
 .bloom-bar{ display:none; }
 .bloom-bar.visible{ display:flex; }
@@ -336,13 +349,9 @@ body.dark-mode .onboard-desc strong{color:#8fad90;}
   background:var(--cream);
   border-bottom:1px solid var(--border);
   flex-wrap:wrap;
-  position:sticky;
-  top:220px;
-  z-index:85;
   border-top:.5px solid var(--border);
   margin-top:0;
 }
-body.dark-mode .feature-bar{background:#1a1a1a;}
 .feat-btn{
   display:flex;align-items:center;gap:5px;
   padding:5px 12px;border-radius:20px;
@@ -392,19 +401,19 @@ body.dark-mode .feature-bar{background:#1a1a1a;}
     <button class="filter-btn" data-f="fav" id="favBtn">⭐ 我的收藏</button>
   </div>
   <div class="bloom-bar" id="bloomBar">
-    <div class="bloom-bar-label"><strong>🧠 Bloom's Taxonomy 思考鷹架</strong>（Level 5 專屬）</div>
+    <div class="bloom-bar-label"><strong>🚀 無痛升級模式</strong>（Level 5 專屬）</div>
     <label class="toggle-switch">
       <input type="checkbox" id="bloomToggle">
       <span class="toggle-slider"></span>
     </label>
   </div>
-</div>
-<div class="feature-bar">
-  <button class="feat-btn" id="maskBtn" onclick="toggleMask()">👀 遮罩模式</button>
-  <button class="feat-btn" id="ttsBtn" onclick="toggleTTS()">🔊 語音朗讀</button>
-  <button class="feat-btn" id="darkBtn" onclick="toggleDark()">🌙 深色模式</button>
-  <button class="feat-btn" onclick="expandAll()">全展開</button>
-  <button class="feat-btn" onclick="collapseAll()">全折疊</button>
+  <div class="feature-bar">
+    <button class="feat-btn" id="maskBtn" onclick="toggleMask()">👀 遮罩模式</button>
+    <button class="feat-btn" id="ttsBtn" onclick="toggleTTS()">🔊 語音朗讀</button>
+    <button class="feat-btn" id="darkBtn" onclick="toggleDark()">🌙 深色模式</button>
+    <button class="feat-btn" onclick="expandAll()">全展開</button>
+    <button class="feat-btn" onclick="collapseAll()">全折疊</button>
+  </div>
 </div>
 <div class="visitor-bar">
   <span class="visitor-icon">👁</span>
@@ -1341,7 +1350,7 @@ let bloomOn=false,filter='all',q='';
 // ─── RENDER ──────────────────────────────────────────────────────────────────
 function bloomHTML(b){
   if(!b)return'';
-  return'<div class="bloom-section"><div class="bloom-title">🎯 Bloom\'s Taxonomy 思考提升</div>'+
+  return'<div class="bloom-section"><div class="bloom-title">💪 讓這個字變你的</div>'+
     BL.map((l,i)=>`<div class="bloom-level ${l.c}"><div class="bloom-level-header"><div class="bloom-num">${i+1}</div><div class="bloom-level-name">${l.n}</div></div><div class="bloom-level-content">${b[l.k].c}</div></div>`).join('')+
   '</div>';
 }
@@ -1360,7 +1369,7 @@ function cardHTML(w){
   const tip=w.tip?`<div class="writing-tip"><div class="writing-tip-label">✏ 寫作升級</div>${w.tip}</div>`:'';
   const warn=w.warn?`<div class="warn-note">⚠ ${w.warn}</div>`:'';
   const starClass=isFav(w.w)?"starred":"";
-  const bloomBadge=w.bloom?'<span class="scaffold-badge">🧠 Bloom</span>':'';
+  const bloomBadge=w.bloom?'<span class="scaffold-badge">🚀 升級</span>':'';
   return`<div class="word-card" data-w="${(w.w+' '+w.zh+' '+w.colls.map(c=>c.e+' '+c.z).join(' ')).toLowerCase()}">
     <div class="word-card-header" onclick="if(!event.target.classList.contains(\'star-btn\')){this.closest(\'.word-card\').classList.toggle(\'open\')}">
       <span class="word-en">${w.w}</span>
