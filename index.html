@@ -76,7 +76,7 @@ header{
   .header-logo{height:46px;width:38px;}
 }
 
-.top-bar{background:var(--cream);padding:12px 16px 10px;border-bottom:1px solid var(--border);position:sticky;top:88px;z-index:90;display:flex;flex-direction:column;gap:8px;margin-top:4px;}
+.top-bar{background:var(--cream);padding:12px 16px 6px;border-bottom:none;position:sticky;top:88px;z-index:90;display:flex;flex-direction:column;gap:6px;margin-top:4px;}
 
 .search-wrap input{width:100%;padding:9px 14px;border:1.5px solid var(--border);border-radius:8px;background:white;font-size:14px;color:var(--ink);outline:none;transition:border-color .15s;}
 .search-wrap input:focus{border-color:var(--accent);}
@@ -156,6 +156,10 @@ header{
 .bl6{background:var(--bloom-6);}.bl6 .bloom-num{background:var(--b6t);color:white;}.bl6 .bloom-level-name{color:var(--b6t);}
 
 .empty{text-align:center;padding:60px 20px;color:var(--muted);font-size:14px;}
+/* ── Bloom bar 只在 L5 顯示 ── */
+.bloom-bar{ display:none; }
+.bloom-bar.visible{ display:flex; }
+
 /* ── 單字卡標題置頂 ── */
 .word-card.open .word-card-header{
   position:sticky;
@@ -333,8 +337,10 @@ body.dark-mode .onboard-desc strong{color:#8fad90;}
   border-bottom:1px solid var(--border);
   flex-wrap:wrap;
   position:sticky;
-  top:228px;
+  top:220px;
   z-index:85;
+  border-top:.5px solid var(--border);
+  margin-top:0;
 }
 body.dark-mode .feature-bar{background:#1a1a1a;}
 .feat-btn{
@@ -385,7 +391,7 @@ body.dark-mode .feature-bar{background:#1a1a1a;}
     <button class="filter-btn" data-f="L5">Level 5</button>
     <button class="filter-btn" data-f="fav" id="favBtn">⭐ 我的收藏</button>
   </div>
-  <div class="bloom-bar">
+  <div class="bloom-bar" id="bloomBar">
     <div class="bloom-bar-label"><strong>🧠 Bloom's Taxonomy 思考鷹架</strong>（Level 5 專屬）</div>
     <label class="toggle-switch">
       <input type="checkbox" id="bloomToggle">
@@ -1353,12 +1359,14 @@ function cardHTML(w){
     </div>`).join('');
   const tip=w.tip?`<div class="writing-tip"><div class="writing-tip-label">✏ 寫作升級</div>${w.tip}</div>`:'';
   const warn=w.warn?`<div class="warn-note">⚠ ${w.warn}</div>`:'';
+  const starClass=isFav(w.w)?"starred":"";
   const bloomBadge=w.bloom?'<span class="scaffold-badge">🧠 Bloom</span>':'';
   return`<div class="word-card" data-w="${(w.w+' '+w.zh+' '+w.colls.map(c=>c.e+' '+c.z).join(' ')).toLowerCase()}">
-    <div class="word-card-header" onclick="this.closest('.word-card').classList.toggle('open')">
+    <div class="word-card-header" onclick="if(!event.target.classList.contains(\'star-btn\')){this.closest(\'.word-card\').classList.toggle(\'open\')}">
       <span class="word-en">${w.w}</span>
       <span class="word-pos">${w.pos}</span>
       <span class="word-zh">${w.zh}</span>${bloomBadge}
+      <button class="star-btn ${starClass}" onclick="event.stopPropagation();toggleFav(\'${w.w}\',this)" title="收藏">★</button>
       <span class="expand-arrow">▼</span>
     </div>
     <div class="word-card-body">
@@ -1395,11 +1403,14 @@ document.getElementById('filterBar').addEventListener('click',e=>{
   b.classList.add('active');
   filter=b.dataset.f;
   const toggle=document.getElementById('bloomToggle');
+  const bloomBar=document.getElementById('bloomBar');
   if(filter==='L5'){
     bloomOn=true;toggle.checked=true;
-    showToast('🧠 已自動開啟 Bloom Taxonomy！');
-  } else if(bloomOn){
+    bloomBar.classList.add('visible');
+    showToast('🧠 Bloom\'s Taxonomy 已開啟！');
+  } else {
     bloomOn=false;toggle.checked=false;
+    bloomBar.classList.remove('visible');
   }
   render();
 });
