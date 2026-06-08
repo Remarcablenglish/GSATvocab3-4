@@ -156,6 +156,86 @@ header{
 .bl6{background:var(--bloom-6);}.bl6 .bloom-num{background:var(--b6t);color:white;}.bl6 .bloom-level-name{color:var(--b6t);}
 
 .empty{text-align:center;padding:60px 20px;color:var(--muted);font-size:14px;}
+/* ── 深色模式 ── */
+body.dark-mode{
+  --cream:#1a1a1a;--ink:#e8e4da;--muted:#9a9488;
+  --border:#333;--highlight:#252525;
+  --accent-light:#3a1f10;
+  background:#1a1a1a;color:#e8e4da;
+}
+body.dark-mode .word-card,
+body.dark-mode .word-card-body{background:#242424;}
+body.dark-mode .unit-header{background:#2a2a2a;}
+body.dark-mode .top-bar,
+body.dark-mode .feature-bar,
+body.dark-mode .bloom-bar,
+body.dark-mode .visitor-bar{background:#1a1a1a;}
+body.dark-mode .search-wrap input{background:#2a2a2a;color:#e8e4da;border-color:#444;}
+body.dark-mode .filter-btn{background:#2a2a2a;color:#9a9488;border-color:#444;}
+body.dark-mode .filter-btn.active{background:#e8e4da;color:#1a1a1a;}
+body.dark-mode .feat-btn{background:#2a2a2a;color:#9a9488;border-color:#444;}
+body.dark-mode .feat-btn.active{background:#e8e4da;color:#1a1a1a;}
+body.dark-mode .colloc-ex{color:#b0a898;}
+body.dark-mode .writing-tip{background:#3a1f10;color:#e8c4a0;}
+body.dark-mode .warn-note{background:#2a2500;color:#d4c060;}
+body.dark-mode header{background:#00150a;}
+
+/* ── 搜尋高亮 ── */
+.search-highlight{background:#fff176;border-radius:2px;padding:0 1px;}
+body.dark-mode .search-highlight{background:#7d6f00;color:#fff;}
+
+/* ── 收藏 ── */
+.star-btn{
+  background:none;border:none;cursor:pointer;
+  font-size:14px;padding:1px 3px;
+  color:#ccc;transition:color .15s;flex-shrink:0;
+  line-height:1;
+}
+.star-btn.starred{color:#f5b800;}
+.star-btn:hover{color:#f5b800;}
+
+/* ── 新手導覽 overlay ── */
+.onboard-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.75);
+  z-index:9999;display:flex;align-items:center;justify-content:center;
+  padding:20px;
+}
+.onboard-overlay.hidden{display:none;}
+.onboard-box{
+  background:white;border-radius:16px;max-width:420px;width:100%;
+  padding:24px 22px 20px;
+  box-shadow:0 8px 32px rgba(0,0,0,.3);
+}
+body.dark-mode .onboard-box{background:#242424;color:#e8e4da;}
+.onboard-box h2{
+  font-size:17px;font-weight:700;margin-bottom:4px;
+  color:#00260D;
+}
+body.dark-mode .onboard-box h2{color:#8fad90;}
+.onboard-box .subtitle{font-size:12px;color:#7a7568;margin-bottom:16px;}
+.onboard-step{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:10px 0;border-bottom:.5px solid #e8e4da;
+}
+body.dark-mode .onboard-step{border-color:#333;}
+.onboard-step:last-of-type{border-bottom:none;}
+.onboard-icon{font-size:22px;flex-shrink:0;width:32px;text-align:center;}
+.onboard-desc{font-size:13px;line-height:1.5;}
+.onboard-desc strong{color:#00260D;display:block;margin-bottom:2px;}
+body.dark-mode .onboard-desc strong{color:#8fad90;}
+.onboard-start{
+  width:100%;margin-top:16px;padding:11px;
+  background:#00260D;color:white;border:none;
+  border-radius:10px;font-size:14px;font-weight:600;
+  cursor:pointer;transition:background .15s;
+}
+.onboard-start:hover{background:#003d15;}
+.help-btn{
+  background:none;border:none;cursor:pointer;
+  font-size:18px;color:#8fad90;padding:2px 6px;
+  margin-left:auto;flex-shrink:0;
+}
+
 /* ── 遮罩模式 ── */
 .mask-on .colloc-zh,
 .mask-on .colloc-exz{
@@ -236,7 +316,8 @@ header{
     <div class="header-line1">REMARKABLE ENGLISH｜馬克精緻語言訓練</div>
     <div class="header-line2">學測寫作高分搭配詞</div>
     <div class="header-line3">Level 3 · Level 4 · Level 5</div>
-  </div>
+    <button class="help-btn" onclick="showOnboard()" title="使用說明">❓</button>
+</div>
 </header>
 
 <div class="top-bar">
@@ -248,6 +329,7 @@ header{
     <button class="filter-btn" data-f="L3">Level 3</button>
     <button class="filter-btn" data-f="L4">Level 4</button>
     <button class="filter-btn" data-f="L5">Level 5</button>
+    <button class="filter-btn" data-f="fav" id="favBtn">⭐ 我的收藏</button>
   </div>
   <div class="bloom-bar">
     <div class="bloom-bar-label"><strong>🧠 Bloom's Taxonomy 思考鷹架</strong>（Level 5 專屬）</div>
@@ -258,8 +340,11 @@ header{
   </div>
 </div>
 <div class="feature-bar">
-  <button class="feat-btn" id="maskBtn" onclick="toggleMask()">👀 遮罩測驗模式</button>
+  <button class="feat-btn" id="maskBtn" onclick="toggleMask()">👀 遮罩模式</button>
   <button class="feat-btn" id="ttsBtn" onclick="toggleTTS()">🔊 語音朗讀</button>
+  <button class="feat-btn" id="darkBtn" onclick="toggleDark()">🌙 深色模式</button>
+  <button class="feat-btn" onclick="expandAll()">全展開</button>
+  <button class="feat-btn" onclick="collapseAll()">全折疊</button>
 </div>
 <div class="visitor-bar">
   <span class="visitor-icon">👁</span>
@@ -1237,14 +1322,15 @@ function render(){
   const ql=q.toLowerCase();
   let html='',total=0;
   UNITS.forEach(u=>{
-    if(filter!=='all'&&u.lv!==filter)return;
-    const ws=u.words.filter(w=>!ql||w.w.toLowerCase().includes(ql)||w.zh.includes(ql)||w.colls.some(c=>c.e.toLowerCase().includes(ql)||c.z.includes(ql)));
+    if(filter!=='all'&&filter!=='fav'&&u.lv!==filter)return;
+    const ws=u.words.filter(w=>(filter!=='fav'||isFav(w.w))&&(!ql||w.w.toLowerCase().includes(ql)||w.zh.includes(ql)||w.colls.some(c=>c.e.toLowerCase().includes(ql)||c.z.includes(ql))));
     if(!ws.length)return;
     total+=ws.length;
     html+=`<div class="unit-section"><div class="unit-header" onclick="this.closest('.unit-section').classList.toggle('collapsed')"><h2>${u.label}</h2><span class="lvbadge ${u.badge}">${u.lv}</span><span class="unit-arrow">▼</span></div><div class="unit-body">${ws.map(cardHTML).join('')}</div></div>`;
   });
   list.innerHTML=html;
   empty.style.display=total===0?'block':'none';
+  if(q)setTimeout(applyHighlight,0);
 }
 
 document.getElementById('search').addEventListener('input',e=>{q=e.target.value;render();});
@@ -1310,43 +1396,34 @@ render();
 document.getElementById('bloomToggle').addEventListener('change',e=>{bloomOn=e.checked;render();});
 
 // ── 遮罩模式 ──
-let maskOn = false;
+let maskOn=false;
 function toggleMask(){
-  maskOn = !maskOn;
-  document.body.classList.toggle('mask-on', maskOn);
-  document.getElementById('maskBtn').classList.toggle('active', maskOn);
-  // Clear any revealed items when toggling off
+  maskOn=!maskOn;
+  document.body.classList.toggle('mask-on',maskOn);
+  document.getElementById('maskBtn').classList.toggle('active',maskOn);
   if(!maskOn) document.querySelectorAll('.revealed').forEach(el=>el.classList.remove('revealed'));
 }
 
 // ── 語音朗讀 ──
-let ttsOn = false;
+let ttsOn=false;
 function toggleTTS(){
-  ttsOn = !ttsOn;
-  document.getElementById('ttsBtn').classList.toggle('active', ttsOn);
+  ttsOn=!ttsOn;
+  document.getElementById('ttsBtn').classList.toggle('active',ttsOn);
 }
 function speakText(text){
-  if(!ttsOn) return;
-  if(!window.speechSynthesis) return;
+  if(!ttsOn||!window.speechSynthesis)return;
   window.speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'en-US';
-  u.rate = 0.9;
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang='en-US';u.rate=0.9;
   window.speechSynthesis.speak(u);
 }
 
 // ── 複製 ──
 function copyText(text){
-  navigator.clipboard.writeText(text).then(()=>{
-    showToast('✅ 已複製！');
-  }).catch(()=>{
-    // fallback
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
+  navigator.clipboard.writeText(text).then(()=>showToast('✅ 已複製！')).catch(()=>{
+    const ta=document.createElement('textarea');
+    ta.value=text;document.body.appendChild(ta);ta.select();
+    document.execCommand('copy');document.body.removeChild(ta);
     showToast('✅ 已複製！');
   });
 }
@@ -1354,12 +1431,74 @@ function copyText(text){
 // ── Toast ──
 let toastTimer;
 function showToast(msg){
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(()=>t.classList.remove('show'), 1800);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),1800);
 }
+
+// ── 深色模式 ──
+let darkOn=false;
+function toggleDark(){
+  darkOn=!darkOn;
+  document.body.classList.toggle('dark-mode',darkOn);
+  document.getElementById('darkBtn').classList.toggle('active',darkOn);
+}
+
+// ── 全展開／全折疊 ──
+function expandAll(){
+  document.querySelectorAll('.word-card').forEach(c=>c.classList.add('open'));
+  document.querySelectorAll('.unit-section').forEach(s=>s.classList.remove('collapsed'));
+}
+function collapseAll(){
+  document.querySelectorAll('.word-card').forEach(c=>c.classList.remove('open'));
+  document.querySelectorAll('.unit-section').forEach(s=>s.classList.add('collapsed'));
+}
+
+// ── 收藏 ──
+function getFavs(){
+  try{return JSON.parse(localStorage.getItem('re_favs')||'[]');}catch{return[];}
+}
+function saveFavs(f){try{localStorage.setItem('re_favs',JSON.stringify(f));}catch{}}
+function isFav(word){return getFavs().includes(word);}
+function toggleFav(word,btn){
+  let f=getFavs();
+  if(f.includes(word)){
+    f=f.filter(w=>w!==word);
+    btn.classList.remove('starred');
+    showToast('已移除收藏');
+  }else{
+    f.push(word);
+    btn.classList.add('starred');
+    showToast('⭐ 已加入收藏！');
+  }
+  saveFavs(f);
+  if(filter==='fav')render();
+}
+
+// ── 搜尋高亮 ──
+function applyHighlight(){
+  if(!q)return;
+  const re=new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
+  document.querySelectorAll('.word-en,.colloc-en,.colloc-ex').forEach(el=>{
+    el.innerHTML=el.textContent.replace(re,'<mark class="search-highlight">$1</mark>');
+  });
+}
+
+// ── 新手導覽 ──
+function showOnboard(){document.getElementById('onboardOverlay').classList.remove('hidden');}
+function closeOnboard(){
+  document.getElementById('onboardOverlay').classList.add('hidden');
+  localStorage.setItem('re_onboard_done','1');
+}
+// Show on first visit
+if(!localStorage.getItem('re_onboard_done')){
+  document.addEventListener('DOMContentLoaded',()=>{
+    // slight delay so page renders first
+    setTimeout(showOnboard,400);
+  });
+}
+
 
 render();
 
@@ -1383,6 +1522,38 @@ fetch('https://marcz.goatcounter.com/api/v0/stats/total', {
 </script>
 <script data-goatcounter="https://marcz.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+
+<div class="onboard-overlay" id="onboardOverlay">
+  <div class="onboard-box">
+    <h2>🛡️ 歡迎來到 Remarkable English</h2>
+    <div class="subtitle">馬克精緻語言訓練 · 學測寫作高分搭配詞</div>
+    <div class="onboard-step">
+      <div class="onboard-icon">🔍</div>
+      <div class="onboard-desc"><strong>搜尋單字</strong>輸入英文、中文或搭配詞，即時找到你要的字</div>
+    </div>
+    <div class="onboard-step">
+      <div class="onboard-icon">📂</div>
+      <div class="onboard-desc"><strong>點開單字卡</strong>點任意單字卡展開搭配詞、例句和寫作 Tip</div>
+    </div>
+    <div class="onboard-step">
+      <div class="onboard-icon">⭐</div>
+      <div class="onboard-desc"><strong>收藏不熟的字</strong>點星星加入收藏，考前衝刺時切換「⭐ 我的收藏」專攻弱點</div>
+    </div>
+    <div class="onboard-step">
+      <div class="onboard-icon">👀</div>
+      <div class="onboard-desc"><strong>遮罩測驗模式</strong>遮住中文，點一下才顯示，主動提取記憶效果最強</div>
+    </div>
+    <div class="onboard-step">
+      <div class="onboard-icon">🔊</div>
+      <div class="onboard-desc"><strong>語音朗讀</strong>開啟後點 🔊 聽英文發音，建立語感</div>
+    </div>
+    <div class="onboard-step">
+      <div class="onboard-icon">🧠</div>
+      <div class="onboard-desc"><strong>Bloom's Taxonomy（Level 5）</strong>開啟思考鷹架，從記憶到創造六層深度學習</div>
+    </div>
+    <button class="onboard-start" onclick="closeOnboard()">開始使用 →</button>
+  </div>
+</div>
 <div class="toast" id="toast"></div>
 </body>
 </html>
